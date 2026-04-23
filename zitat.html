@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: transparent; overflow: hidden; }
+  body {
+    font-family: 'Roboto', sans-serif;
+    padding: 16px 0;
+  }
+  .zitat-block {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+    padding: 0 24px;
+  }
+  .zitat-linie {
+    width: 3px;
+    background: linear-gradient(to bottom, #B08860, #D4B08A);
+    flex-shrink: 0;
+    border-radius: 2px;
+  }
+  .zitat-inhalt {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 4px 0;
+  }
+  .zitat-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 400;
+    color: #2A2A24;
+    line-height: 1.75;
+  }
+  .zitat-autor {
+    font-size: 0.75rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #B08860;
+  }
+</style>
+</head>
+<body>
+<div class="zitat-block">
+  <div class="zitat-linie"></div>
+  <div class="zitat-inhalt">
+    <p class="zitat-text">Leben ist das, was uns zustößt, während wir uns etwas ganz anderes vorgenommen haben.</p>
+    <span class="zitat-autor">Henry Miller</span>
+  </div>
+</div>
+<script>
+  function sendHeight() {
+    var h = document.body.scrollHeight;
+    window.parent.postMessage({ iframeHeight: h }, '*');
+  }
+  window.addEventListener('load', function() { setTimeout(sendHeight, 100); });
+  window.addEventListener('resize', sendHeight);
+</script>
+</body>
+</html>
