@@ -627,10 +627,11 @@ function mpToggle(id) {
 }
 
 function sendHeight() {
-  var h = document.body.scrollHeight;
+  var root = document.querySelector('.mp-root');
+  var h = root ? root.offsetHeight : document.body.scrollHeight;
   window.parent.postMessage({ iframeHeight: h }, '*');
 }
 
-window.addEventListener('load', sendHeight);
+window.addEventListener('load', function() { setTimeout(sendHeight, 150); });
 window.addEventListener('resize', sendHeight);
 </script>
