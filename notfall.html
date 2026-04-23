@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: transparent; overflow: hidden; }
+  body {
+    font-family: 'Roboto', sans-serif;
+    padding: 8px 0;
+  }
+  .notfall-block {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #5B8FA8;
+    border-radius: 4px;
+    padding: 28px 32px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .notfall-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .notfall-inhalt {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .notfall-titel {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #D4B08A;
+  }
+  .notfall-text {
+    font-size: 0.93rem;
+    font-weight: 300;
+    color: rgba(250,250,247,0.92);
+    line-height: 1.75;
+  }
+  .notfall-text a {
+    color: #FAFAF7;
+    font-weight: 400;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .notfall-text a:hover {
+    color: #D4B08A;
+  }
+</style>
+</head>
+<body>
+<div class="notfall-block">
+  <div class="notfall-icon">🛟</div>
+  <div class="notfall-inhalt">
+    <span class="notfall-titel">Notfall</span>
+    <p class="notfall-text">
+      Wenn Sie dringend psychologische Hilfe benötigen, finden Sie auf unserer
+      <a href="/notfall">Notfallseite</a> eine Übersicht mit wichtigen Telefonnummern
+      und Anlaufstellen. Bitte zögern Sie nicht, in akuten Krisensituationen sofort
+      Unterstützung in Anspruch zu nehmen.
+    </p>
+  </div>
+</div>
+<script>
+  function sendHeight() {
+    var h = document.body.scrollHeight;
+    window.parent.postMessage({ iframeHeight: h }, '*');
+  }
+  window.addEventListener('load', function() { setTimeout(sendHeight, 100); });
+  window.addEventListener('resize', sendHeight);
+</script>
+</body>
+</html>
