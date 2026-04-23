@@ -1,8 +1,8 @@
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
   .mp-root {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #2A2A24;
     font-weight: 300;
     line-height: 1.7;
@@ -41,7 +41,7 @@
     display: block;
   }
   .mp-hero h1 {
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'Playfair Display', serif !important;
     font-size: clamp(2.2rem, 5vw, 3.6rem) !important;
     font-weight: 300 !important;
     line-height: 1.2 !important;
@@ -109,7 +109,7 @@
     user-select: none;
   }
   .mp-num {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 2.6rem;
     font-weight: 300;
     line-height: 1;
@@ -127,7 +127,7 @@
     display: block;
   }
   .mp-title {
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'Playfair Display', serif !important;
     font-size: 1.6rem !important;
     font-weight: 400 !important;
     letter-spacing: -0.01em !important;
@@ -176,7 +176,7 @@
     gap: 40px;
   }
   .mp-text h3 {
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'Playfair Display', serif !important;
     font-size: 1.05rem !important;
     font-weight: 400 !important;
     color: #5B8FA8 !important;
@@ -228,6 +228,68 @@
     padding-top: 14px;
   }
 
+  /* SCHWERPUNKTE */
+  .mp-schwerpunkte {
+    background: #5B8FA8;
+    padding: 72px 40px;
+  }
+  .mp-schwerpunkte-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .mp-sp-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: clamp(1.7rem, 3vw, 2.4rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.25 !important;
+    color: #FAFAF7 !important;
+    margin: 12px 0 20px !important;
+  }
+  .mp-sp-text {
+    font-size: 0.92rem;
+    color: rgba(250,250,247,0.78);
+    line-height: 1.85;
+  }
+  .mp-sp-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .mp-sp-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.97rem;
+    color: #FAFAF7;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    line-height: 1.4;
+  }
+  .mp-sp-list li:first-child {
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .mp-sp-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #D4B08A;
+    flex-shrink: 0;
+  }
+  @media (max-width: 700px) {
+    .mp-schwerpunkte-inner {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .mp-schwerpunkte { padding: 52px 24px; }
+  }
+
   /* CLOSING */
   .mp-closing {
     background: #F3F0E8;
@@ -236,7 +298,7 @@
   }
   .mp-closing-inner { max-width: 540px; margin: 0 auto; }
   .mp-closing h2 {
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'Playfair Display', serif !important;
     font-size: clamp(1.7rem, 3vw, 2.4rem) !important;
     font-weight: 300 !important;
     line-height: 1.3 !important;
@@ -498,6 +560,34 @@
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- SCHWERPUNKTE -->
+  <div class="mp-schwerpunkte">
+    <div class="mp-schwerpunkte-inner">
+      <div class="mp-schwerpunkte-left">
+        <span class="mp-hero-label" style="color:#5B8FA8;">Behandlungsschwerpunkte</span>
+        <h2 class="mp-sp-title">Womit Menschen<br>zu mir kommen</h2>
+        <p class="mp-sp-text">Die folgenden Themen behandle ich regelmäßig und mit besonderem
+        Erfahrungshintergrund. Die Liste ist nicht abschließend – wenn Sie unsicher sind,
+        ob Ihr Anliegen passt, ist ein kurzes Erstgespräch der einfachste Weg das herauszufinden.</p>
+      </div>
+      <div class="mp-schwerpunkte-right">
+        <ul class="mp-sp-list">
+          <li><span class="mp-sp-dot"></span>Neurodivergenz, insbesondere Autismus</li>
+          <li><span class="mp-sp-dot"></span>Depression</li>
+          <li><span class="mp-sp-dot"></span>Stress und Burn-out</li>
+          <li><span class="mp-sp-dot"></span>Ängste</li>
+          <li><span class="mp-sp-dot"></span>Akute Krisensituationen</li>
+          <li><span class="mp-sp-dot"></span>Belastungsreaktionen</li>
+          <li><span class="mp-sp-dot"></span>Persönlichkeitskonflikte und -themen</li>
+          <li><span class="mp-sp-dot"></span>Posttraumatische Belastungsstörungen</li>
+          <li><span class="mp-sp-dot"></span>Psychosomatische Beschwerden</li>
+          <li><span class="mp-sp-dot"></span>Störungen der Geschlechtsidentität</li>
+          <li><span class="mp-sp-dot"></span>Sexuelle Störungen</li>
+        </ul>
+      </div>
     </div>
   </div>
 
