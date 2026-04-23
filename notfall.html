@@ -61,7 +61,7 @@
     <span class="notfall-titel">Notfall</span>
     <p class="notfall-text">
       Wenn Sie dringend psychologische Hilfe benötigen, finden Sie auf unserer
-      <a href="https://www.psychotherapie-flach.de/notfall/" target="_top">Notfallseite</a> eine Übersicht mit wichtigen Telefonnummern
+      <a href="/notfall" target="_top">Notfallseite</a> eine Übersicht mit wichtigen Telefonnummern
       und Anlaufstellen. Bitte zögern Sie nicht, in akuten Krisensituationen sofort
       Unterstützung in Anspruch zu nehmen.
     </p>
@@ -69,8 +69,9 @@
 </div>
 <script>
   function sendHeight() {
-    var h = document.body.scrollHeight;
-    window.parent.postMessage({ iframeHeight: h }, '*');
+    var el = document.querySelector('.notfall-block');
+    var h = el ? el.getBoundingClientRect().bottom : document.body.scrollHeight;
+    window.parent.postMessage({ iframeHeight: Math.ceil(h) }, '*');
   }
   window.addEventListener('load', function() { setTimeout(sendHeight, 100); });
   window.addEventListener('resize', sendHeight);
