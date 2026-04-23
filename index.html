@@ -623,5 +623,14 @@ function mpToggle(id) {
     btn.textContent = '\u2013';
     body.style.display = 'block';
   }
+  sendHeight();
 }
+
+function sendHeight() {
+  var h = document.body.scrollHeight;
+  window.parent.postMessage({ iframeHeight: h }, '*');
+}
+
+window.addEventListener('load', sendHeight);
+window.addEventListener('resize', sendHeight);
 </script>
