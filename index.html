@@ -1,0 +1,537 @@
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  .mp-root {
+    font-family: 'DM Sans', sans-serif;
+    color: #2A2A24;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .mp-root * { box-sizing: border-box; }
+
+  /* HERO */
+  .mp-hero {
+    background: #2E6B6B;
+    color: #FAFAF7;
+    padding: 80px 40px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mp-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 90% 20%, rgba(200,168,75,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(200,168,75,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .mp-hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .mp-hero-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #E8D49A;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .mp-hero h1 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(2.2rem, 5vw, 3.6rem) !important;
+    font-weight: 300 !important;
+    line-height: 1.2 !important;
+    margin-bottom: 24px !important;
+    letter-spacing: -0.02em !important;
+    color: #FAFAF7 !important;
+  }
+  .mp-hero h1 em {
+    font-style: italic;
+    color: #E8D49A;
+  }
+  .mp-hero-intro {
+    font-size: 1rem;
+    color: rgba(250,250,247,0.82);
+    max-width: 580px;
+    line-height: 1.8;
+  }
+
+  /* DIVIDER */
+  .mp-divider {
+    height: 5px;
+    background: linear-gradient(90deg, #C8A84B 0%, #E8D49A 40%, transparent 100%);
+    opacity: 0.5;
+  }
+
+  /* METHODEN SECTION */
+  .mp-section {
+    padding: 64px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .mp-section-intro {
+    margin-bottom: 52px;
+    max-width: 620px;
+  }
+  .mp-section-intro p {
+    font-size: 1rem;
+    color: #6B6B62;
+    line-height: 1.85;
+  }
+
+  /* CARDS */
+  .mp-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .mp-card {
+    background: #FAFAF7;
+    border-left: 3px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .mp-card:hover { background: #F3F0E8; }
+  .mp-card.mp-vt    { border-left-color: #2E6B6B; }
+  .mp-card.mp-hypno { border-left-color: #C8A84B; }
+  .mp-card.mp-schema{ border-left-color: #4A8F8F; }
+  .mp-card.mp-emdr  { border-left-color: #9E7E2A; }
+
+  .mp-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 32px 36px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .mp-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 300;
+    line-height: 1;
+    min-width: 44px;
+    opacity: 0.13;
+    color: #2A2A24;
+  }
+  .mp-title-block { flex: 1; }
+  .mp-meta {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6B6B62;
+    margin-bottom: 3px;
+    display: block;
+  }
+  .mp-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.6rem !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.2 !important;
+    color: #2A2A24 !important;
+    margin: 0 !important;
+  }
+  .mp-teaser {
+    font-size: 0.86rem;
+    color: #6B6B62;
+    max-width: 460px;
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+  .mp-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(0,0,0,0.13);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+    font-size: 1.1rem;
+    color: #6B6B62;
+    background: transparent;
+  }
+  .mp-card.mp-open .mp-btn {
+    background: #2E6B6B;
+    border-color: #2E6B6B;
+    color: white;
+  }
+
+  /* BODY */
+  .mp-body {
+    display: none;
+    padding: 0 36px 36px 104px;
+  }
+  .mp-card.mp-open .mp-body { display: block; }
+  .mp-body-inner {
+    border-top: 1px solid rgba(0,0,0,0.07);
+    padding-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 40px;
+  }
+  .mp-text h3 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 400 !important;
+    color: #2E6B6B !important;
+    margin: 20px 0 6px !important;
+  }
+  .mp-text h3:first-child { margin-top: 0 !important; }
+  .mp-text p {
+    font-size: 0.93rem;
+    color: #2A2A24;
+    line-height: 1.85;
+    opacity: 0.85;
+    margin: 0 0 4px;
+  }
+
+  /* SIDEBAR */
+  .mp-sidebar {
+    background: #F3F0E8;
+    padding: 24px;
+    border-radius: 3px;
+    align-self: start;
+  }
+  .mp-sidebar-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6B6B62;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .mp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .mp-tag {
+    font-size: 0.76rem;
+    padding: 3px 11px;
+    border: 1px solid rgba(0,0,0,0.13);
+    border-radius: 20px;
+    color: #2A2A24;
+    background: white;
+  }
+  .mp-hinweis {
+    font-size: 0.8rem;
+    color: #6B6B62;
+    line-height: 1.65;
+    border-top: 1px solid rgba(0,0,0,0.09);
+    padding-top: 14px;
+  }
+
+  /* CLOSING */
+  .mp-closing {
+    background: #F3F0E8;
+    padding: 72px 40px;
+    text-align: center;
+  }
+  .mp-closing-inner { max-width: 540px; margin: 0 auto; }
+  .mp-closing h2 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.7rem, 3vw, 2.4rem) !important;
+    font-weight: 300 !important;
+    line-height: 1.3 !important;
+    color: #2E6B6B !important;
+    margin-bottom: 16px !important;
+  }
+  .mp-closing p {
+    font-size: 0.93rem;
+    color: #6B6B62;
+    line-height: 1.85;
+    margin-bottom: 32px;
+  }
+  .mp-cta {
+    display: inline-block;
+    padding: 13px 36px;
+    background: #2E6B6B;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 0.82rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: background 0.25s;
+  }
+  .mp-cta:hover { background: #1A4A4A; }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .mp-body-inner { grid-template-columns: 1fr; }
+    .mp-body { padding: 0 18px 28px 18px; }
+    .mp-header { padding: 24px 18px; }
+    .mp-num { display: none; }
+    .mp-hero { padding: 56px 24px 48px; }
+    .mp-section { padding: 48px 20px; }
+  }
+</style>
+
+<div class="mp-root">
+
+  <!-- HERO -->
+  <div class="mp-hero">
+    <div class="mp-hero-inner">
+      <span class="mp-hero-label">Therapeutische Methoden</span>
+      <h1>Wie wir arbeiten –<br><em>und warum</em></h1>
+      <p class="mp-hero-intro">
+        Psychotherapie ist kein Einheitsverfahren. Unterschiedliche Themen brauchen unterschiedliche Zugänge.
+        Auf dieser Seite erläutere ich, welche Methoden ich einsetze, was sie leisten – und wann ich was verwende.
+      </p>
+    </div>
+  </div>
+  <div class="mp-divider"></div>
+
+  <!-- METHODEN -->
+  <div class="mp-section">
+    <div class="mp-section-intro">
+      <p>Alle Verfahren, mit denen ich arbeite, sind wissenschaftlich fundiert und in meiner Ausbildung und klinischen Praxis erprobt.
+      In der Behandlung entscheide ich gemeinsam mit Ihnen, welche Werkzeuge zu Ihrer Situation, Ihrem Tempo und Ihren Zielen passen.</p>
+    </div>
+
+    <div class="mp-stack">
+
+      <!-- VT -->
+      <div class="mp-card mp-vt" id="mp-vt">
+        <div class="mp-header" onclick="mpToggle('vt')">
+          <span class="mp-num">01</span>
+          <div class="mp-title-block">
+            <span class="mp-meta">Grundlage</span>
+            <h2 class="mp-title">Kognitive Verhaltenstherapie</h2>
+            <p class="mp-teaser">Wie Denken, Fühlen und Verhalten zusammenhängen – und wo man ansetzen kann</p>
+          </div>
+          <div class="mp-btn" id="mp-btn-vt">+</div>
+        </div>
+        <div class="mp-body" id="mp-body-vt">
+          <div class="mp-body-inner">
+            <div class="mp-text">
+              <h3>Was steckt dahinter?</h3>
+              <p>Die kognitive Verhaltenstherapie ist das Fundament meiner Arbeit. Sie geht davon aus,
+              dass es nicht allein die Ereignisse in unserem Leben sind, die uns belasten – sondern
+              die Art, wie wir sie wahrnehmen, interpretieren und bewerten. Diese Muster sind oft
+              so eingeübt, dass sie wie Tatsachen wirken. Tatsächlich sind es aber erlernte Reaktionen,
+              die sich verändern lassen.</p>
+              <h3>Was passiert in der Therapie?</h3>
+              <p>Wir schauen gemeinsam, welche Gedankenmuster sich in belastenden Situationen zeigen –
+              ohne sie sofort umzudeuten oder wegzureden. Erst wenn wir verstehen, warum eine
+              Reaktion einmal sinnvoll war, lässt sich prüfen, ob sie heute noch trägt. Dazu gehören
+              konkrete Übungen zwischen den Sitzungen: nicht als Hausaufgabe im schulischen Sinne,
+              sondern als Gelegenheit, neue Erfahrungen gezielt zu sammeln.</p>
+              <h3>Für welche Themen eignet sich das?</h3>
+              <p>Die Verhaltenstherapie ist besonders gut evaluiert für Angststörungen, Depressionen,
+              Zwangserkrankungen, soziale Unsicherheit und viele andere Beschwerden, bei denen
+              bestimmte Denk- und Verhaltensmuster eine zentrale Rolle spielen. Sie ist das am
+              breitesten wissenschaftlich gestützte Verfahren in der ambulanten Psychotherapie.</p>
+            </div>
+            <div class="mp-sidebar">
+              <span class="mp-sidebar-label">Häufige Themen</span>
+              <div class="mp-tags">
+                <span class="mp-tag">Angst & Panik</span>
+                <span class="mp-tag">Depression</span>
+                <span class="mp-tag">Zwang</span>
+                <span class="mp-tag">Soziale Phobie</span>
+                <span class="mp-tag">Stress</span>
+                <span class="mp-tag">Prokrastination</span>
+                <span class="mp-tag">Erschöpfung</span>
+              </div>
+              <p class="mp-hinweis">Die KVT ist Grundlage aller weiteren Methoden, die ich einsetze. Selbst wenn
+              wir hypnotherapeutisch oder schematherapeutisch arbeiten, bildet sie den strukturierenden Rahmen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HYPNO -->
+      <div class="mp-card mp-hypno" id="mp-hypno">
+        <div class="mp-header" onclick="mpToggle('hypno')">
+          <span class="mp-num">02</span>
+          <div class="mp-title-block">
+            <span class="mp-meta">Vertiefung</span>
+            <h2 class="mp-title">Klinische Hypnose & Hypnosystemik</h2>
+            <p class="mp-teaser">Den Teil des Erlebens erreichen, der sich mit reinem Nachdenken nicht erfassen lässt</p>
+          </div>
+          <div class="mp-btn" id="mp-btn-hypno">+</div>
+        </div>
+        <div class="mp-body" id="mp-body-hypno">
+          <div class="mp-body-inner">
+            <div class="mp-text">
+              <h3>Was ist das – und was ist es nicht?</h3>
+              <p>Klinische Hypnose hat wenig mit dem zu tun, was auf Bühnen vorgeführt wird.
+              Es geht nicht darum, die Kontrolle abzugeben oder in einen fremden Zustand versetzt zu werden.
+              Trance ist ein natürlicher Bewusstseinszustand – ähnlich dem Zustand kurz vor dem Einschlafen,
+              beim Tagträumen oder beim tiefen Lesen. In diesem Zustand ist der Fokus nach innen gerichtet,
+              und Zugang zu Ressourcen, die im Alltag überlagert sind, wird leichter.</p>
+              <h3>Was unterscheidet die Hypnosystemik?</h3>
+              <p>Der hypnosystemische Ansatz, entwickelt von Gunther Schmidt, verbindet Hypnotherapie
+              mit systemischem Denken. Das bedeutet: Symptome werden nicht als Fehler behandelt,
+              die abzustellen sind. Sie werden als Signale verstanden – als unwillkürliche Lösungsversuche
+              eines Systems, das unter Druck steht. Die Arbeit beginnt dort: mit Neugier statt
+              Gegendruck. Was will dieses Symptom eigentlich schützen? Welches Bedürfnis drückt sich hier aus?</p>
+              <h3>Was passiert konkret?</h3>
+              <p>In der Sitzung leite ich gezielte Entspannungs- und Fokussierungsübungen an,
+              die den Zugang zu inneren Bildern, Körperempfindungen und emotionalen Ressourcen erleichtern.
+              Wir arbeiten mit Metaphern, inneren Zuständen und körperlicher Wahrnehmung –
+              immer in Ihrem Tempo und mit vollem Bewusstsein über den Prozess. Hypnose kann
+              etwas erreichen, was kognitiv manchmal schwer zugänglich bleibt: eine Verankerung
+              neuer Erfahrungen auf einer tieferen, unwillkürlichen Ebene.</p>
+            </div>
+            <div class="mp-sidebar">
+              <span class="mp-sidebar-label">Häufige Themen</span>
+              <div class="mp-tags">
+                <span class="mp-tag">Chronischer Stress</span>
+                <span class="mp-tag">Schmerz</span>
+                <span class="mp-tag">Burnout</span>
+                <span class="mp-tag">Schlaf</span>
+                <span class="mp-tag">Innere Blockaden</span>
+                <span class="mp-tag">Psychosomatik</span>
+              </div>
+              <p class="mp-hinweis">Meine Ausbildung in klinischer Hypnose mit Schwerpunkt Hypnosystemik
+              wurde über mehrjährige Supervision in einem spezialisierten klinischen Setting vertieft.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCHEMA -->
+      <div class="mp-card mp-schema" id="mp-schema">
+        <div class="mp-header" onclick="mpToggle('schema')">
+          <span class="mp-num">03</span>
+          <div class="mp-title-block">
+            <span class="mp-meta">Tiefenarbeit</span>
+            <h2 class="mp-title">Schematherapeutische Methoden</h2>
+            <p class="mp-teaser">Wiederkehrende Muster verstehen, die ihren Ursprung oft weit zurückhaben</p>
+          </div>
+          <div class="mp-btn" id="mp-btn-schema">+</div>
+        </div>
+        <div class="mp-body" id="mp-body-schema">
+          <div class="mp-body-inner">
+            <div class="mp-text">
+              <h3>Was steckt dahinter?</h3>
+              <p>Manchmal merken wir, dass wir in bestimmten Situationen immer wieder gleich reagieren –
+              obwohl wir eigentlich wissen, dass es uns nicht guttut. Wir geraten in Überwältigung,
+              ziehen uns zurück, funktionieren auf Hochtouren oder fühlen uns plötzlich klein und hilflos.
+              Die Schematherapie nennt diese eingespielten Muster «Schemata» – früh erworbene Überzeugungen
+              über uns selbst und die Welt, die sich einmal als Schutzstrategien bewährt haben.</p>
+              <h3>Was passiert in der Therapie?</h3>
+              <p>Wir lernen, diese Muster zu erkennen und zu verstehen – ohne uns dafür zu verurteilen.
+              Ein zentrales Konzept sind die «Modi»: innere Zustände, in denen wir uns befinden,
+              wenn ein Schema aktiviert wird. Es gibt zum Beispiel den inneren Kritiker, das verletzte
+              Kind, den distanzierten Beschützer – und den gesunden Erwachsenen, der im Laufe der
+              Therapie gestärkt werden soll. Über Imaginationsübungen, aber auch über die direkte
+              Arbeit in der Beziehung können alte Erfahrungen nachgeheilt werden.</p>
+              <h3>Für wen eignet sich das?</h3>
+              <p>Besonders hilfreich, wenn die Schwierigkeiten tief verwurzelt wirken: chronische
+              Unzufriedenheit, wiederkehrende Beziehungsmuster, das Gefühl, nie zu genügen oder
+              nie wirklich anzukommen. Die schematherapeutische Arbeit lässt sich gut mit
+              verhaltenstherapeutischen Elementen verbinden.</p>
+            </div>
+            <div class="mp-sidebar">
+              <span class="mp-sidebar-label">Häufige Themen</span>
+              <div class="mp-tags">
+                <span class="mp-tag">Chronische Unzufriedenheit</span>
+                <span class="mp-tag">Beziehungsmuster</span>
+                <span class="mp-tag">Selbstwert</span>
+                <span class="mp-tag">Emotionale Taubheit</span>
+                <span class="mp-tag">Perfektionismus</span>
+              </div>
+              <p class="mp-hinweis">Ich habe eine schematherapeutische Weiterbildung absolviert und integriere
+              diese Methoden als Ergänzung zur Verhaltenstherapie – ohne zertifizierte Schematherapeutin
+              im Sinne des ISST-Standards zu sein.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EMDR -->
+      <div class="mp-card mp-emdr" id="mp-emdr">
+        <div class="mp-header" onclick="mpToggle('emdr')">
+          <span class="mp-num">04</span>
+          <div class="mp-title-block">
+            <span class="mp-meta">Traumaverarbeitung</span>
+            <h2 class="mp-title">EMDR</h2>
+            <p class="mp-teaser">Belastende Erinnerungen verarbeiten, bevor sie das Gegenwärtige bestimmen</p>
+          </div>
+          <div class="mp-btn" id="mp-btn-emdr">+</div>
+        </div>
+        <div class="mp-body" id="mp-body-emdr">
+          <div class="mp-body-inner">
+            <div class="mp-text">
+              <h3>Was ist EMDR?</h3>
+              <p>EMDR steht für Eye Movement Desensitization and Reprocessing – ein Verfahren, das
+              ursprünglich zur Behandlung von Traumafolgestörungen entwickelt wurde und heute
+              international als anerkannte Methode gilt. Der Kern des Verfahrens: bestimmte
+              Stimulationsreize (z.B. geführte Augenbewegungen oder Tapping) aktivieren bilaterale
+              Verarbeitungsprozesse im Gehirn – ähnlich dem, was im Tiefschlaf bei der REM-Phase passiert.</p>
+              <h3>Was passiert dabei?</h3>
+              <p>Belastende Erinnerungen, die sich wie eingefroren anfühlen – immer wieder auftauchen,
+              immer noch die volle emotionale Wucht haben – können durch EMDR ihre Ladung verlieren.
+              Das bedeutet nicht, dass sie vergessen werden. Aber sie verlieren ihren überwältigenden
+              Charakter und fügen sich in die Lebensgeschichte ein, ohne das Erleben im Hier und Jetzt
+              dauerhaft zu stören.</p>
+              <h3>Für wen eignet sich das?</h3>
+              <p>EMDR eignet sich nicht nur für klassische Traumata. Auch belastende Kindheitserfahrungen,
+              einschneidende Lebensereignisse oder wiederkehrende Bilder und Körperreaktionen, die sich
+              rational nicht auflösen lassen, können mit EMDR bearbeitet werden. Voraussetzung ist eine
+              ausreichende Stabilisierung – dieser Schritt kommt immer zuerst.</p>
+            </div>
+            <div class="mp-sidebar">
+              <span class="mp-sidebar-label">Häufige Themen</span>
+              <div class="mp-tags">
+                <span class="mp-tag">Trauma</span>
+                <span class="mp-tag">PTBS</span>
+                <span class="mp-tag">Flashbacks</span>
+                <span class="mp-tag">Kindheitserfahrungen</span>
+                <span class="mp-tag">Verlust</span>
+                <span class="mp-tag">Unfälle</span>
+              </div>
+              <p class="mp-hinweis">Ich habe eine EMDR-Ausbildung absolviert und wende das Verfahren
+              im Rahmen der verhaltenstherapeutischen Behandlung an – ohne EMDR-Zertifizierung
+              nach EMDRIA-Standard.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="mp-closing">
+    <div class="mp-closing-inner">
+      <h2>Kein Verfahren passt<br>auf jede Person gleich.</h2>
+      <p>Zu Beginn unserer Arbeit besprechen wir gemeinsam, was Sie mitbringen, was Sie sich wünschen –
+      und was ich für sinnvoll halte. Das Vorgehen entwickelt sich aus diesem Gespräch.
+      Sie müssen sich für keine Methode entscheiden; das ist meine Aufgabe.</p>
+      <a href="#kontakt" class="mp-cta">Erstgespräch anfragen</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function mpToggle(id) {
+  var card = document.getElementById('mp-' + id);
+  var body = document.getElementById('mp-body-' + id);
+  var btn  = document.getElementById('mp-btn-' + id);
+  var isOpen = card.classList.contains('mp-open');
+  var allCards = document.querySelectorAll('.mp-card');
+  allCards.forEach(function(c) {
+    c.classList.remove('mp-open');
+    var b = c.querySelector('.mp-btn');
+    var bd = c.querySelector('.mp-body');
+    if (b) b.textContent = '+';
+    if (bd) bd.style.display = 'none';
+  });
+  if (!isOpen) {
+    card.classList.add('mp-open');
+    btn.textContent = '\u2013';
+    body.style.display = 'block';
+  }
+}
+</script>
