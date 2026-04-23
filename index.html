@@ -8,6 +8,7 @@
     line-height: 1.7;
   }
   .mp-root * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
 
   /* HERO */
   .mp-hero {
@@ -623,15 +624,15 @@ function mpToggle(id) {
     btn.textContent = '\u2013';
     body.style.display = 'block';
   }
-  sendHeight();
+  setTimeout(sendHeight, 300);
 }
 
 function sendHeight() {
   var root = document.querySelector('.mp-root');
-  var h = root ? root.offsetHeight : document.body.scrollHeight;
-  window.parent.postMessage({ iframeHeight: h }, '*');
+  var h = root ? root.getBoundingClientRect().height : document.body.scrollHeight;
+  window.parent.postMessage({ iframeHeight: Math.ceil(h) }, '*');
 }
 
-window.addEventListener('load', function() { setTimeout(sendHeight, 150); });
+window.addEventListener('load', function() { setTimeout(sendHeight, 200); });
 window.addEventListener('resize', sendHeight);
 </script>
