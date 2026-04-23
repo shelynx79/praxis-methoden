@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: transparent; overflow: hidden; }
+  body {
+    font-family: 'Roboto', sans-serif;
+    padding: 8px 0 0 0;
+  }
+  .info-block {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #D4B08A;
+    border-radius: 4px;
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .info-titel {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #5B3E1A;
+  }
+  .info-eintrag {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(91,62,26,0.15);
+  }
+  .info-eintrag:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .info-eintrag-titel {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #3A2200;
+  }
+  .info-eintrag-text {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(58,34,0,0.85);
+    line-height: 1.75;
+  }
+  .info-eintrag-text a {
+    color: #3A2200;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .info-nummer {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #3A2200;
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="info-block">
+  <span class="info-titel">Praktische Hinweise</span>
+
+  <div class="info-eintrag">
+    <div class="info-nummer">116 117</div>
+    <p class="info-eintrag-text">
+      Die Kassenärztliche Vereinigung vermittelt unter dieser Nummer Therapieplätze –
+      kostenlos, rund um die Uhr erreichbar. Wenn die Wartezeiten lang sind und Sie
+      noch keinen Platz gefunden haben, ist dies ein guter erster Schritt.
+    </p>
+  </div>
+
+  <div class="info-eintrag">
+    <p class="info-eintrag-titel">Kostenerstattungsverfahren</p>
+    <p class="info-eintrag-text">
+      Wenn Sie als gesetzlich Versicherter keinen zeitnahen Therapieplatz finden,
+      haben Sie unter bestimmten Voraussetzungen die Möglichkeit, Behandlungen in
+      Privatpraxen über das Kostenerstattungsverfahren
+      (§ 13 Abs. 3 SGB V) von Ihrer Krankenkasse erstatten zu lassen.
+      Ihre Krankenkasse oder die 116 117 können Sie dabei beraten.
+    </p>
+  </div>
+</div>
+
+<script>
+  function sendHeight() {
+    var el = document.querySelector('.info-block');
+    var h = el ? el.getBoundingClientRect().bottom : document.body.scrollHeight;
+    window.parent.postMessage({ iframeHeight: Math.ceil(h) }, '*');
+  }
+  window.addEventListener('load', function() { setTimeout(sendHeight, 100); });
+  window.addEventListener('resize', sendHeight);
+</script>
+</body>
+</html>
