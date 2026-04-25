@@ -26,7 +26,7 @@
     padding: 28px 32px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 20px;
   }
   .notfall-titel {
     font-size: 1.1rem;
@@ -48,6 +48,29 @@
     text-underline-offset: 3px;
   }
   .notfall-text a:hover { color: #D4B08A; }
+  .notfall-nummern {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 4px;
+    border-top: 1px solid rgba(250,250,247,0.2);
+  }
+  .notfall-nummer-eintrag {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .notfall-nummer {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #FAFAF7;
+  }
+  .notfall-nummer-label {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgba(250,250,247,0.75);
+    letter-spacing: 0.5px;
+  }
 
   /* INFO */
   .info-block {
@@ -97,7 +120,7 @@
 
   /* MOBILE */
   @media (max-width: 640px) {
-    .wrapper { flex-direction: column; gap: 8px; }
+    .wrapper { flex-direction: column; }
     .notfall-block { border-radius: 4px 4px 0 0; }
     .info-block { border-radius: 0 0 4px 4px; }
   }
@@ -114,6 +137,16 @@
       eine Übersicht mit wichtigen Telefonnummern und Anlaufstellen. Bitte zögern
       Sie nicht, in akuten Krisensituationen sofort Unterstützung in Anspruch zu nehmen.
     </p>
+    <div class="notfall-nummern">
+      <div class="notfall-nummer-eintrag">
+        <span class="notfall-nummer">0800 111 0 111</span>
+        <span class="notfall-nummer-label">Telefonseelsorge — kostenlos, 24/7</span>
+      </div>
+      <div class="notfall-nummer-eintrag">
+        <span class="notfall-nummer">0800 111 0 222</span>
+        <span class="notfall-nummer-label">Telefonseelsorge — kostenlos, 24/7</span>
+      </div>
+    </div>
   </div>
 
   <div class="info-block">
