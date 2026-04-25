@@ -3,14 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 <style>
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-italic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/roboto-v51-latin-regular.woff2') format('woff2');
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { background: transparent; overflow: hidden; }
   body {
     font-family: 'Roboto', sans-serif;
-    padding: 8 px 0 0 0;
+    padding: 8px 0 0 0;
   }
+
   .zitat-block {
     max-width: 680px;
     margin: 0 auto;
@@ -19,26 +34,30 @@
     align-items: stretch;
     padding: 0 24px;
   }
+
   .zitat-linie {
     width: 3px;
     background: linear-gradient(to bottom, #B08860, #D4B08A);
     flex-shrink: 0;
     border-radius: 2px;
   }
+
   .zitat-inhalt {
     display: flex;
     flex-direction: column;
     gap: 14px;
     padding: 4px 0;
   }
+
   .zitat-text {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem;
     font-style: italic;
     font-weight: 400;
     color: #2A2A24;
     line-height: 1.75;
   }
+
   .zitat-autor {
     font-size: 0.75rem;
     letter-spacing: 2.5px;
