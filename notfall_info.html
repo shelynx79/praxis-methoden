@@ -10,17 +10,19 @@
   body { font-family: 'Roboto', sans-serif; }
 
   .wrapper {
-    max-width: 680px;
+    max-width: 860px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 8px;
+    align-items: stretch;
   }
 
   /* NOTFALL */
   .notfall-block {
+    flex: 1.1;
     background: #5B8FA8;
-    border-radius: 4px 4px 0 0;
+    border-radius: 4px 0 0 4px;
     padding: 28px 32px;
     display: flex;
     flex-direction: column;
@@ -49,8 +51,9 @@
 
   /* INFO */
   .info-block {
+    flex: 0.9;
     background: #D4B08A;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 4px 4px 0;
     padding: 28px 32px;
     display: flex;
     flex-direction: column;
@@ -91,6 +94,13 @@
     color: #3A2200;
     margin-bottom: 4px;
   }
+
+  /* MOBILE */
+  @media (max-width: 640px) {
+    .wrapper { flex-direction: column; gap: 8px; }
+    .notfall-block { border-radius: 4px 4px 0 0; }
+    .info-block { border-radius: 0 0 4px 4px; }
+  }
 </style>
 </head>
 <body>
@@ -100,9 +110,9 @@
     <span class="notfall-titel">Notfall</span>
     <p class="notfall-text">
       Wenn Sie dringend psychologische Hilfe benötigen, finden Sie auf unserer
-      <a href="https://www.psychotherapie-flach.de/notfall/" target="_top">Notfallseite</a> eine Übersicht mit wichtigen
-      Telefonnummern und Anlaufstellen. Bitte zögern Sie nicht, in akuten
-      Krisensituationen sofort Unterstützung in Anspruch zu nehmen.
+      <a href="https://www.psychotherapie-flach.de/notfall/" target="_top">Notfallseite</a>
+      eine Übersicht mit wichtigen Telefonnummern und Anlaufstellen. Bitte zögern
+      Sie nicht, in akuten Krisensituationen sofort Unterstützung in Anspruch zu nehmen.
     </p>
   </div>
 
