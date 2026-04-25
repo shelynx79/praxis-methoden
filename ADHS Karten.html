@@ -403,7 +403,14 @@ const CARDS = [
 ];
 
 /* ── STATE ── */
-let idx = Math.floor(Math.random() * CARDS.length);
+function getStartIdx(){
+  const last = parseInt(localStorage.getItem('adhs-karte-last') ?? '-1');
+  let next;
+  do { next = Math.floor(Math.random() * CARDS.length); } while(next === last && CARDS.length > 1);
+  localStorage.setItem('adhs-karte-last', next);
+  return next;
+}
+let idx = getStartIdx();
 let flipped = false;
 let shuffledOrder = [...Array(50).keys()];
 
