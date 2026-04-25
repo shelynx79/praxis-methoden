@@ -1,6 +1,73 @@
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-300.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-500.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-600.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-italic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-500italic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/roboto-v51-latin-300.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/roboto-v51-latin-regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/roboto-v51-latin-500.woff2') format('woff2');
+  }
+
   .mp-root {
     font-family: 'Roboto', sans-serif;
     color: #2A2A24;
@@ -42,7 +109,7 @@
     display: block;
   }
   .mp-hero h1 {
-    font-family: 'Playfair Display', serif !important;
+    font-family: 'Cormorant Garamond', serif !important;
     font-size: clamp(2.2rem, 5vw, 3.6rem) !important;
     font-weight: 300 !important;
     line-height: 1.2 !important;
@@ -96,11 +163,11 @@
     transition: border-color 0.3s, background 0.3s;
   }
   .mp-card:hover { background: #F3F0E8; }
-  .mp-card.mp-vt    { border-left-color: #5B8FA8; }
-  .mp-card.mp-hypno { border-left-color: #B08860; }
-  .mp-card.mp-schema{ border-left-color: #7AAFC4; }
-  .mp-card.mp-emdr  { border-left-color: #8A6845; }
-  .mp-card.mp-pitt  { border-left-color: #7AAFC4; }
+  .mp-card.mp-vt     { border-left-color: #5B8FA8; }
+  .mp-card.mp-hypno  { border-left-color: #B08860; }
+  .mp-card.mp-schema { border-left-color: #7AAFC4; }
+  .mp-card.mp-emdr   { border-left-color: #8A6845; }
+  .mp-card.mp-pitt   { border-left-color: #7AAFC4; }
 
   .mp-header {
     display: flex;
@@ -111,7 +178,7 @@
     user-select: none;
   }
   .mp-num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 2.6rem;
     font-weight: 300;
     line-height: 1;
@@ -129,7 +196,7 @@
     display: block;
   }
   .mp-title {
-    font-family: 'Playfair Display', serif !important;
+    font-family: 'Cormorant Garamond', serif !important;
     font-size: 1.6rem !important;
     font-weight: 400 !important;
     letter-spacing: -0.01em !important;
@@ -178,7 +245,7 @@
     gap: 40px;
   }
   .mp-text h3 {
-    font-family: 'Playfair Display', serif !important;
+    font-family: 'Cormorant Garamond', serif !important;
     font-size: 1.05rem !important;
     font-weight: 400 !important;
     color: #5B8FA8 !important;
@@ -244,7 +311,7 @@
     align-items: start;
   }
   .mp-sp-title {
-    font-family: 'Playfair Display', serif !important;
+    font-family: 'Cormorant Garamond', serif !important;
     font-size: clamp(1.7rem, 3vw, 2.4rem) !important;
     font-weight: 400 !important;
     line-height: 1.25 !important;
@@ -300,7 +367,7 @@
   }
   .mp-closing-inner { max-width: 540px; margin: 0 auto; }
   .mp-closing h2 {
-    font-family: 'Playfair Display', serif !important;
+    font-family: 'Cormorant Garamond', serif !important;
     font-size: clamp(1.7rem, 3vw, 2.4rem) !important;
     font-weight: 300 !important;
     line-height: 1.3 !important;
@@ -622,7 +689,7 @@
   <div class="mp-schwerpunkte">
     <div class="mp-schwerpunkte-inner">
       <div class="mp-schwerpunkte-left">
-        <span class="mp-hero-label" style="color:#5B8FA8;">Behandlungsschwerpunkte</span>
+        <span class="mp-hero-label" style="color:#D4B08A;">Behandlungsschwerpunkte</span>
         <h2 class="mp-sp-title">Womit Menschen<br>zu mir kommen</h2>
         <p class="mp-sp-text">Die folgenden Themen behandle ich regelmäßig und mit besonderem
         Erfahrungshintergrund. Die Liste ist nicht abschließend – wenn Sie unsicher sind,
@@ -675,7 +742,7 @@ function mpToggle(id) {
   });
   if (!isOpen) {
     card.classList.add('mp-open');
-    btn.textContent = '\u2013';
+    btn.textContent = '–';
     body.style.display = 'block';
   }
   setTimeout(sendHeight, 50);
