@@ -1,1567 +1,494 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Handouts · Praxis Florentine Flach</title>
-
-
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Karten · Praxis Florentine Flach</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* Palette aus dem Logo */
-  --terracotta: #B08264;
-  --terracotta-soft: #D9C4B4;
-  --terracotta-wash: #F1E7DE;
-  --blue: #5B7F97;
-  --blue-soft: #B8C6D1;
-  --blue-wash: #E3EAEE;
-  --taupe: #BFB8B1;
-  --paper: #FAF7F3;
-  --paper-warm: #F4EEE6;
-  --ink: #2E2A26;
-  --ink-soft: #5B5550;
-  --line: #E5DED4;
-  --line-strong: #CDC3B7;
+  --terracotta:#B08264;
+  --blue:#5B7F97;
+  --brown:#8A7968;
+  --blue-grey:#7B8FA6;
+  --terra-light:#C4956A;
+  --sage:#7A9E8A;
+  --paper:#FAF7F3;
+  --paper-warm:#F4EEE6;
+  --ink:#2E2A26;
+  --ink-soft:#5B5550;
+  --line:#E5DED4;
 }
-
-
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:#E8E2D8;font-family:'Inter',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;}
-body{padding:40px 20px 120px;}
-
-.toolbar{
-  position:fixed; left:50%; top:16px; transform:translateX(-50%);
-  display:flex; gap:8px; align-items:center;
-  background:#fff; border:1px solid var(--line);
-  border-radius:999px; padding:6px; box-shadow:0 6px 24px rgba(46,42,38,.08);
-  z-index:50; font-size:12px;
-}
-.toolbar button{
-  border:0; background:transparent; padding:8px 14px; border-radius:999px;
-  font:500 12px/1 'Inter',sans-serif; color:var(--ink-soft); cursor:pointer;
-  letter-spacing:.02em;
-}
-.toolbar button.active{ background:var(--ink); color:#fff; }
-.toolbar .sep{ width:1px; height:20px; background:var(--line); margin:0 4px;}
-.toolbar .label{ padding:0 8px; color:var(--ink-soft); font-size:11px; letter-spacing:.12em; text-transform:uppercase;}
-
-.stack{
-  display:flex; flex-direction:column; align-items:center; gap:40px;
-  margin-top:56px;
-}
-
-/* A4: 210 × 297 mm. Wir rendern in px @ 96dpi -> 794 × 1123. Skalieren via transform. */
-.page-wrap{
-  width: min(794px, 92vw);
-  aspect-ratio: 794 / 1123;
-  position:relative;
-}
-.page{
-  position:absolute; top:0; left:0;
-  width:794px; height:1123px;
-  transform-origin: top left;
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  height:100%;
   background:var(--paper);
-  box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 18px 50px -20px rgba(46,42,38,.25), 0 2px 10px -4px rgba(46,42,38,.12);
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
   overflow:hidden;
 }
-.page-scale-host{ --scale:1; }
 
-.page-label{
-  position:absolute; left:0; top:-28px;
-  font:500 11px/1 'Inter',sans-serif;
-  letter-spacing:.18em; text-transform:uppercase;
-  color:var(--ink-soft);
-}
-.page-label b{color:var(--ink); font-weight:600}
 
-/* Gemeinsame Typo */
-.serif{ font-family:'Cormorant Garamond',serif; font-weight:500; }
-.caps{ letter-spacing:.22em; text-transform:uppercase; }
-.tiny{ font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); }
-
-/* ============== VARIANT A — Klassisch Editorial ============== */
-.v-a{ padding: 54px 62px 56px; }
-.v-a .head{
-  display:flex; align-items:flex-end; justify-content:space-between;
-  padding-bottom:18px; border-bottom:1px solid var(--line);
+/* ── Layout ── */
+.app{
+  height:100vh;
+  display:grid;
+  grid-template-rows:1fr auto;
+  place-items:center;
 }
-.v-a .brand{ display:flex; align-items:center; gap:14px;}
-.v-a .brand img{ width:44px; height:44px; border-radius:50%;}
-.v-a .brand .t1{ font:500 10px/1.2 'Inter',sans-serif; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-soft);}
-.v-a .brand .t2{ font:500 18px/1 'Cormorant Garamond',serif; color:var(--ink); margin-top:4px; letter-spacing:.01em;}
-.v-a .head .meta{ text-align:right; }
-.v-a .head .meta .tiny{ display:block; margin-bottom:4px; }
-.v-a .head .meta .num{ font:500 22px/1 'Cormorant Garamond',serif; color:var(--terracotta); letter-spacing:.04em; }
-
-.v-a .title-block{ margin-top:44px; margin-bottom:28px;}
-.v-a .eyebrow{ font:500 11px/1 'Inter',sans-serif; letter-spacing:.28em; text-transform:uppercase; color:var(--terracotta); margin-bottom:14px;}
-.v-a h1{ font:500 42px/1.1 'Cormorant Garamond',serif; margin:0; letter-spacing:-.005em;}
-.v-a h1 em{ font-style:italic; color:var(--blue); font-weight:400;}
-.v-a .lede{ font:400 14.5px/1.6 'Inter',sans-serif; color:var(--ink-soft); max-width:560px; margin-top:14px;}
-
-.v-a h2{
-  font:500 13px/1 'Inter',sans-serif; letter-spacing:.22em; text-transform:uppercase;
-  color:var(--ink); margin:26px 0 14px; display:flex; align-items:center; gap:10px;
-}
-.v-a h2::before{ content:""; width:22px; height:1px; background:var(--terracotta);}
-
-/* Tagesprotokoll – Tabelle */
-.protokoll{
-  width:100%; border-collapse:collapse; margin-top:6px;
-  font:400 11.5px/1.3 'Inter',sans-serif;
-}
-.protokoll th{
-  text-align:left; font:500 9.5px/1.2 'Inter',sans-serif;
-  letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft);
-  padding:10px 8px; border-bottom:1px solid var(--line-strong); vertical-align:bottom;
-}
-.protokoll td{
-  padding:0; border-bottom:1px solid var(--line);
-  height:34px;
-  color:var(--ink-soft);
-}
-.protokoll .time{
-  width:70px; padding:8px 8px; color:var(--blue); font:500 11px/1.2 'Inter',sans-serif;
-  letter-spacing:.02em; border-right:1px solid var(--line);
-}
-.protokoll .col-situation{ width:34%; border-right:1px dotted var(--line);}
-.protokoll .col-gefuehl  { width:22%; border-right:1px dotted var(--line);}
-.protokoll .col-gedanke  { width:26%; border-right:1px dotted var(--line);}
-.protokoll .col-koerper  { width:18%; }
-
-.skala{
-  display:flex; align-items:center; gap:8px; margin-top:18px;
-  font:400 11px/1.4 'Inter',sans-serif; color:var(--ink-soft);
-}
-.skala .pills{ display:flex; gap:4px;}
-.skala .pill{
-  width:22px; height:22px; border:1px solid var(--line-strong); border-radius:50%;
-  display:inline-flex; align-items:center; justify-content:center;
-  font:500 10px/1 'Inter',sans-serif; color:var(--ink-soft);
+.stage{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+  padding:24px 16px 0;
+  width:100%;
 }
 
-.v-a .foot{
-  position:absolute; left:62px; right:62px; bottom:34px;
-  display:flex; justify-content:space-between; align-items:center;
-  padding-top:14px; border-top:1px solid var(--line);
-  font:400 10px/1 'Inter',sans-serif; color:var(--ink-soft); letter-spacing:.12em; text-transform:uppercase;
-}
-.v-a .foot b{ color:var(--ink); font-weight:500;}
-
-/* Anteile – A */
-.v-a .a-grid{
-  display:grid; grid-template-columns: 1fr 1fr; gap:18px; margin-top:8px;
-}
-.anteil-card{
-  border:1px solid var(--line); padding:18px 20px 20px; background:#fff;
+/* ── Card ── */
+.card-wrap{
+  perspective:1200px;
+  width:min(320px, 88vw);
+  aspect-ratio:320/480;
+  cursor:pointer;
   position:relative;
 }
-.anteil-card .num{
-  position:absolute; top:14px; right:16px;
-  font:400 34px/1 'Cormorant Garamond',serif; color:var(--terracotta-soft);
-}
-.anteil-card h3{ font:500 16px/1.2 'Cormorant Garamond',serif; margin:0 0 12px; color:var(--ink);}
-.anteil-card .field{ margin-bottom:10px;}
-.anteil-card .field .lbl{ font:500 9.5px/1 'Inter',sans-serif; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:6px;}
-.anteil-card .line{ height:12px; border-bottom:1px solid var(--line); margin-bottom:6px;}
-.anteil-card .line:last-child{ margin-bottom:0;}
-
-.impuls{
-  margin-top:18px; padding:18px 20px; background:var(--paper-warm);
-  border-left:2px solid var(--terracotta);
-}
-.impuls .tiny{ margin-bottom:8px; color:var(--terracotta);}
-.impuls p{ margin:0; font:italic 400 14px/1.55 'Cormorant Garamond',serif; color:var(--ink);}
-
-/* ============== VARIANT B — Ruhig Modern ============== */
-.v-b{ padding: 60px 64px 72px; background:var(--paper);}
-.v-b::before{
-  content:""; position:absolute; top:0; right:0; width:180px; height:180px;
-  background: radial-gradient(circle at 100% 0%, var(--blue-wash) 0%, transparent 65%);
-  pointer-events:none;
-}
-.v-b .head{
-  display:grid; grid-template-columns: auto 1fr auto; gap:20px; align-items:center;
-}
-.v-b .brand-mark{ width:36px; height:36px; border-radius:50%;}
-.v-b .brand-name{
-  font:500 10px/1 'Inter',sans-serif; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-soft);
-}
-.v-b .brand-name b{ display:block; font:500 14px/1.2 'Cormorant Garamond',serif; color:var(--ink); letter-spacing:.02em; text-transform:none; margin-top:4px;}
-.v-b .page-no{ font:500 11px/1 'Inter',sans-serif; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft);}
-.v-b .page-no b{color:var(--terracotta); font-weight:600;}
-
-.v-b .title-row{ margin-top:78px; display:grid; grid-template-columns: 1fr auto; align-items:end; gap:40px;}
-.v-b h1{ font:400 56px/1.02 'Fraunces',serif; margin:0; letter-spacing:-.015em;}
-.v-b h1 .accent{ color:var(--terracotta); font-style:italic; font-weight:300;}
-.v-b .meta-col{ text-align:right; font:400 11px/1.5 'Inter',sans-serif; color:var(--ink-soft);}
-.v-b .meta-col b{ color:var(--ink); font-weight:500;}
-.v-b .hr{ height:1px; background:var(--ink); margin:28px 0 28px; width:38px;}
-.v-b .lede{ max-width:560px; font:400 14px/1.65 'Inter',sans-serif; color:var(--ink-soft);}
-
-.v-b h2{
-  font:500 10.5px/1 'Inter',sans-serif; letter-spacing:.28em; text-transform:uppercase;
-  color:var(--ink); margin:36px 0 14px;
-}
-
-/* Tagesprotokoll – B (Liste) */
-.log-list{ border-top:1px solid var(--line);}
-.log-row{
-  display:grid; grid-template-columns: 64px 1fr 1fr 1fr 56px;
-  border-bottom:1px solid var(--line);
-  align-items:stretch;
-}
-.log-row.header{ border-bottom:1px solid var(--line-strong); padding:8px 0;}
-.log-row.header > div{ font:500 9.5px/1 'Inter',sans-serif; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-soft); padding:4px 10px;}
-.log-row > div{ padding:14px 10px; border-right:1px dotted var(--line); min-height:38px;}
-.log-row > div:last-child{ border-right:0;}
-.log-row .t{ font:500 12px/1.2 'Inter',sans-serif; color:var(--blue); letter-spacing:.04em;}
-.log-row .intensity{ color:var(--terracotta); font:500 12px/1.2 'Inter',sans-serif;}
-
-.legend{
-  display:grid; grid-template-columns: 1fr 1fr; gap:22px; margin-top:20px;
-  font:400 11px/1.55 'Inter',sans-serif; color:var(--ink-soft);
-}
-.legend b{ display:block; font:500 10px/1.2 'Inter',sans-serif; letter-spacing:.2em; text-transform:uppercase; color:var(--ink); margin-bottom:6px;}
-
-.v-b .foot{
-  position:absolute; left:64px; right:64px; bottom:36px;
-  display:flex; justify-content:space-between; align-items:center;
-  font:400 10px/1 'Inter',sans-serif; color:var(--ink-soft); letter-spacing:.14em; text-transform:uppercase;
-}
-.v-b .foot .spiral{ width:14px; height:14px; opacity:.7;}
-
-/* Anteile – B */
-.v-b .a-grid{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px; margin-top:6px;}
-.parts-card{
-  padding:20px 18px; background:#fff; border:1px solid var(--line); position:relative;
-}
-.parts-card .dot{
-  width:24px; height:24px; border-radius:50%; margin-bottom:16px;
-  background:var(--terracotta-soft);
-}
-.parts-card:nth-child(2) .dot{ background:var(--blue-soft);}
-.parts-card:nth-child(3) .dot{ background:var(--taupe);}
-.parts-card h3{ font:500 14px/1.2 'Fraunces',serif; margin:0 0 10px;}
-.parts-card .field{ margin-bottom:12px;}
-.parts-card .lbl{ font:500 9px/1 'Inter',sans-serif; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:6px;}
-.parts-card .line{ height:11px; border-bottom:1px solid var(--line); margin-bottom:5px;}
-
-.reflexion{
-  margin-top:22px; padding:22px 24px;
-  border:1px solid var(--line); background:linear-gradient(180deg,#fff, var(--paper));
-}
-.reflexion .tiny{ color:var(--blue);}
-.reflexion .q{ font:italic 400 17px/1.45 'Fraunces',serif; margin:10px 0 14px; color:var(--ink);}
-.reflexion .ans{ display:flex; flex-direction:column; gap:8px;}
-.reflexion .ans .ln{ height:11px; border-bottom:1px solid var(--line);}
-
-/* ============== VARIANT C — Warm Organisch ============== */
-.v-c{ padding: 56px 60px 72px; background:var(--paper-warm);}
-.v-c::before{
-  content:""; position:absolute; top:-120px; right:-120px; width:320px; height:320px; border-radius:50%;
-  background: radial-gradient(circle, var(--terracotta-wash) 0%, transparent 68%);
-  pointer-events:none;
-}
-.v-c::after{
-  content:""; position:absolute; bottom:-140px; left:-140px; width:360px; height:360px; border-radius:50%;
-  background: radial-gradient(circle, var(--blue-wash) 0%, transparent 65%);
-  pointer-events:none;
-}
-.v-c .head{
-  display:flex; justify-content:space-between; align-items:center;
-}
-.v-c .brand{ display:flex; align-items:center; gap:12px;}
-.v-c .brand img{ width:40px; height:40px; border-radius:50%;}
-.v-c .brand .t1{ font:500 9.5px/1 'Inter',sans-serif; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-soft);}
-.v-c .brand .t2{ font:500 16px/1 'Cormorant Garamond',serif; margin-top:4px;}
-.v-c .chip{
-  padding:6px 14px; border:1px solid var(--line-strong); border-radius:999px; background:#fff;
-  font:500 10px/1 'Inter',sans-serif; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft);
-}
-
-.v-c .title-block{ text-align:center; margin:56px auto 28px; max-width:520px; position:relative; z-index:2;}
-.v-c .eyebrow{ font:500 10.5px/1 'Inter',sans-serif; letter-spacing:.3em; text-transform:uppercase; color:var(--terracotta); margin-bottom:18px;}
-.v-c h1{ font:500 44px/1.1 'Cormorant Garamond',serif; margin:0; letter-spacing:-.005em;}
-.v-c h1 em{ font-style:italic; color:var(--blue); font-weight:400;}
-.v-c .lede{ font:400 13.5px/1.7 'Inter',sans-serif; color:var(--ink-soft); margin-top:16px;}
-
-.v-c .orn{ display:flex; justify-content:center; gap:6px; margin:22px 0 26px;}
-.v-c .orn span{ width:4px; height:4px; border-radius:50%; background:var(--taupe);}
-.v-c .orn span:nth-child(2){ background:var(--terracotta);}
-.v-c .orn span:nth-child(3){ background:var(--blue);}
-
-.v-c h2{
-  font:500 11px/1 'Inter',sans-serif; letter-spacing:.28em; text-transform:uppercase;
-  color:var(--ink); margin:22px 0 14px; text-align:center;
-}
-
-/* Tagesprotokoll – C (Karten pro Zeitpunkt) */
-.time-cards{ display:flex; flex-direction:column; gap:10px; position:relative; z-index:2;}
-.time-card{
-  display:grid; grid-template-columns: 80px 1fr; background:#fff; border-radius:14px;
-  border:1px solid var(--line); overflow:hidden;
-}
-.time-card .time{
-  background: var(--paper-warm); padding:14px 12px;
-  display:flex; flex-direction:column; justify-content:center; align-items:center;
-  border-right:1px solid var(--line);
-}
-.time-card .time .hr{ font:500 18px/1 'Cormorant Garamond',serif; color:var(--ink);}
-.time-card .time .lbl{ font:500 8.5px/1 'Inter',sans-serif; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); margin-top:6px;}
-.time-card .grid{
-  display:grid; grid-template-columns: 1.6fr 1fr 1fr; padding:10px 14px; gap:0;
-}
-.time-card .grid > div{ padding:4px 10px; border-right:1px dotted var(--line);}
-.time-card .grid > div:last-child{ border-right:0;}
-.time-card .grid .lbl{ font:500 8.5px/1 'Inter',sans-serif; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px;}
-.time-card .grid .ln{ height:10px; border-bottom:1px solid var(--line); margin-bottom:5px;}
-
-/* Anteile – C */
-.v-c .a-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; position:relative; z-index:2;}
-.leaf-card{
-  background:#fff; border-radius:16px; padding:22px 22px 20px;
-  border:1px solid var(--line); position:relative;
-}
-.leaf-card .leaf{
-  position:absolute; top:18px; right:18px; width:28px; height:28px; border-radius:50%;
-  background:var(--terracotta-soft);
-}
-.leaf-card:nth-child(2) .leaf{ background:var(--blue-soft);}
-.leaf-card:nth-child(3) .leaf{ background:var(--taupe);}
-.leaf-card:nth-child(4) .leaf{ background:var(--terracotta-wash); border:1px solid var(--terracotta-soft);}
-.leaf-card h3{ font:500 17px/1.15 'Cormorant Garamond',serif; margin:0 0 4px;}
-.leaf-card .sub{ font:italic 400 12px/1.3 'Cormorant Garamond',serif; color:var(--ink-soft); margin-bottom:14px;}
-.leaf-card .f{ margin-bottom:10px;}
-.leaf-card .lbl{ font:500 9px/1 'Inter',sans-serif; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:6px;}
-.leaf-card .ln{ height:11px; border-bottom:1px solid var(--line); margin-bottom:5px;}
-
-.invite{
-  margin-top:22px; padding:22px 28px; text-align:center; position:relative; z-index:2;
-  border-top:1px solid var(--line-strong); border-bottom:1px solid var(--line-strong);
-}
-.invite .q{ font:italic 400 17px/1.5 'Cormorant Garamond',serif; color:var(--ink); max-width:500px; margin:0 auto;}
-.invite .q::before, .invite .q::after{ color:var(--terracotta); padding:0 6px;}
-.invite .q::before{ content:"„"; } .invite .q::after{ content:"“"; }
-
-.v-c .foot{
-  position:absolute; left:60px; right:60px; bottom:34px;
-  display:flex; justify-content:space-between; align-items:center;
-  font:400 10px/1 'Inter',sans-serif; color:var(--ink-soft); letter-spacing:.14em; text-transform:uppercase;
-  z-index:3;
-}
-
-/* ============== PANIK — gemeinsam ============== */
-.panik-intro{
-  display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:6px;
-}
-.panik-intro .box{
-  padding:12px 14px; border:1px solid var(--line); background:#fff;
-}
-.panik-intro .box h4{
-  font:500 10px/1 'Inter',sans-serif; letter-spacing:.22em; text-transform:uppercase;
-  color:var(--terracotta); margin:0 0 8px;
-}
-.panik-intro .box p{ margin:0; font:400 11px/1.5 'Inter',sans-serif; color:var(--ink-soft);}
-.panik-intro .box.blue h4{ color:var(--blue);}
-
-.myths{ display:flex; flex-direction:column; gap:0;}
-.myth{
-  display:grid; grid-template-columns: 90px 1fr; gap:12px;
-  padding:7px 12px; border-bottom:1px dotted var(--line);
-  font:400 11px/1.45 'Inter',sans-serif; color:var(--ink-soft);
-}
-.myth .tag{
-  font:500 9px/1.2 'Inter',sans-serif; letter-spacing:.2em; text-transform:uppercase;
-}
-.myth .tag.m{ color:var(--terracotta);}
-.myth .tag.f{ color:var(--blue);}
-.myth b{ color:var(--ink); font-weight:500;}
-
-.symptom-grid{
-  display:grid; grid-template-columns: repeat(4, 1fr); gap:6px; margin-top:4px;
-}
-.symptom{
-  padding:8px 10px; border:1px solid var(--line); background:#fff;
-  font:400 10.5px/1.35 'Inter',sans-serif; color:var(--ink-soft);
-}
-.symptom b{ display:block; font:500 9.5px/1.1 'Inter',sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--ink); margin-bottom:3px;}
-
-.cycle{
-  display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; margin-top:2px;
+.card{
+  width:100%;height:100%;
+  transform-style:preserve-3d;
+  transition:transform .55s cubic-bezier(.4,0,.2,1);
   position:relative;
 }
-.cycle .step{
-  padding:10px 12px; border:1px solid var(--line); background:#fff; position:relative;
+.card.flipped{ transform:rotateY(180deg);}
+
+.card-face{
+  position:absolute;inset:0;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  border-radius:18px;
+  display:flex;flex-direction:column;
+  box-shadow:0 2px 0 rgba(46,42,38,.04), 0 20px 60px -16px rgba(46,42,38,.22), 0 4px 16px -6px rgba(46,42,38,.10);
 }
-.cycle .step .n{
-  font:500 9.5px/1 'Inter',sans-serif; letter-spacing:.2em; text-transform:uppercase;
-  color:var(--terracotta); margin-bottom:5px;
+.card-back{
+  background:var(--paper-warm);
+  border:1px solid var(--line);
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  transform:rotateY(180deg);
 }
-.cycle .step h5{ font:500 13px/1.2 'Cormorant Garamond',serif; margin:0 0 4px; color:var(--ink);}
-.cycle .step p{ margin:0; font:400 10.5px/1.45 'Inter',sans-serif; color:var(--ink-soft);}
-.cycle .arrow{
-  position:absolute; right:-6px; top:50%; width:9px; height:9px;
-  border-top:1px solid var(--line-strong); border-right:1px solid var(--line-strong);
-  transform: translateY(-50%) rotate(45deg);
+.card-back .back-spiral{
+  position:absolute;
+  top:28px;left:50%;transform:translateX(-50%);
+  opacity:.12;
+}
+.card-back img{
+  width:62px;height:62px;border-radius:50%;
+  box-shadow:0 2px 12px rgba(46,42,38,.08);
+}
+.card-back .back-t1{
+  font:500 9px/1 'Inter',sans-serif;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.card-back .back-t2{
+  font:400 17px/1 'Cormorant Garamond',serif;
+  color:var(--ink);
+  letter-spacing:.02em;
+  margin-top:3px;
+}
+.card-back .back-line{
+  width:32px;height:1px;background:var(--terracotta);opacity:.5;
 }
 
-.breath{
-  display:grid; grid-template-columns: 130px 1fr; gap:16px; align-items:center;
-  padding:12px 16px; background:var(--paper-warm); border:1px solid var(--line);
+.card-front{
+  background:var(--paper);
+  padding:32px 28px 28px;
+  flex-direction:column;
+  justify-content:space-between;
 }
-.breath .viz{
-  position:relative; aspect-ratio:1; border-radius:50%;
-  border:1px solid var(--blue-soft);
-  display:flex; align-items:center; justify-content:center;
+.card-front .accent-bar{
+  position:absolute;
+  top:0;left:28px;right:28px;
+  height:3px;border-radius:0 0 2px 2px;
+  background:var(--terracotta);
 }
-.breath .viz::before{
-  content:""; position:absolute; inset:10px; border-radius:50%;
-  border:1px dashed var(--line-strong);
-}
-.breath .viz .num{
-  font:500 28px/1 'Cormorant Garamond',serif; color:var(--blue); text-align:center;
-}
-.breath .viz .num em{ font-style:italic; font-size:12px; color:var(--ink-soft); display:block; text-align:center; margin-top:4px;}
-.breath .steps{ display:flex; flex-direction:column; gap:6px;}
-.breath .steps .s{
-  display:grid; grid-template-columns: 40px 1fr; gap:8px; align-items:baseline;
-}
-.breath .steps .s .n{
-  font:500 16px/1 'Cormorant Garamond',serif; color:var(--terracotta);
-}
-.breath .steps .s .t{ font:400 11px/1.45 'Inter',sans-serif; color:var(--ink-soft);}
-.breath .steps .s .t b{ color:var(--ink); font-weight:500;}
 
-.grounding{
-  display:grid; grid-template-columns: repeat(5, 1fr); gap:6px; margin-top:4px;
+/* Icon area */
+.card-icon{
+  display:flex;align-items:center;justify-content:center;
+  height:72px;
 }
-.grounding .g{
-  padding:10px 10px; background:#fff; border:1px solid var(--line); text-align:center;
+.card-icon svg{opacity:.72;}
+
+/* Text */
+.card-text{
+  flex:1;
+  display:flex;align-items:center;justify-content:center;
+  padding:8px 0 12px;
 }
-.grounding .g .big{
-  font:500 22px/1 'Cormorant Garamond',serif; color:var(--terracotta); margin-bottom:5px;
+.card-text p{
+  font:500 19px/1.42 'Cormorant Garamond',serif;
+  color:var(--ink);
+  text-align:center;
+  text-wrap:pretty;
 }
-.grounding .g .lbl{ font:500 9px/1.1 'Inter',sans-serif; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft);}
-.grounding .g .txt{ font:400 10px/1.35 'Inter',sans-serif; color:var(--ink-soft); margin-top:4px;}
-
-/* Visibility */
-.v-a.page-panik .title-block{ margin-top:26px; margin-bottom:18px;}
-.v-a.page-panik h2{ margin:18px 0 10px;}
-.v-a.page-panik .lede{ font-size:13px; line-height:1.55;}
-.v-a.page-panik .impuls{ margin-top:14px; padding:14px 18px;}
-.v-a.page-panik .impuls p{ font-size:13px;}
-
-.v-b.page-panik .title-row{ margin-top:50px;}
-.v-b.page-panik h1{ font-size:42px;}
-.v-b.page-panik .hr{ margin:20px 0;}
-.v-b.page-panik .lede{ font-size:12.5px; line-height:1.55;}
-.v-b.page-panik h2{ margin:22px 0 10px;}
-
-.v-c.page-panik .title-block{ margin:26px auto 16px;}
-.v-c.page-panik h1{ font-size:38px;}
-.v-c.page-panik .lede{ font-size:12.5px; line-height:1.6; margin-top:10px;}
-.v-c.page-panik .orn{ margin:14px 0 18px;}
-.v-c.page-panik h2{ margin:16px 0 10px;}
-.v-c.page-panik .invite{ margin-top:14px; padding:14px 22px;}
-.v-c.page-panik .invite .q{ font-size:15px;}
-
-/* Variant-C overrides for panik cards (rounded + wash) */
-.v-c .panik-intro .box{ border-radius:12px;}
-.v-c .cycle .step{ border-radius:12px;}
-.v-c .breath{ border-radius:16px;}
-.v-c .symptom{ border-radius:10px;}
-.v-c .grounding .g{ border-radius:12px;}
-
-/* Variant-B subtle shifts */
-.v-b .symptom{ background:var(--paper);}
-.v-b .cycle .step .n{ color:var(--blue);}
-
-/* ============== NEURO — Checkliste ============== */
-.neuro-intro{
-  padding:12px 16px; background:#fff; border:1px solid var(--line); margin-top:4px;
-  font:400 11.5px/1.55 'Inter',sans-serif; color:var(--ink-soft);
+.card-text p em{
+  font-style:italic;
+  color:var(--terracotta);
 }
-.neuro-intro b{ color:var(--ink); font-weight:500;}
 
-.neuro-cols{
-  display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:6px;
+/* Footer */
+.card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:12px;
+  border-top:1px solid var(--line);
 }
-.neuro-col{
-  background:#fff; border:1px solid var(--line); padding:14px 16px 12px;
+.card-footer .cat{
+  display:flex;align-items:center;gap:7px;
 }
-.neuro-col.full{ grid-column: 1 / -1;}
-.neuro-col header{
-  display:flex; align-items:baseline; justify-content:space-between;
-  padding-bottom:8px; margin-bottom:8px; border-bottom:1px solid var(--line);
+.card-footer .cat-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--terracotta);
 }
-.neuro-col header .k{ font:500 10px/1 'Inter',sans-serif; letter-spacing:.22em; text-transform:uppercase; color:var(--terracotta);}
-.neuro-col.blue header .k{ color:var(--blue);}
-.neuro-col.taupe header .k{ color:var(--ink-soft);}
-.neuro-col header h3{ font:500 16px/1.1 'Cormorant Garamond',serif; margin:0; color:var(--ink);}
-.neuro-col header h3 em{ font-style:italic; color:var(--ink-soft); font-weight:400; font-size:13px;}
-.neuro-col .sub{ font:italic 400 11px/1.4 'Cormorant Garamond',serif; color:var(--ink-soft); margin-bottom:8px;}
+.card-footer .cat-name{
+  font:500 8.5px/1 'Inter',sans-serif;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.card-footer .num{
+  font:400 13px/1 'Cormorant Garamond',serif;
+  color:var(--ink-soft);
+}
 
-.neuro-group{ margin-bottom:6px;}
-.neuro-group .gname{
-  font:500 8.5px/1.1 'Inter',sans-serif; letter-spacing:.22em; text-transform:uppercase;
-  color:var(--ink-soft); margin:6px 0 4px;
+/* ── Controls ── */
+.controls{
+  display:flex;align-items:center;gap:12px;
 }
-.checklist{ display:flex; flex-direction:column; gap:3px;}
-.item{
-  display:grid; grid-template-columns: 16px 1fr; gap:8px; align-items:flex-start;
-  padding:3px 0;
-  font:400 10.5px/1.4 'Inter',sans-serif; color:var(--ink);
+.btn{
+  border:none;background:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .15s;
 }
-.item .cb{
-  width:11px; height:11px; border:1px solid var(--line-strong); border-radius:2px;
-  margin-top:3px; background:#fff;
+.btn:hover{opacity:.6;}
+.btn-prev,.btn-next{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--line);background:var(--paper);
+  color:var(--ink-soft);
 }
-.v-c .item .cb{ border-radius:3px;}
-
-.neuro-scale{
-  display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:10px;
+.btn-prev svg,.btn-next svg{width:14px;height:14px;}
+.btn-shuffle{
+  padding:0 24px;height:46px;
+  background:var(--ink);color:var(--paper);
+  border-radius:999px;
+  font:500 12px/1 'Inter',sans-serif;
+  letter-spacing:.12em;text-transform:uppercase;
+  box-shadow:0 4px 14px -4px rgba(46,42,38,.3);
+  transition:transform .12s, box-shadow .12s;
 }
-.scale-box{
-  padding:12px 14px; background:var(--paper-warm); border:1px solid var(--line);
+.btn-shuffle:hover{transform:translateY(-1px);box-shadow:0 6px 18px -4px rgba(46,42,38,.35);}
+.btn-shuffle:active{transform:translateY(0);}
+
+/* ── Progress ── */
+.progress{
+  font:400 12px/1 'Inter',sans-serif;
+  color:var(--ink-soft);
+  letter-spacing:.08em;
+  min-width:56px;
+  text-align:center;
 }
-.scale-box .lbl{ font:500 10px/1 'Inter',sans-serif; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px;}
-.scale-box .pills{ display:flex; gap:4px;}
-.scale-box .pill{
-  width:22px; height:22px; border:1px solid var(--line-strong); border-radius:50%;
-  display:inline-flex; align-items:center; justify-content:center;
-  font:500 10px/1 'Inter',sans-serif; color:var(--ink-soft); background:#fff;
+
+/* ── Bottom bar ── */
+.bottombar{
+  width:100%;
+  padding:14px 20px 20px;
+  display:flex;flex-direction:column;
+  align-items:center;
+  gap:14px;
 }
-.scale-box .hint{ font:400 10px/1.4 'Inter',sans-serif; color:var(--ink-soft); margin-top:6px;}
 
-.neuro-note{
-  margin-top:10px; padding:12px 16px; background:var(--paper-warm);
-  border-left:2px solid var(--blue);
-  font:400 11px/1.55 'Inter',sans-serif; color:var(--ink-soft);
+/* ── Flip hint ── */
+.hint{
+  font:400 11px/1 'Inter',sans-serif;
+  color:var(--ink-soft);
+  opacity:.5;
+  letter-spacing:.06em;
+  pointer-events:none;
 }
-.neuro-note b{ color:var(--ink); font-weight:500;}
-.neuro-note .tiny{ color:var(--blue); display:block; margin-bottom:4px;}
 
-/* Neuro-spezifische Titel-Kompression */
-.v-a.page-neuro .title-block{ margin-top:22px; margin-bottom:14px;}
-.v-a.page-neuro h1{ font-size:36px;}
-.v-a.page-neuro .lede{ font-size:12.5px; line-height:1.55;}
-.v-a.page-neuro h2{ margin:14px 0 8px;}
-.v-a.page-neuro .impuls{ margin-top:10px; padding:12px 16px;}
-.v-a.page-neuro .impuls p{ font-size:12.5px;}
+/* ── Slide animation ── */
+@keyframes slideIn{
+  from{opacity:0;transform:translateY(12px) scale(.97);}
+  to{opacity:1;transform:translateY(0) scale(1);}
+}
+.card-wrap.animate{animation:slideIn .3s ease both;}
 
-.v-b.page-neuro .title-row{ margin-top:40px;}
-.v-b.page-neuro h1{ font-size:40px;}
-.v-b.page-neuro .hr{ margin:16px 0;}
-.v-b.page-neuro .lede{ font-size:12px; line-height:1.55;}
-.v-b.page-neuro h2{ margin:16px 0 8px;}
-
-.v-c.page-neuro .title-block{ margin:18px auto 8px;}
-.v-c.page-neuro h1{ font-size:32px;}
-.v-c.page-neuro .lede{ font-size:11.5px; line-height:1.55; margin-top:6px;}
-.v-c.page-neuro .orn{ margin:8px 0 10px;}
-.v-c.page-neuro h2{ margin:10px 0 6px;}
-.v-c.page-neuro .invite{ margin-top:10px; padding:10px 22px;}
-.v-c.page-neuro .invite .q{ font-size:13px;}
-.v-c.page-neuro .neuro-col{ padding:10px 12px 8px;}
-.v-c.page-neuro .sub{ display:none;}
-.v-c.page-neuro .item{ line-height:1.3;}
-
-.v-c .neuro-col{ border-radius:12px;}
-.v-c .neuro-intro{ border-radius:10px;}
-.v-c .scale-box{ border-radius:10px;}
-
-/* Visibility */
-
-@media print{
-  body{ background:#fff; padding:0;}
-  .toolbar, .page-label{ display:none;}
-  .stack{ gap:0; margin-top:0;}
-  .page-wrap{ width:210mm; height:297mm; aspect-ratio:auto; page-break-after:always;}
-  .page{ width:210mm; height:297mm; box-shadow:none; transform:none !important;}
+/* ── Category label ── */
+.cat-label{
+  font:500 9px/1 'Inter',sans-serif;
+  letter-spacing:.24em;text-transform:uppercase;
+  color:var(--ink-soft);
+  opacity:.55;
 }
 </style>
 </head>
 <body>
 
-<div class="toolbar" id="toolbar">
-  <span class="label">Variante</span>
-  <button data-v="a" class="active">A · Editorial</button>
-  <button data-v="b">B · Modern</button>
-  <button data-v="c">C · Organisch</button>
-  <span class="sep"></span>
-  <span class="label">Handout</span>
-  <button data-h="all" class="active">Alle</button>
-  <button data-h="tag">Tagesprotokoll</button>
-  <button data-h="anteile">Anteile</button>
-  <button data-h="panik">Panikattacken</button>
-  <button data-h="neuro">Neurodivergenz</button>
+<div class="app">
+  <div class="stage">
+    <div class="cat-label" id="catLabel"></div>
+
+
+    <div class="card-wrap" id="cardWrap">
+      <div class="card" id="card">
+    
+        <!-- FRONT -->
+        <div class="card-face card-front" id="cardFront">
+          <div class="accent-bar" id="accentBar"></div>
+          <div class="card-icon" id="cardIcon"></div>
+          <div class="card-text"><p id="cardText"></p></div>
+          <div class="card-footer">
+            <div class="cat">
+              <div class="cat-dot" id="catDot"></div>
+              <span class="cat-name" id="catName"></span>
+            </div>
+            <span class="num" id="cardNum"></span>
+          </div>
+        </div>
+    
+        <!-- BACK -->
+        <div class="card-face card-back">
+          <svg class="back-spiral" width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#B08264" stroke-width="1.2" stroke-linecap="round">
+            <path d="M40 40 C40 36 44 33 48 35 C52 37 54 43 51 48 C47 54 39 56 33 52 C26 47 24 37 29 30 C35 22 47 20 55 26 C64 33 66 47 59 56 C52 66 37 68 27 61 C16 53 14 36 22 25"/>
+          </svg>
+          <img src="assets/logo-mark.jpg" alt="Logo"/>
+          <div class="back-line"></div>
+          <div style="text-align:center;">
+            <div class="back-t1">Psychotherapeutische Praxis</div>
+            <div class="back-t2">Florentine Flach</div>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    
+    <span class="hint" id="hint">Karte antippen, um umzudrehen</span>
+
+  </div>
+
+  <div class="bottombar">
+    <div class="controls">
+      <button class="btn btn-prev" id="btnPrev" title="Zurück">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,2 4,7 9,12"/></svg>
+      </button>
+      <button class="btn btn-shuffle" id="btnShuffle">Zufällige Karte</button>
+      <button class="btn btn-next" id="btnNext" title="Weiter">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,2 10,7 5,12"/></svg>
+      </button>
+    </div>
+    <span class="progress" id="progress"></span>
+  </div>
+
 </div>
 
-
-<div class="stack" id="stack"></div>
-
-<template id="tpl-a-tag">
-  <div class="page v-a">
-    <div class="head">
-      <div class="brand">
-        <img src="assets/logo-mark.jpg" alt="Logo"/>
-        <div>
-          <div class="t1">Psychotherapeutische Praxis</div>
-          <div class="t2">Florentine Flach</div>
-        </div>
-      </div>
-      <div class="meta">
-        <span class="tiny">Arbeitsblatt</span>
-        <span class="num">01 — Tagesprotokoll</span>
-      </div>
-    </div>
-
-
-    <div class="title-block">
-      <div class="eyebrow">Selbstbeobachtung</div>
-      <h1>Mein Tag in <em>vier Spalten</em></h1>
-      <p class="lede">Halten Sie über den Tag verteilt belastende oder bemerkenswerte Situationen fest — ohne Bewertung, in eigenen Worten. Das Protokoll hilft, Muster zwischen Situation, Gefühl, Gedanke und Körperempfindung zu erkennen.</p>
-    </div>
-    
-    <h2>Datum &nbsp;·&nbsp; Wochentag</h2>
-    <div style="display:flex; gap:18px; margin-bottom:22px;">
-      <div style="flex:1; border-bottom:1px solid var(--line-strong); height:22px;"></div>
-      <div style="flex:1; border-bottom:1px solid var(--line-strong); height:22px;"></div>
-      <div style="flex:1; border-bottom:1px solid var(--line-strong); height:22px;"></div>
-    </div>
-    
-    <h2>Einträge</h2>
-    <table class="protokoll">
-      <thead>
-        <tr>
-          <th>Uhrzeit</th>
-          <th class="col-situation">Situation · Was geschah?</th>
-          <th class="col-gefuehl">Gefühl · 0—10</th>
-          <th class="col-gedanke">Gedanke · automatisch</th>
-          <th class="col-koerper">Körper</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td class="time">— : —</td><td></td><td></td><td></td><td></td></tr>
-        <tr><td class="time">— : —</td><td></td><td></td><td></td><td></td></tr>
-        <tr><td class="time">— : —</td><td></td><td></td><td></td><td></td></tr>
-        <tr><td class="time">— : —</td><td></td><td></td><td></td><td></td></tr>
-        <tr><td class="time">— : —</td><td></td><td></td><td></td><td></td></tr>
-        <tr><td class="time">— : —</td><td></td><td></td><td></td><td></td></tr>
-        <tr><td class="time">— : —</td><td></td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-    
-    <div class="skala">
-      <span class="caps tiny" style="margin-right:4px;">Intensität</span>
-      <div class="pills">
-        <span class="pill">0</span><span class="pill">1</span><span class="pill">2</span><span class="pill">3</span><span class="pill">4</span><span class="pill">5</span><span class="pill">6</span><span class="pill">7</span><span class="pill">8</span><span class="pill">9</span><span class="pill">10</span>
-      </div>
-      <span style="margin-left:8px;">0 = gar nicht &nbsp;·&nbsp; 10 = maximal</span>
-    </div>
-    
-    <div class="impuls">
-      <div class="tiny">Impuls zum Abend</div>
-      <p>Was hat mir heute gutgetan — und welcher Moment verdient morgen etwas mehr Aufmerksamkeit?</p>
-    </div>
-    
-    <div class="foot">
-      <span>Praxis Florentine Flach &nbsp;·&nbsp; Psychotherapie</span>
-      <span><b>01</b> / Tagesprotokoll</span>
-    </div>
-
-  </div>
-</template>
-
-<template id="tpl-a-anteile">
-  <div class="page v-a">
-    <div class="head">
-      <div class="brand">
-        <img src="assets/logo-mark.jpg" alt="Logo"/>
-        <div>
-          <div class="t1">Psychotherapeutische Praxis</div>
-          <div class="t2">Florentine Flach</div>
-        </div>
-      </div>
-      <div class="meta">
-        <span class="tiny">Arbeitsblatt</span>
-        <span class="num">02 — Innere Anteile</span>
-      </div>
-    </div>
-
-
-    <div class="title-block">
-      <div class="eyebrow">Innere Landkarte</div>
-      <h1>Meine Anteile <em>benennen &amp; beschreiben</em></h1>
-      <p class="lede">Wir alle sind innerlich mehrstimmig. Manche Anteile schützen, manche fordern, andere ziehen sich zurück. Das Benennen macht diese Stimmen hörbar — und damit verhandelbar. Geben Sie jedem Anteil einen Namen und einige Zeilen.</p>
-    </div>
-    
-    <h2>Drei Anteile · heute</h2>
-    <div class="a-grid">
-      <div class="anteil-card">
-        <div class="num">I</div>
-        <h3>Name des Anteils</h3>
-        <div class="field"><div class="lbl">Wie fühlt er/sie sich an?</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Was möchte er/sie?</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Wovor schützt er/sie?</div><div class="line"></div><div class="line"></div></div>
-      </div>
-      <div class="anteil-card">
-        <div class="num">II</div>
-        <h3>Name des Anteils</h3>
-        <div class="field"><div class="lbl">Wie fühlt er/sie sich an?</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Was möchte er/sie?</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Wovor schützt er/sie?</div><div class="line"></div><div class="line"></div></div>
-      </div>
-      <div class="anteil-card">
-        <div class="num">III</div>
-        <h3>Name des Anteils</h3>
-        <div class="field"><div class="lbl">Wie fühlt er/sie sich an?</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Was möchte er/sie?</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Wovor schützt er/sie?</div><div class="line"></div><div class="line"></div></div>
-      </div>
-      <div class="anteil-card">
-        <div class="num">IV</div>
-        <h3>Ein Anteil, der heute leise war</h3>
-        <div class="field"><div class="lbl">Wie erkenne ich ihn/sie?</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Was bräuchte er/sie?</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Einladung für morgen</div><div class="line"></div><div class="line"></div></div>
-      </div>
-    </div>
-    
-    <div class="impuls">
-      <div class="tiny">Impuls</div>
-      <p>Jeder Anteil war einmal eine gute Lösung. Welche Aufgabe hat er heute — und welche dürfen Sie gemeinsam neu verhandeln?</p>
-    </div>
-    
-    <div class="foot">
-      <span>Praxis Florentine Flach &nbsp;·&nbsp; Psychotherapie</span>
-      <span><b>02</b> / Anteile benennen &amp; beschreiben</span>
-    </div>
-
-  </div>
-</template>
-
-
-<template id="tpl-b-tag">
-  <div class="page v-b">
-    <div class="head">
-      <img class="brand-mark" src="assets/logo-mark.jpg" alt="Logo"/>
-      <div class="brand-name">Psychotherapeutische Praxis<b>Florentine Flach</b></div>
-      <div class="page-no"><b>01</b> &nbsp;· &nbsp;Tagesprotokoll</div>
-    </div>
-
-
-    <div class="title-row">
-      <h1>Ein Tag<br/>in <span class="accent">vier Spalten.</span></h1>
-      <div class="meta-col">
-        <div class="tiny" style="margin-bottom:8px;">Datum</div>
-        <b>__ . __ . ____</b>
-        <div class="tiny" style="margin:14px 0 8px;">Wochentag</div>
-        <b>_______________</b>
-      </div>
-    </div>
-    
-    <div class="hr"></div>
-    <p class="lede">Protokollieren Sie über den Tag belastende oder bemerkenswerte Momente. Ziel ist nicht die perfekte Formulierung — sondern das Sichtbarmachen von Verbindungen zwischen Situation, Gefühl, Gedanke und Körper.</p>
-    
-    <h2>Einträge</h2>
-    <div class="log-list">
-      <div class="log-row header">
-        <div>Uhrzeit</div><div>Situation</div><div>Gefühl</div><div>Gedanke</div><div style="text-align:right;">0—10</div>
-      </div>
-      <div class="log-row"><div class="t">— : —</div><div></div><div></div><div></div><div class="intensity" style="text-align:right;">·</div></div>
-      <div class="log-row"><div class="t">— : —</div><div></div><div></div><div></div><div class="intensity" style="text-align:right;">·</div></div>
-      <div class="log-row"><div class="t">— : —</div><div></div><div></div><div></div><div class="intensity" style="text-align:right;">·</div></div>
-      <div class="log-row"><div class="t">— : —</div><div></div><div></div><div></div><div class="intensity" style="text-align:right;">·</div></div>
-      <div class="log-row"><div class="t">— : —</div><div></div><div></div><div></div><div class="intensity" style="text-align:right;">·</div></div>
-      <div class="log-row"><div class="t">— : —</div><div></div><div></div><div></div><div class="intensity" style="text-align:right;">·</div></div>
-      <div class="log-row"><div class="t">— : —</div><div></div><div></div><div></div><div class="intensity" style="text-align:right;">·</div></div>
-    </div>
-    
-    <div class="legend">
-      <div><b>Körperempfindung</b>Wo spüre ich es? Enge, Wärme, Unruhe, Schwere — in welchem Körperbereich?</div>
-      <div><b>Abendrückblick</b>Welcher Moment hat getragen? Welcher hat Kraft gekostet? Was nehme ich mit in den nächsten Tag?</div>
-    </div>
-    
-    <div class="foot">
-      <span>Praxis Florentine Flach</span>
-      <span>Seite 01 · Tagesprotokoll</span>
-    </div>
-
-  </div>
-</template>
-
-<template id="tpl-b-anteile">
-  <div class="page v-b">
-    <div class="head">
-      <img class="brand-mark" src="assets/logo-mark.jpg" alt="Logo"/>
-      <div class="brand-name">Psychotherapeutische Praxis<b>Florentine Flach</b></div>
-      <div class="page-no"><b>02</b> &nbsp;· &nbsp;Anteile</div>
-    </div>
-
-
-    <div class="title-row">
-      <h1>Ich bin viele —<br/><span class="accent">wer spricht heute?</span></h1>
-      <div class="meta-col">
-        <div class="tiny" style="margin-bottom:8px;">Datum</div>
-        <b>__ . __ . ____</b>
-      </div>
-    </div>
-    
-    <div class="hr"></div>
-    <p class="lede">In uns wohnen viele Stimmen — schützende, fordernde, verletzte, neugierige. Wenn wir sie benennen, werden sie hörbar. Geben Sie drei Anteilen einen Namen und beschreiben Sie sie kurz.</p>
-    
-    <h2>Drei Anteile</h2>
-    <div class="a-grid">
-      <div class="parts-card">
-        <div class="dot"></div>
-        <h3>Name — z.B. „Die Antreiberin“</h3>
-        <div class="field"><div class="lbl">Körpergefühl</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Bedürfnis</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Schutzfunktion</div><div class="line"></div><div class="line"></div></div>
-      </div>
-      <div class="parts-card">
-        <div class="dot"></div>
-        <h3>Name</h3>
-        <div class="field"><div class="lbl">Körpergefühl</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Bedürfnis</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Schutzfunktion</div><div class="line"></div><div class="line"></div></div>
-      </div>
-      <div class="parts-card">
-        <div class="dot"></div>
-        <h3>Name</h3>
-        <div class="field"><div class="lbl">Körpergefühl</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Bedürfnis</div><div class="line"></div><div class="line"></div></div>
-        <div class="field"><div class="lbl">Schutzfunktion</div><div class="line"></div><div class="line"></div></div>
-      </div>
-    </div>
-    
-    <div class="reflexion">
-      <div class="tiny">Reflexion</div>
-      <div class="q">Welcher Anteil hatte heute das Steuer in der Hand — und welcher hätte eine Einladung verdient?</div>
-      <div class="ans">
-        <div class="ln"></div><div class="ln"></div><div class="ln"></div>
-      </div>
-    </div>
-    
-    <div class="foot">
-      <span>Praxis Florentine Flach</span>
-      <span>Seite 02 · Anteile benennen &amp; beschreiben</span>
-    </div>
-
-  </div>
-</template>
-
-
-<template id="tpl-c-tag">
-  <div class="page v-c">
-    <div class="head">
-      <div class="brand">
-        <img src="assets/logo-mark.jpg" alt="Logo"/>
-        <div>
-          <div class="t1">Praxis</div>
-          <div class="t2">Florentine Flach</div>
-        </div>
-      </div>
-      <div class="chip">Arbeitsblatt · 01</div>
-    </div>
-
-
-    <div class="title-block">
-      <div class="eyebrow">Selbstbeobachtung</div>
-      <h1>Mein Tag <em>in Momenten</em></h1>
-      <p class="lede">Ein freundlicher Blick zurück: Welche Situationen haben mich heute bewegt? Ohne Bewertung — wie ein Spaziergang durch den eigenen Tag.</p>
-    </div>
-    
-    <div class="orn"><span></span><span></span><span></span></div>
-    
-    <h2>Datum &nbsp;__ . __ . ____ &nbsp;·&nbsp; Wochentag ____________</h2>
-    
-    <div class="time-cards">
-      <div class="time-card">
-        <div class="time"><div class="hr">— : —</div><div class="lbl">Morgen</div></div>
-        <div class="grid">
-          <div><div class="lbl">Situation</div><div class="ln"></div><div class="ln"></div></div>
-          <div><div class="lbl">Gefühl · 0—10</div><div class="ln"></div><div class="ln"></div></div>
-          <div><div class="lbl">Körper · Gedanke</div><div class="ln"></div><div class="ln"></div></div>
-        </div>
-      </div>
-      <div class="time-card">
-        <div class="time"><div class="hr">— : —</div><div class="lbl">Vormittag</div></div>
-        <div class="grid">
-          <div><div class="lbl">Situation</div><div class="ln"></div><div class="ln"></div></div>
-          <div><div class="lbl">Gefühl · 0—10</div><div class="ln"></div><div class="ln"></div></div>
-          <div><div class="lbl">Körper · Gedanke</div><div class="ln"></div><div class="ln"></div></div>
-        </div>
-      </div>
-      <div class="time-card">
-        <div class="time"><div class="hr">— : —</div><div class="lbl">Mittag</div></div>
-        <div class="grid">
-          <div><div class="lbl">Situation</div><div class="ln"></div><div class="ln"></div></div>
-          <div><div class="lbl">Gefühl · 0—10</div><div class="ln"></div><div class="ln"></div></div>
-          <div><div class="lbl">Körper · Gedanke</div><div class="ln"></div><div class="ln"></div></div>
-        </div>
-      </div>
-      <div class="time-card">
-        <div class="time"><div class="hr">— : —</div><div class="lbl">Nachmittag</div></div>
-        <div class="grid">
-          <div><div class="lbl">Situation</div><div class="ln"></div><div class="ln"></div></div>
-          <div><div class="lbl">Gefühl · 0—10</div><div class="ln"></div><div class="ln"></div></div>
-          <div><div class="lbl">Körper · Gedanke</div><div class="ln"></div><div class="ln"></div></div>
-        </div>
-      </div>
-      <div class="time-card">
-        <div class="time"><div class="hr">— : —</div><div class="lbl">Abend</div></div>
-        <div class="grid">
-          <div><div class="lbl">Situation</div><div class="ln"></div><div class="ln"></div></div>
-          <div><div class="lbl">Gefühl · 0—10</div><div class="ln"></div><div class="ln"></div></div>
-          <div><div class="lbl">Körper · Gedanke</div><div class="ln"></div><div class="ln"></div></div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="invite">
-      <div class="tiny" style="color:var(--terracotta); margin-bottom:8px;">Zum Abend</div>
-      <div class="q">Was hat mich heute getragen — und was möchte ich morgen liebevoll anders machen?</div>
-    </div>
-    
-    <div class="foot">
-      <span>Florentine Flach · Psychotherapeutische Praxis</span>
-      <span>Tagesprotokoll</span>
-    </div>
-
-  </div>
-</template>
-
-<template id="tpl-c-anteile">
-  <div class="page v-c">
-    <div class="head">
-      <div class="brand">
-        <img src="assets/logo-mark.jpg" alt="Logo"/>
-        <div>
-          <div class="t1">Praxis</div>
-          <div class="t2">Florentine Flach</div>
-        </div>
-      </div>
-      <div class="chip">Arbeitsblatt · 02</div>
-    </div>
-
-
-    <div class="title-block">
-      <div class="eyebrow">Innere Landkarte</div>
-      <h1>Die Stimmen <em>in mir</em></h1>
-      <p class="lede">In jedem von uns leben mehrere Anteile. Wenn wir ihnen Namen geben, dürfen sie aus dem Schatten ins Licht — und wir gewinnen Spielraum zwischen ihnen.</p>
-    </div>
-    
-    <div class="orn"><span></span><span></span><span></span></div>
-    
-    <h2>Vier Anteile benennen</h2>
-    <div class="a-grid">
-      <div class="leaf-card">
-        <div class="leaf"></div>
-        <h3>Name des Anteils</h3>
-        <div class="sub">z.B. „Die Beschützerin“</div>
-        <div class="f"><div class="lbl">Wie fühlt er/sie sich an?</div><div class="ln"></div><div class="ln"></div></div>
-        <div class="f"><div class="lbl">Was möchte er/sie?</div><div class="ln"></div><div class="ln"></div></div>
-        <div class="f"><div class="lbl">Wovor schützt er/sie?</div><div class="ln"></div><div class="ln"></div></div>
-      </div>
-      <div class="leaf-card">
-        <div class="leaf"></div>
-        <h3>Name des Anteils</h3>
-        <div class="sub">z.B. „Das innere Kind“</div>
-        <div class="f"><div class="lbl">Wie fühlt er/sie sich an?</div><div class="ln"></div><div class="ln"></div></div>
-        <div class="f"><div class="lbl">Was möchte er/sie?</div><div class="ln"></div><div class="ln"></div></div>
-        <div class="f"><div class="lbl">Wovor schützt er/sie?</div><div class="ln"></div><div class="ln"></div></div>
-      </div>
-      <div class="leaf-card">
-        <div class="leaf"></div>
-        <h3>Name des Anteils</h3>
-        <div class="sub">z.B. „Der Kritiker“</div>
-        <div class="f"><div class="lbl">Wie fühlt er/sie sich an?</div><div class="ln"></div><div class="ln"></div></div>
-        <div class="f"><div class="lbl">Was möchte er/sie?</div><div class="ln"></div><div class="ln"></div></div>
-        <div class="f"><div class="lbl">Wovor schützt er/sie?</div><div class="ln"></div><div class="ln"></div></div>
-      </div>
-      <div class="leaf-card">
-        <div class="leaf"></div>
-        <h3>Ein leiser Anteil</h3>
-        <div class="sub">heute kaum gehört</div>
-        <div class="f"><div class="lbl">Wie erkenne ich ihn/sie?</div><div class="ln"></div><div class="ln"></div></div>
-        <div class="f"><div class="lbl">Was bräuchte er/sie?</div><div class="ln"></div><div class="ln"></div></div>
-        <div class="f"><div class="lbl">Einladung für morgen</div><div class="ln"></div><div class="ln"></div></div>
-      </div>
-    </div>
-    
-    <div class="invite">
-      <div class="tiny" style="color:var(--blue); margin-bottom:8px;">Impuls</div>
-      <div class="q">Jeder Anteil war einmal eine gute Lösung. Welcher darf heute ein wenig zurücktreten — und welcher ein wenig nach vorn?</div>
-    </div>
-    
-    <div class="foot">
-      <span>Florentine Flach · Psychotherapeutische Praxis</span>
-      <span>Anteile benennen &amp; beschreiben</span>
-    </div>
-
-  </div>
-</template>
-
-
-<template id="tpl-a-panik">
-  <div class="page v-a page-panik">
-    <div class="head">
-      <div class="brand">
-        <img src="assets/logo-mark.jpg" alt="Logo"/>
-        <div>
-          <div class="t1">Psychotherapeutische Praxis</div>
-          <div class="t2">Florentine Flach</div>
-        </div>
-      </div>
-      <div class="meta">
-        <span class="tiny">Psychoedukation</span>
-        <span class="num">03 — Panikattacken</span>
-      </div>
-    </div>
-
-
-    <div class="title-block">
-      <div class="eyebrow">Verstehen · Einordnen · Handeln</div>
-      <h1>Panikattacken <em>verstehen</em></h1>
-      <p class="lede">Eine Panikattacke fühlt sich bedrohlich an — sie ist es jedoch nicht. Sie ist ein überaktivierter Alarm des Körpers, der innerhalb weniger Minuten ihren Höhepunkt erreicht und von selbst wieder abklingt. Dieses Blatt hilft, das Geschehen einzuordnen und im Moment wieder handlungsfähig zu werden.</p>
-    </div>
-    
-    <h2>Was im Körper geschieht</h2>
-    <div class="panik-intro">
-      <div class="box">
-        <h4>Der Alarm</h4>
-        <p>Das vegetative Nervensystem schaltet in Sekunden auf „Kampf oder Flucht“. Adrenalin wird ausgeschüttet, Herz und Atmung werden schneller, Muskeln spannen sich an. Der Körper bereitet sich auf eine Gefahr vor, die nicht existiert.</p>
-      </div>
-      <div class="box blue">
-        <h4>Die Entwarnung</h4>
-        <p>Nach ca. 3—10 Minuten setzen körpereigene Gegenregulationen ein. Der Körper kann Panik nicht dauerhaft aufrechterhalten — eine Attacke klingt verlässlich wieder ab. Diese Erfahrung zu wiederholen ist der wichtigste Lernschritt.</p>
-      </div>
-    </div>
-    
-    <h2>Typische Symptome</h2>
-    <div class="symptom-grid">
-      <div class="symptom"><b>Herz</b>Rasen, Stolpern, Pochen im Hals</div>
-      <div class="symptom"><b>Atmung</b>Kurz, flach, Gefühl zu ersticken</div>
-      <div class="symptom"><b>Körper</b>Zittern, Schwitzen, Taubheit</div>
-      <div class="symptom"><b>Wahrnehmung</b>Schwindel, Entfremdung, Nebel</div>
-      <div class="symptom"><b>Denken</b>„Ich sterbe / werde verrückt“</div>
-      <div class="symptom"><b>Magen</b>Übelkeit, Druck, Enge</div>
-      <div class="symptom"><b>Kontrolle</b>Angst, die Kontrolle zu verlieren</div>
-      <div class="symptom"><b>Impuls</b>Drang zu fliehen</div>
-    </div>
-    
-    <h2>Der Teufelskreis der Angst</h2>
-    <div class="cycle">
-      <div class="step"><div class="n">01</div><h5>Auslöser</h5><p>Körperempfindung, Gedanke oder Situation.</p><div class="arrow"></div></div>
-      <div class="step"><div class="n">02</div><h5>Bewertung</h5><p>„Das ist gefährlich!“ — der Alarm springt an.</p><div class="arrow"></div></div>
-      <div class="step"><div class="n">03</div><h5>Körperreaktion</h5><p>Herzklopfen, Atemnot, Zittern verstärken sich.</p><div class="arrow"></div></div>
-      <div class="step"><div class="n">04</div><h5>Verstärkung</h5><p>Symptome werden als Beweis gedeutet — Kreis beginnt von vorn.</p></div>
-    </div>
-    
-    <h2>4—7—8 · Atmen zum Beruhigen</h2>
-    <div class="breath">
-      <div class="viz"><div class="num">4·7·8<em>Atemrhythmus</em></div></div>
-      <div class="steps">
-        <div class="s"><div class="n">4</div><div class="t"><b>Einatmen</b> durch die Nase — ruhig und tief in den Bauch, vier Sekunden.</div></div>
-        <div class="s"><div class="n">7</div><div class="t"><b>Halten</b> — sieben Sekunden den Atem sanft halten, Schultern lockerlassen.</div></div>
-        <div class="s"><div class="n">8</div><div class="t"><b>Ausatmen</b> durch den leicht geöffneten Mund — acht Sekunden, langsam und lang.</div></div>
-      </div>
-    </div>
-    
-    <div class="impuls">
-      <div class="tiny">Merksatz</div>
-      <p>Was da geschieht, ist unangenehm — aber nicht gefährlich. Ich muss nichts dagegen tun. Ich warte, ich atme, und ich bleibe.</p>
-    </div>
-    
-    <div class="foot">
-      <span>Praxis Florentine Flach &nbsp;·&nbsp; Psychotherapie</span>
-      <span><b>03</b> / Panikattacken verstehen</span>
-    </div>
-
-  </div>
-</template>
-
-<template id="tpl-b-panik">
-  <div class="page v-b page-panik">
-    <div class="head">
-      <img class="brand-mark" src="assets/logo-mark.jpg" alt="Logo"/>
-      <div class="brand-name">Psychotherapeutische Praxis<b>Florentine Flach</b></div>
-      <div class="page-no"><b>03</b> &nbsp;· &nbsp;Panikattacken</div>
-    </div>
-
-
-    <div class="title-row">
-      <h1>Panik ist laut —<br/><span class="accent">aber nicht gefährlich.</span></h1>
-      <div class="meta-col">
-        <div class="tiny" style="margin-bottom:8px;">Psychoedukation</div>
-        <b>Für Betroffene</b>
-        <div class="tiny" style="margin:14px 0 8px;">Dauer</div>
-        <b>3—10 Minuten</b>
-      </div>
-    </div>
-    
-    <div class="hr"></div>
-    <p class="lede">Eine Panikattacke ist ein Fehlalarm des Nervensystems — überaktiviert, nicht defekt. Sie steigt in wenigen Minuten auf einen Höhepunkt und klingt danach verlässlich wieder ab. Die Symptome sind unangenehm, aber körperlich ungefährlich.</p>
-    
-    <h2>Mythos &amp; Fakt</h2>
-    <div class="myths">
-      <div class="myth"><div class="tag m">Mythos</div><div>„Mein Herz rast — gleich erleide ich einen Herzinfarkt.“</div></div>
-      <div class="myth"><div class="tag f">Fakt</div><div><b>Das Herz ist belastbar.</b> Der Puls steigt wie bei sportlicher Aktivität — ohne Gefahr für einen gesunden Organismus.</div></div>
-      <div class="myth"><div class="tag m">Mythos</div><div>„Ich bekomme keine Luft — ich ersticke.“</div></div>
-      <div class="myth"><div class="tag f">Fakt</div><div><b>Ersticken ist unmöglich.</b> Sie atmen zu viel, nicht zu wenig — Hyperventilation verändert nur den CO₂-Spiegel.</div></div>
-      <div class="myth"><div class="tag m">Mythos</div><div>„Ich werde ohnmächtig.“</div></div>
-      <div class="myth"><div class="tag f">Fakt</div><div><b>Bei Panik steigt der Blutdruck</b> — Ohnmacht tritt bei Blutdruckabfall auf. Beide Zustände schließen sich meist aus.</div></div>
-      <div class="myth"><div class="tag m">Mythos</div><div>„Ich werde verrückt / verliere die Kontrolle.“</div></div>
-      <div class="myth"><div class="tag f">Fakt</div><div><b>Panik ist eine Stressreaktion</b>, keine Psychose. Kontrolle bleibt erhalten, auch wenn es sich anders anfühlt.</div></div>
-    </div>
-    
-    <h2>Der Teufelskreis</h2>
-    <div class="cycle">
-      <div class="step"><div class="n">01</div><h5>Auslöser</h5><p>Empfindung, Gedanke oder Situation.</p><div class="arrow"></div></div>
-      <div class="step"><div class="n">02</div><h5>Bewertung</h5><p>„Gefahr!“ — das System reagiert sofort.</p><div class="arrow"></div></div>
-      <div class="step"><div class="n">03</div><h5>Reaktion</h5><p>Herzklopfen, Atemnot, Unruhe.</p><div class="arrow"></div></div>
-      <div class="step"><div class="n">04</div><h5>Verstärkung</h5><p>Symptome = „Beweis“ — Kreis schließt sich.</p></div>
-    </div>
-    
-    <h2>Im Moment · 5—4—3—2—1</h2>
-    <div class="grounding">
-      <div class="g"><div class="big">5</div><div class="lbl">Sehen</div><div class="txt">Dinge, die Sie gerade sehen</div></div>
-      <div class="g"><div class="big">4</div><div class="lbl">Hören</div><div class="txt">Geräusche um Sie herum</div></div>
-      <div class="g"><div class="big">3</div><div class="lbl">Fühlen</div><div class="txt">Was Sie berühren können</div></div>
-      <div class="g"><div class="big">2</div><div class="lbl">Riechen</div><div class="txt">Düfte, die Sie wahrnehmen</div></div>
-      <div class="g"><div class="big">1</div><div class="lbl">Schmecken</div><div class="txt">Ein Geschmack im Mund</div></div>
-    </div>
-    
-    <div class="foot">
-      <span>Praxis Florentine Flach</span>
-      <span>Seite 03 · Panikattacken verstehen</span>
-    </div>
-
-  </div>
-</template>
-
-<template id="tpl-c-panik">
-  <div class="page v-c page-panik">
-    <div class="head">
-      <div class="brand">
-        <img src="assets/logo-mark.jpg" alt="Logo"/>
-        <div>
-          <div class="t1">Praxis</div>
-          <div class="t2">Florentine Flach</div>
-        </div>
-      </div>
-      <div class="chip">Psychoedukation · 03</div>
-    </div>
-
-
-    <div class="title-block">
-      <div class="eyebrow">Verstehen · Einordnen · Handeln</div>
-      <h1>Wenn die Angst <em>kommt</em></h1>
-      <p class="lede">Panik ist laut, aber sie ist nicht gefährlich. Sie ist eine Welle — sie steigt, sie bricht, sie läuft aus. Das Wichtigste ist, sie nicht zu bekämpfen, sondern zu begleiten.</p>
-    </div>
-    
-    <div class="orn"><span></span><span></span><span></span></div>
-    
-    <h2>Was im Körper geschieht</h2>
-    <div class="panik-intro">
-      <div class="box">
-        <h4>Alarm</h4>
-        <p>Das vegetative Nervensystem aktiviert „Kampf oder Flucht“. Adrenalin strömt, Herz und Atmung beschleunigen — der Körper macht sich bereit für eine Gefahr, die nicht da ist.</p>
-      </div>
-      <div class="box blue">
-        <h4>Entwarnung</h4>
-        <p>Nach 3—10 Minuten setzt die körpereigene Beruhigung ein. Eine Panikattacke kann sich nicht dauerhaft halten — sie klingt von selbst wieder ab.</p>
-      </div>
-    </div>
-    
-    <h2>Der Teufelskreis</h2>
-    <div class="cycle">
-      <div class="step"><div class="n">01</div><h5>Auslöser</h5><p>Empfindung oder Gedanke.</p><div class="arrow"></div></div>
-      <div class="step"><div class="n">02</div><h5>Bewertung</h5><p>„Gefahr!“</p><div class="arrow"></div></div>
-      <div class="step"><div class="n">03</div><h5>Reaktion</h5><p>Herzklopfen, Atemnot.</p><div class="arrow"></div></div>
-      <div class="step"><div class="n">04</div><h5>Verstärkung</h5><p>Symptome = Beweis.</p></div>
-    </div>
-    
-    <h2>Atmen · 4—7—8</h2>
-    <div class="breath">
-      <div class="viz"><div class="num">4·7·8<em>Rhythmus</em></div></div>
-      <div class="steps">
-        <div class="s"><div class="n">4</div><div class="t"><b>Einatmen</b> durch die Nase, in den Bauch — vier Sekunden.</div></div>
-        <div class="s"><div class="n">7</div><div class="t"><b>Halten</b> — sieben Sekunden, Schultern weich.</div></div>
-        <div class="s"><div class="n">8</div><div class="t"><b>Ausatmen</b> durch den Mund — lang und langsam, acht Sekunden.</div></div>
-      </div>
-    </div>
-    
-    <h2>5—4—3—2—1 im Hier</h2>
-    <div class="grounding">
-      <div class="g"><div class="big">5</div><div class="lbl">Sehen</div><div class="txt">Dinge um mich</div></div>
-      <div class="g"><div class="big">4</div><div class="lbl">Hören</div><div class="txt">Geräusche</div></div>
-      <div class="g"><div class="big">3</div><div class="lbl">Fühlen</div><div class="txt">Berührungen</div></div>
-      <div class="g"><div class="big">2</div><div class="lbl">Riechen</div><div class="txt">Düfte</div></div>
-      <div class="g"><div class="big">1</div><div class="lbl">Schmecken</div><div class="txt">Geschmack</div></div>
-    </div>
-    
-    <div class="invite">
-      <div class="tiny" style="color:var(--terracotta); margin-bottom:8px;">Merksatz</div>
-      <div class="q">Was da geschieht, ist unangenehm — aber nicht gefährlich. Ich muss nichts dagegen tun. Ich atme. Ich warte. Ich bleibe.</div>
-    </div>
-    
-    <div class="foot">
-      <span>Florentine Flach · Psychotherapeutische Praxis</span>
-      <span>Panikattacken verstehen</span>
-    </div>
-
-  </div>
-</template>
-
-
-<template id="tpl-a-neuro">
-  <div class="page v-a page-neuro">
-    <div class="head">
-      <div class="brand">
-        <img src="assets/logo-mark.jpg" alt="Logo"/>
-        <div>
-          <div class="t1">Psychotherapeutische Praxis</div>
-          <div class="t2">Florentine Flach</div>
-        </div>
-      </div>
-      <div class="meta">
-        <span class="tiny">Selbsteinordnung</span>
-        <span class="num">04 — Neurodivergenz</span>
-      </div>
-    </div>
-
-
-    <div class="title-block">
-      <div class="eyebrow">Autismus · ADHS · AuDHS</div>
-      <h1>Neurodivergenz — <em>eine erste Landkarte</em></h1>
-      <p class="lede">Diese Checkliste ist <b>kein diagnostisches Instrument</b>, sondern eine Einladung zur Selbstbeobachtung. Kreuzen Sie an, was Ihnen <b>über einen längeren Zeitraum</b> und <b>in mehreren Lebensbereichen</b> vertraut vorkommt. Wir besprechen Ihre Eindrücke gemeinsam in der Sitzung.</p>
-    </div>
-    
-    <h2>Checkliste</h2>
-    <div class="neuro-cols">
-      <div class="neuro-col">
-        <header><h3>Autismus <em>· Wahrnehmung & Struktur</em></h3><div class="k">A</div></header>
-        <div class="neuro-group"><div class="gname">Wahrnehmung & Reize</div>
-          <div class="checklist">
-            <div class="item"><span class="cb"></span><span>Geräusche, Licht, Gerüche oder Stoffe empfinde ich oft als überwältigend.</span></div>
-            <div class="item"><span class="cb"></span><span>Ich brauche nach sozialen Situationen lange Rückzugszeit, um mich zu erholen.</span></div>
-            <div class="item"><span class="cb"></span><span>Details, Muster oder Systeme bemerke ich früher als andere.</span></div>
-          </div>
-        </div>
-        <div class="neuro-group"><div class="gname">Soziales & Kommunikation</div>
-          <div class="checklist">
-            <div class="item"><span class="cb"></span><span>Small Talk fällt mir schwer oder erschöpft mich.</span></div>
-            <div class="item"><span class="cb"></span><span>Ich frage mich oft, welche „ungeschriebenen Regeln“ in einer Situation gelten.</span></div>
-            <div class="item"><span class="cb"></span><span>Ich habe gelernt, mich anzupassen — es kostet mich sehr viel Kraft (Masking).</span></div>
-          </div>
-        </div>
-        <div class="neuro-group"><div class="gname">Routinen & Interessen</div>
-          <div class="checklist">
-            <div class="item"><span class="cb"></span><span>Veränderungen oder unerwartete Abweichungen verunsichern mich stark.</span></div>
-            <div class="item"><span class="cb"></span><span>Es gibt Themen, in die ich mich sehr tief und ausdauernd vertiefen kann.</span></div>
-            <div class="item"><span class="cb"></span><span>Klare Abläufe und Routinen geben mir Halt.</span></div>
-          </div>
-        </div>
-      </div>
-    
-      <div class="neuro-col blue">
-        <header><h3>ADHS <em>· Aufmerksamkeit & Regulation</em></h3><div class="k">B</div></header>
-        <div class="neuro-group"><div class="gname">Aufmerksamkeit</div>
-          <div class="checklist">
-            <div class="item"><span class="cb"></span><span>Ich beginne viele Dinge, bringe sie aber oft nicht zu Ende.</span></div>
-            <div class="item"><span class="cb"></span><span>Ich verliere bei Gesprächen oder Texten schnell den Faden.</span></div>
-            <div class="item"><span class="cb"></span><span>Bei Themen, die mich fesseln, kann ich alles um mich herum vergessen (Hyperfokus).</span></div>
-          </div>
-        </div>
-        <div class="neuro-group"><div class="gname">Innere Unruhe & Impulse</div>
-          <div class="checklist">
-            <div class="item"><span class="cb"></span><span>Ich fühle mich oft innerlich unruhig, „mit laufendem Motor“.</span></div>
-            <div class="item"><span class="cb"></span><span>Ich unterbreche andere oder sage Dinge, bevor ich nachgedacht habe.</span></div>
-            <div class="item"><span class="cb"></span><span>Entscheidungen treffe ich oft spontan — und bereue sie manchmal.</span></div>
-          </div>
-        </div>
-        <div class="neuro-group"><div class="gname">Organisation & Gefühle</div>
-          <div class="checklist">
-            <div class="item"><span class="cb"></span><span>Zeit einschätzen, planen und priorisieren fällt mir schwer.</span></div>
-            <div class="item"><span class="cb"></span><span>Meine Gefühle kommen stark und schnell — Freude wie Frust.</span></div>
-            <div class="item"><span class="cb"></span><span>Kritik oder Zurückweisung treffen mich ungewöhnlich heftig.</span></div>
-          </div>
-        </div>
-      </div>
-    
-      <div class="neuro-col full taupe">
-        <header><h3>AuDHS <em>· Wo beides zusammenkommt</em></h3><div class="k">A + B</div></header>
-        <div class="checklist" style="display:grid; grid-template-columns:1fr 1fr; gap:2px 18px;">
-          <div class="item"><span class="cb"></span><span>Ich sehne mich nach Routine — und langweile mich sofort in ihr.</span></div>
-          <div class="item"><span class="cb"></span><span>Ich brauche klare Strukturen, vergesse sie aber ständig.</span></div>
-          <div class="item"><span class="cb"></span><span>Reizüberflutung <b>und</b> Reizhunger wechseln sich bei mir ab.</span></div>
-          <div class="item"><span class="cb"></span><span>Ich fühle mich zu viel und zu wenig zugleich — innerlich widersprüchlich.</span></div>
-          <div class="item"><span class="cb"></span><span>Masking + Impulsivität führen zu Erschöpfung und Selbstzweifel.</span></div>
-          <div class="item"><span class="cb"></span><span>Mein Umfeld beschreibt mich als „zu viel“ oder „zu still“ — je nach Tag.</span></div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="impuls">
-      <div class="tiny">Wichtig</div>
-      <p>Diese Liste ersetzt keine Diagnostik. Viele der genannten Erfahrungen können auch andere Ursachen haben (z.&nbsp;B. Stress, Trauma, Depression). Nehmen Sie das Blatt mit — wir schauen gemeinsam, welche Punkte für Sie besonders stimmig sind.</p>
-    </div>
-    
-    <div class="foot">
-      <span>Praxis Florentine Flach &nbsp;·&nbsp; Psychotherapie</span>
-      <span><b>04</b> / Neurodivergenz · Selbsteinordnung</span>
-    </div>
-
-  </div>
-</template>
-
-<template id="tpl-b-neuro">
-  <div class="page v-b page-neuro">
-    <div class="head">
-      <img class="brand-mark" src="assets/logo-mark.jpg" alt="Logo"/>
-      <div class="brand-name">Psychotherapeutische Praxis<b>Florentine Flach</b></div>
-      <div class="page-no"><b>04</b> &nbsp;· &nbsp;Neurodivergenz</div>
-    </div>
-
-
-    <div class="title-row">
-      <h1>Wie <span class="accent">ticke ich</span> —<br/>eigentlich?</h1>
-      <div class="meta-col">
-        <div class="tiny" style="margin-bottom:8px;">Selbsteinordnung</div>
-        <b>Autismus · ADHS · AuDHS</b>
-        <div class="tiny" style="margin:14px 0 8px;">Hinweis</div>
-        <b>kein Diagnoseinstrument</b>
-      </div>
-    </div>
-    
-    <div class="hr"></div>
-    <p class="lede">Diese Übersicht ist ein erster Gesprächseinstieg. Kreuzen Sie an, was Ihnen über einen längeren Zeitraum und in mehreren Lebensbereichen vertraut ist. Markieren Sie mit einem Punkt, was besonders stark zutrifft.</p>
-    
-    <div class="neuro-cols">
-      <div class="neuro-col">
-        <header><h3>Autismus</h3><div class="k">A · Wahrnehmung</div></header>
-        <div class="checklist">
-          <div class="item"><span class="cb"></span><span>Reize (Geräusche, Licht, Stoffe) wirken schnell überwältigend.</span></div>
-          <div class="item"><span class="cb"></span><span>Nach sozialen Situationen brauche ich lange Erholungszeit.</span></div>
-          <div class="item"><span class="cb"></span><span>Small Talk fällt mir schwer oder ist kraftraubend.</span></div>
-          <div class="item"><span class="cb"></span><span>„Ungeschriebene Regeln“ muss ich mir bewusst erschließen.</span></div>
-          <div class="item"><span class="cb"></span><span>Ich habe mich lange angepasst — es kostet viel Kraft (Masking).</span></div>
-          <div class="item"><span class="cb"></span><span>Veränderungen verunsichern mich stark.</span></div>
-          <div class="item"><span class="cb"></span><span>Es gibt Themen, in die ich tief und lange versinken kann.</span></div>
-          <div class="item"><span class="cb"></span><span>Routinen und klare Abläufe geben mir Halt.</span></div>
-        </div>
-      </div>
-    
-      <div class="neuro-col blue">
-        <header><h3>ADHS</h3><div class="k">B · Aufmerksamkeit</div></header>
-        <div class="checklist">
-          <div class="item"><span class="cb"></span><span>Ich beginne vieles — beende es aber selten.</span></div>
-          <div class="item"><span class="cb"></span><span>In Gesprächen/Texten verliere ich schnell den Faden.</span></div>
-          <div class="item"><span class="cb"></span><span>Bei interessanten Themen versinke ich völlig (Hyperfokus).</span></div>
-          <div class="item"><span class="cb"></span><span>Ich fühle mich innerlich unruhig, „mit laufendem Motor“.</span></div>
-          <div class="item"><span class="cb"></span><span>Ich unterbreche oder handle, bevor ich nachgedacht habe.</span></div>
-          <div class="item"><span class="cb"></span><span>Zeit, Planung und Priorisierung sind Dauerthemen.</span></div>
-          <div class="item"><span class="cb"></span><span>Gefühle kommen stark, schnell, schwer zu bremsen.</span></div>
-          <div class="item"><span class="cb"></span><span>Kritik oder Zurückweisung treffen mich heftig.</span></div>
-        </div>
-      </div>
-    
-      <div class="neuro-col full taupe">
-        <header><h3>AuDHS — wenn beides zusammenkommt</h3><div class="k">A + B</div></header>
-        <div class="checklist" style="display:grid; grid-template-columns:1fr 1fr; gap:2px 18px;">
-          <div class="item"><span class="cb"></span><span>Ich sehne mich nach Struktur — und langweile mich in ihr.</span></div>
-          <div class="item"><span class="cb"></span><span>Reizüberflutung und Reizhunger wechseln sich ab.</span></div>
-          <div class="item"><span class="cb"></span><span>Ich fühle mich gleichzeitig „zu viel“ und „zu wenig“.</span></div>
-          <div class="item"><span class="cb"></span><span>Masking + Impulsivität = Erschöpfung und Selbstzweifel.</span></div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="neuro-scale">
-      <div class="scale-box">
-        <div class="lbl">Autismus · Zutrifft-Grad</div>
-        <div class="pills"><span class="pill">0</span><span class="pill">1</span><span class="pill">2</span><span class="pill">3</span><span class="pill">4</span><span class="pill">5</span><span class="pill">6</span><span class="pill">7</span><span class="pill">8</span><span class="pill">9</span><span class="pill">10</span></div>
-        <div class="hint">0 = gar nicht · 10 = sehr stark</div>
-      </div>
-      <div class="scale-box">
-        <div class="lbl">ADHS · Zutrifft-Grad</div>
-        <div class="pills"><span class="pill">0</span><span class="pill">1</span><span class="pill">2</span><span class="pill">3</span><span class="pill">4</span><span class="pill">5</span><span class="pill">6</span><span class="pill">7</span><span class="pill">8</span><span class="pill">9</span><span class="pill">10</span></div>
-        <div class="hint">Bitte Eindruck markieren</div>
-      </div>
-    </div>
-    
-    <div class="foot">
-      <span>Praxis Florentine Flach</span>
-      <span>Seite 04 · kein Diagnoseinstrument</span>
-    </div>
-
-  </div>
-</template>
-
-<template id="tpl-c-neuro">
-  <div class="page v-c page-neuro">
-    <div class="head">
-      <div class="brand">
-        <img src="assets/logo-mark.jpg" alt="Logo"/>
-        <div>
-          <div class="t1">Praxis</div>
-          <div class="t2">Florentine Flach</div>
-        </div>
-      </div>
-      <div class="chip">Selbsteinordnung · 04</div>
-    </div>
-
-
-    <div class="title-block">
-      <div class="eyebrow">Autismus · ADHS · AuDHS</div>
-      <h1>Eine Landkarte <em>meines Erlebens</em></h1>
-      <p class="lede">Nicht jede Eigenart ist eine Diagnose — und nicht jede Diagnose erklärt alles. Diese Liste ist ein erster Spiegel. Kreuzen Sie freundlich an, was Ihnen seit Langem vertraut ist.</p>
-    </div>
-    
-    <div class="orn"><span></span><span></span><span></span></div>
-    
-    <div class="neuro-cols">
-      <div class="neuro-col">
-        <header><h3>Autismus</h3><div class="k">Wahrnehmung</div></header>
-        <div class="sub">Reize, Struktur, Tiefe</div>
-        <div class="checklist">
-          <div class="item"><span class="cb"></span><span>Reize wirken oft sehr intensiv auf mich.</span></div>
-          <div class="item"><span class="cb"></span><span>Nach sozialen Situationen brauche ich Rückzug.</span></div>
-          <div class="item"><span class="cb"></span><span>Small Talk erschöpft mich schneller als andere.</span></div>
-          <div class="item"><span class="cb"></span><span>„Ungeschriebene Regeln“ muss ich bewusst lernen.</span></div>
-          <div class="item"><span class="cb"></span><span>Anpassung kostet mich sehr viel Kraft (Masking).</span></div>
-          <div class="item"><span class="cb"></span><span>Veränderungen verunsichern mich stark.</span></div>
-          <div class="item"><span class="cb"></span><span>In Themen kann ich tief und lange versinken.</span></div>
-          <div class="item"><span class="cb"></span><span>Routinen geben mir Halt.</span></div>
-        </div>
-      </div>
-    
-      <div class="neuro-col blue">
-        <header><h3>ADHS</h3><div class="k">Aufmerksamkeit</div></header>
-        <div class="sub">Fokus, Energie, Gefühl</div>
-        <div class="checklist">
-          <div class="item"><span class="cb"></span><span>Ich beginne vieles — beende wenig.</span></div>
-          <div class="item"><span class="cb"></span><span>Ich verliere schnell den Faden.</span></div>
-          <div class="item"><span class="cb"></span><span>Bei Interesse versinke ich ganz (Hyperfokus).</span></div>
-          <div class="item"><span class="cb"></span><span>Innere Unruhe, „laufender Motor“.</span></div>
-          <div class="item"><span class="cb"></span><span>Ich handle oft vor dem Nachdenken.</span></div>
-          <div class="item"><span class="cb"></span><span>Zeit und Planung sind Dauerthemen.</span></div>
-          <div class="item"><span class="cb"></span><span>Gefühle kommen stark und schnell.</span></div>
-          <div class="item"><span class="cb"></span><span>Zurückweisung trifft mich heftig.</span></div>
-        </div>
-      </div>
-    
-      <div class="neuro-col full taupe">
-        <header><h3>AuDHS — wenn beides zusammenklingt</h3><div class="k">A + B</div></header>
-        <div class="checklist" style="display:grid; grid-template-columns:1fr 1fr; gap:2px 18px;">
-          <div class="item"><span class="cb"></span><span>Ich sehne mich nach Struktur — und langweile mich in ihr.</span></div>
-          <div class="item"><span class="cb"></span><span>Reizüberflutung und Reizhunger wechseln sich ab.</span></div>
-          <div class="item"><span class="cb"></span><span>Ich fühle mich zu viel und zu wenig zugleich.</span></div>
-          <div class="item"><span class="cb"></span><span>Masking + Impulsivität führen zu Erschöpfung.</span></div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="invite">
-      <div class="tiny" style="color:var(--terracotta); margin-bottom:8px;">Hinweis</div>
-      <div class="q">Diese Liste ist kein Diagnoseinstrument — sie ist ein Gesprächseinstieg. Bringen Sie das Blatt mit; wir sehen gemeinsam, was Sie bewegt.</div>
-    </div>
-    
-    <div class="foot">
-      <span>Florentine Flach · Psychotherapeutische Praxis</span>
-      <span>Neurodivergenz · Selbsteinordnung</span>
-    </div>
-
-  </div>
-</template>
-
-
 <script>
-const stack = document.getElementById('stack');
-const tpls = {
-  a: { tag: 'tpl-a-tag', anteile: 'tpl-a-anteile', panik: 'tpl-a-panik', neuro: 'tpl-a-neuro' },
-  b: { tag: 'tpl-b-tag', anteile: 'tpl-b-anteile', panik: 'tpl-b-panik', neuro: 'tpl-b-neuro' },
-  c: { tag: 'tpl-c-tag', anteile: 'tpl-c-anteile', panik: 'tpl-c-panik', neuro: 'tpl-c-neuro' },
-};
-const labels = {
-  a: 'Variante A · Klassisch Editorial',
-  b: 'Variante B · Ruhig Modern',
-  c: 'Variante C · Warm Organisch',
-  tag: 'Tagesprotokoll',
-  anteile: 'Anteile benennen & beschreiben',
-  panik: 'Panikattacken verstehen',
-  neuro: 'Neurodivergenz · Selbsteinordnung',
+/* ── CATEGORIES ── */
+const CAT = {
+  einstieg:    { name: 'Einstieg',    color: '#B08264' },
+  fokus:       { name: 'Fokus',       color: '#5B7F97' },
+  procrast:    { name: 'Übergänge',   color: '#8A7968' },
+  emotionen:   { name: 'Gefühle',     color: '#7B8FA6' },
+  selbstbild:  { name: 'Selbstbild',  color: '#C4956A' },
+  koerper:     { name: 'Körper',      color: '#7A9E8A' },
+  soziales:    { name: 'Soziales',    color: '#5B7F97' },
 };
 
 
-let current = { v: 'a', h: 'all' };
+/* ── SVG ICONS ── */
+const ICONS = {
+  einstieg: `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#B08264" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="24" cy="24" r="18"/>
+    <polyline points="20,18 30,24 20,30"/>
+  </svg>`,
+  fokus: `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#5B7F97" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="24" cy="24" r="6"/>
+    <circle cx="24" cy="24" r="13"/>
+    <line x1="24" y1="6" x2="24" y2="11"/>
+    <line x1="24" y1="37" x2="24" y2="42"/>
+    <line x1="6" y1="24" x2="11" y2="24"/>
+    <line x1="37" y1="24" x2="42" y2="24"/>
+  </svg>`,
+  procrast: `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#8A7968" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 30 Q16 18 24 26 Q32 34 40 22"/>
+    <path d="M8 22 Q16 10 24 18 Q32 26 40 14"/>
+  </svg>`,
+  emotionen: `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#7B8FA6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 38 C14 30 8 24 8 17 C8 12 12 8 17 8 C20 8 22 9.5 24 12 C26 9.5 28 8 31 8 C36 8 40 12 40 17 C40 24 34 30 24 38Z"/>
+  </svg>`,
+  selbstbild: `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="24" cy="18" r="8"/>
+    <path d="M12 40 C12 33 17 28 24 28 C31 28 36 33 36 40"/>
+    <path d="M24 10 L24 6 M24 30 L24 34" stroke-opacity=".4"/>
+  </svg>`,
+  koerper: `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#7A9E8A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 8 C24 8 14 18 14 28 C14 35 18.5 40 24 40 C29.5 40 34 35 34 28 C34 18 24 8 24 8Z"/>
+    <path d="M24 20 C20 24 18 28 20 32" stroke-opacity=".5"/>
+  </svg>`,
+  soziales: `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#5B7F97" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="17" cy="20" r="7"/>
+    <circle cx="31" cy="20" r="7"/>
+    <path d="M6 40 C6 33 11 28 17 28"/>
+    <path d="M42 40 C42 33 37 28 31 28"/>
+    <path d="M17 28 C20 30 28 30 31 28" stroke-dasharray="3 2"/>
+  </svg>`,
+};
 
-function mountPage(v, h){
-  const wrap = document.createElement('div');
-  wrap.className = 'page-wrap';
-  wrap.setAttribute('data-screen-label', `${v.toUpperCase()} · ${h}`);
+/* ── CARDS ── */
+const CARDS = [
+  // EINSTIEG 1–8
+  { n:1,  cat:'einstieg',   text:'Nur anfangen. Nicht fertigmachen. Nicht gut machen. Nur: anfangen.' },
+  { n:2,  cat:'einstieg',   text:'Öffne das Dokument. Schau es an. Das war\'s für jetzt.' },
+  { n:3,  cat:'einstieg',   text:'Zwei Minuten. Wenn es danach immer noch schrecklich ist — aufhören war erlaubt.' },
+  { n:4,  cat:'einstieg',   text:'Du musst das nicht wollen. Du musst es nur kurz tun.' },
+  { n:5,  cat:'einstieg',   text:'Der erste Schritt darf so klein sein, dass er sich fast lächerlich anfühlt. Er zählt trotzdem.' },
+  { n:6,  cat:'einstieg',   text:'"Später" ist keine Uhrzeit. Wann genau — und wirklich?' },
+  { n:7,  cat:'einstieg',   text:'Stell den Timer. Nicht für die Aufgabe. Nur für den Moment, wo du anfängst.' },
+  { n:8,  cat:'einstieg',   text:'Dein Gehirn braucht manchmal eine Auffahrt, keine Disziplin.' },
+  // FOKUS 9–16
+  { n:9,  cat:'fokus',      text:'Eine Sache. Nicht die Liste — eine einzige Sache. Die Liste läuft weg.' },
+  { n:10, cat:'fokus',      text:'Timer an. Handy weg. Tür zu. Das ist kein Trick — das ist dein präfrontaler Kortex von außen.' },
+  { n:11, cat:'fokus',      text:'Dein Gehirn liebt Optionen und bricht dann zusammen. Heute: keine Optionen.' },
+  { n:12, cat:'fokus',      text:'Struktur ist nicht Gefängnis. Sie ist das Geländer, das dir erlaubt, schneller zu gehen.' },
+  { n:13, cat:'fokus',      text:'Ein freier Tisch ist kein leerer Kopf — aber er hilft.' },
+  { n:14, cat:'fokus',      text:'Alles hat einen festen Platz. Nicht weil du ordentlich bist. Sondern damit du nie wieder suchst.' },
+  { n:15, cat:'fokus',      text:'Routinen sind Entscheidungen, die du dir schon vorher abgenommen hast. Schlaues System.' },
+  { n:16, cat:'fokus',      text:'Mach die Zeit sichtbar. Dein Gehirn glaubt an Zeit erst, wenn es sie sehen kann.' },
+  // PROKRASTINATION 17–24
+  { n:17, cat:'procrast',   text:'Der Wechsel zwischen Aufgaben kostet echte Energie. Das bist nicht du — das ist Neurologie.' },
+  { n:18, cat:'procrast',   text:'Du brauchst eine Auffahrt. Kein Mensch mit ADHS schaltet einfach um. Gönn dir den Übergang.' },
+  { n:19, cat:'procrast',   text:'"Ich will nicht" und "Ich kann gerade nicht" fühlen sich identisch an. Meistens ist es das Zweite.' },
+  { n:20, cat:'procrast',   text:'Die Wall of Awful ist real. Du reißt sie nicht ein. Du kletterst drüber. Einmal.' },
+  { n:21, cat:'procrast',   text:'Allein nicht möglich? Leih dir den Fokus von jemand anderem. Bodydoubling ist kein Trick — es ist Neurobiologie.' },
+  { n:22, cat:'procrast',   text:'Gut genug ist fertig. Fertig existiert. Perfekt meistens nicht.' },
+  { n:23, cat:'procrast',   text:'Perfektionismus fühlt sich nach hohen Standards an. Meistens ist er Angst in Verkleidung.' },
+  { n:24, cat:'procrast',   text:'Abgeschickt. Abgegeben. Erledigt. Das zählt — nicht wie es aussah.' },
+  // EMOTIONEN 25–33
+  { n:25, cat:'emotionen',  text:'Was du gerade fühlst, ist echt. Es ist nur nicht die ganze Wahrheit.' },
+  { n:26, cat:'emotionen',  text:'Intensive Gefühle kommen wie eine Welle. Wellen brechen sich. Warte kurz.' },
+  { n:27, cat:'emotionen',  text:'Das war RSD — kein Beweis, keine Realität, kein Urteil über dich.' },
+  { n:28, cat:'emotionen',  text:'Kritik trifft bei dir tiefer als bei anderen. Das ist Neurologie, kein Charakterfehler.' },
+  { n:29, cat:'emotionen',  text:'10 Sekunden. Nichts schreiben. Nichts senden. Nichts entscheiden. Erst atmen.' },
+  { n:30, cat:'emotionen',  text:'"Ich bin gerade getriggert" ist eine Information. Keine Diagnose, kein Versagen — eine Info.' },
+  { n:31, cat:'emotionen',  text:'Wut ist oft Scham, die lauter geworden ist.' },
+  { n:32, cat:'emotionen',  text:'Du darfst fühlen, was du fühlst. Du musst nur nicht sofort handeln.' },
+  { n:33, cat:'emotionen',  text:'Rausgehen. Hände bewegen. Tief ausatmen. Dann — und wirklich erst dann — entscheiden.' },
+  // SELBSTBILD 34–42
+  { n:34, cat:'selbstbild', text:'Dein Gehirn arbeitet anders. Nicht weniger. Anders.' },
+  { n:35, cat:'selbstbild', text:'Du bist nicht faul. Du bist unterversorgt mit dem Reiz, den dein Gehirn gerade braucht.' },
+  { n:36, cat:'selbstbild', text:'Jahrelange Erschöpfung sieht von außen manchmal wie Gleichgültigkeit aus. Sie ist es nicht.' },
+  { n:37, cat:'selbstbild', text:'Du hast nicht versagt. Du hast ein System benutzt, das schlicht nicht für dich gebaut wurde.' },
+  { n:38, cat:'selbstbild', text:'Was du als Makel siehst — die Intensität, die Schnelligkeit, das Alles-oder-Nichts — ist manchmal auch das, was dich unersetzlich macht.' },
+  { n:39, cat:'selbstbild', text:'Scham macht kleiner. Neugier macht größer. Was passiert, wenn du dich kurz wunderst statt verurteilst?' },
+  { n:40, cat:'selbstbild', text:'Du erinnerst dich an Fehler wie an Tattoos. Aber Erfolge sind auch passiert — auch wenn sie sich nicht so anfühlen.' },
+  { n:41, cat:'selbstbild', text:'Selbstmitgefühl ist nicht Selbstmitleid. Es ist die effektivste Anti-Scham-Strategie, die die Forschung kennt.' },
+  { n:42, cat:'selbstbild', text:'Du hast heute mehr geleistet als du denkst. Dein Maßstab ist nur ungerecht.' },
+  // KÖRPER 43–48
+  { n:43, cat:'koerper',    text:'10 Minuten gehen. Kein Sport, kein Programm — nur Beine bewegen. Dein Dopamin wird es dir danken.' },
+  { n:44, cat:'koerper',    text:'Kurz innehalten: Hunger? Durst? Anspannung? Dein Körper hat schon eine Weile gewartet.' },
+  { n:45, cat:'koerper',    text:'Pausen sind keine verlorene Zeit. Sie sind die Zeit, in der dein Gehirn das Vorherige verarbeitet.' },
+  { n:46, cat:'koerper',    text:'Schlechter Schlaf macht ADHS schlimmer. Immer. Kein Vorwurf — nur eine Information, die dir erlaubt, gnädiger mit dir zu sein.' },
+  { n:47, cat:'koerper',    text:'Bewegung vor der schweren Aufgabe. Nicht als Belohnung danach — als Anlaufhilfe davor.' },
+  { n:48, cat:'koerper',    text:'Nach einem vollen Tag mit Menschen: Puffer einplanen. Soziale Erschöpfung ist real.' },
+  // SOZIALES 49–50
+  { n:49, cat:'soziales',   text:'"Ich melde mich — ich brauche kurz Abstand" ist ein vollständiger Satz. Er braucht keine Begründung.' },
+  { n:50, cat:'soziales',   text:'Du liebst intensiv. Du engagierst dich intensiv. Du erschöpfst dich intensiv. Das gehört zusammen — und das Erste ist auch eine Gabe.' },
+];
 
-  const lab = document.createElement('div');
-  lab.className = 'page-label';
-  lab.innerHTML = `<b>${labels[v]}</b> &nbsp;·&nbsp; ${labels[h]}`;
-  wrap.appendChild(lab);
+/* ── STATE ── */
+let idx = Math.floor(Math.random() * CARDS.length);
+let flipped = false;
+let shuffledOrder = [...Array(50).keys()];
 
-  const tpl = document.getElementById(tpls[v][h]);
-  const node = tpl.content.firstElementChild.cloneNode(true);
-  wrap.appendChild(node);
-  stack.appendChild(wrap);
-  return { wrap, node };
+function shuffle(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+  return arr;
+}
+shuffle(shuffledOrder);
+let shufflePos = 0;
+
+/* ── RENDER ── */
+function render(animate){
+  const c = CARDS[idx];
+  const cat = CAT[c.cat];
+  const color = cat.color;
+
+  // text — italicize numbers
+  const text = c.text.replace(/(\d+)/g, '<em>$1</em>');
+  document.getElementById('cardText').innerHTML = text;
+  document.getElementById('accentBar').style.background = color;
+  document.getElementById('catDot').style.background = color;
+  document.getElementById('catName').textContent = cat.name;
+  document.getElementById('cardNum').textContent = c.n + ' / 50';
+  document.getElementById('cardIcon').innerHTML = ICONS[c.cat];
+  document.getElementById('catLabel').textContent = cat.name;
+  document.getElementById('progress').textContent = c.n + ' · 50';
+
+  // unflip
+  if(flipped){
+    document.getElementById('card').classList.remove('flipped');
+    flipped = false;
+  }
+
+  if(animate){
+    const w = document.getElementById('cardWrap');
+    w.classList.remove('animate');
+    void w.offsetWidth;
+    w.classList.add('animate');
+  }
 }
 
-function render(){
-  stack.innerHTML = '';
-  const variants = [current.v];
-  const handouts = current.h === 'all' ? ['tag','anteile','panik','neuro'] : [current.h];
-  for (const v of variants){
-    for (const h of handouts){
-      mountPage(v, h);
-    }
-  }
-  requestAnimationFrame(scaleAll);
-}
-
-function scaleAll(){
-  document.querySelectorAll('.page-wrap').forEach(wrap=>{
-    const page = wrap.querySelector('.page');
-    if(!page) return;
-    const wrapW = wrap.getBoundingClientRect().width;
-    const scale = wrapW / 794;
-    page.style.transform = `scale(${scale})`;
-    wrap.style.height = (1123 * scale) + 'px';
-    wrap.style.aspectRatio = 'auto';
-  });
-}
-
-window.addEventListener('resize', scaleAll);
-
-document.getElementById('toolbar').addEventListener('click', e=>{
-  const btn = e.target.closest('button');
-  if(!btn) return;
-  if (btn.dataset.v){
-    current.v = btn.dataset.v;
-    document.querySelectorAll('#toolbar button[data-v]').forEach(b=>b.classList.toggle('active', b===btn));
-  }
-  if (btn.dataset.h){
-    current.h = btn.dataset.h;
-    document.querySelectorAll('#toolbar button[data-h]').forEach(b=>b.classList.toggle('active', b===btn));
-  }
-  render();
+/* ── EVENTS ── */
+document.getElementById('cardWrap').addEventListener('click', function(){
+  flipped = !flipped;
+  document.getElementById('card').classList.toggle('flipped', flipped);
 });
 
-render();
+document.getElementById('btnShuffle').addEventListener('click', function(){
+  shufflePos = (shufflePos + 1) % shuffledOrder.length;
+  idx = shuffledOrder[shufflePos];
+  render(true);
+});
+
+document.getElementById('btnNext').addEventListener('click', function(){
+  idx = (idx + 1) % CARDS.length;
+  render(true);
+});
+
+document.getElementById('btnPrev').addEventListener('click', function(){
+  idx = (idx - 1 + CARDS.length) % CARDS.length;
+  render(true);
+});
+
+// Swipe
+let touchStartX = 0;
+document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if(Math.abs(dx) > 50){
+    if(dx < 0){ idx = (idx+1)%CARDS.length; }
+    else { idx = (idx-1+CARDS.length)%CARDS.length; }
+    render(true);
+  }
+});
+
+render(false);
 </script>
 </body>
 </html>
