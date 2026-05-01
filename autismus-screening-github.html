@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autismus-Screening – Psychotherapeutische Praxis Florentine Flach</title>
+<style>
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-300.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-500.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-italic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/roboto-v51-latin-300.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/roboto-v51-latin-regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/roboto-v51-latin-500.woff2') format('woff2');
+  }
+
+  .as-root {
+    font-family: 'Roboto', sans-serif;
+    color: #2A2A24;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .as-root * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+
+  /* HERO */
+  .as-hero {
+    background: #5B8FA8;
+    color: #FAFAF7;
+    padding: 80px 40px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .as-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 90% 20%, rgba(176,136,96,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(176,136,96,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .as-hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .as-hero-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #D4B08A;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .as-hero h1 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(2.2rem, 5vw, 3.6rem) !important;
+    font-weight: 300 !important;
+    line-height: 1.2 !important;
+    margin-bottom: 24px !important;
+    letter-spacing: -0.02em !important;
+    color: #FAFAF7 !important;
+  }
+  .as-hero h1 em {
+    font-style: italic;
+    color: #D4B08A;
+  }
+  .as-hero-intro {
+    font-size: 1rem;
+    color: rgba(250,250,247,0.82);
+    max-width: 580px;
+    line-height: 1.8;
+  }
+
+  /* DIVIDER */
+  .as-divider {
+    height: 5px;
+    background: linear-gradient(90deg, #B08860 0%, #D4B08A 40%, transparent 100%);
+    opacity: 0.5;
+  }
+
+  /* INTRO SECTION */
+  .as-intro-section {
+    padding: 64px 40px 40px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .as-intro-box {
+    background: #F3F0E8;
+    border-left: 3px solid #B08860;
+    padding: 28px 32px;
+    margin-bottom: 12px;
+  }
+  .as-intro-box p {
+    font-size: 0.95rem;
+    color: #2A2A24;
+    line-height: 1.85;
+    margin: 0 0 10px;
+  }
+  .as-intro-box p:last-child { margin-bottom: 0; }
+  .as-disclaimer {
+    font-size: 0.82rem;
+    color: #6B6B62;
+    font-style: italic;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(176,136,96,0.3);
+  }
+
+  /* FRAGEBÖGEN SECTION */
+  .as-section {
+    padding: 16px 40px 64px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .as-section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #B08860;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  /* CARDS (Accordion wie Methoden-Seite) */
+  .as-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .as-card {
+    background: #FAFAF7;
+    border-left: 3px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .as-card:hover { background: #F3F0E8; }
+  .as-card.as-catq  { border-left-color: #5B8FA8; }
+  .as-card.as-raads { border-left-color: #B08860; }
+  .as-card.as-aq    { border-left-color: #7AAFC4; }
+  .as-card.as-eq    { border-left-color: #8A6845; }
+
+  .as-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 32px 36px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .as-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 300;
+    line-height: 1;
+    min-width: 44px;
+    opacity: 0.13;
+    color: #2A2A24;
+  }
+  .as-title-block { flex: 1; }
+  .as-meta {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6B6B62;
+    margin-bottom: 3px;
+    display: block;
+  }
+  .as-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.6rem !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.2 !important;
+    color: #2A2A24 !important;
+    margin: 0 !important;
+  }
+  .as-teaser {
+    font-size: 0.86rem;
+    color: #6B6B62;
+    max-width: 460px;
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+  .as-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(0,0,0,0.13);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    color: #6B6B62;
+    background: transparent;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .as-card.as-open .as-btn {
+    background: #5B8FA8;
+    border-color: #5B8FA8;
+    color: white;
+  }
+
+  /* CARD BODY */
+  .as-body { display: none; padding: 0 36px 36px 104px; }
+  .as-card.as-open .as-body { display: block; }
+  .as-body-inner {
+    border-top: 1px solid rgba(0,0,0,0.07);
+    padding-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 40px;
+  }
+  .as-text h3 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 400 !important;
+    color: #5B8FA8 !important;
+    margin: 20px 0 6px !important;
+  }
+  .as-text h3:first-child { margin-top: 0 !important; }
+  .as-text p {
+    font-size: 0.93rem;
+    color: #2A2A24;
+    line-height: 1.85;
+    opacity: 0.85;
+    margin: 0 0 4px;
+  }
+
+  /* HINWEIS BOX im Card */
+  .as-hinweis-box {
+    background: #F3F0E8;
+    border-left: 2px solid #B08860;
+    padding: 14px 18px;
+    margin: 12px 0;
+    font-size: 0.88rem;
+    color: #2A2A24;
+    line-height: 1.75;
+    opacity: 1 !important;
+  }
+
+  /* SIDEBAR */
+  .as-sidebar {
+    background: #F3F0E8;
+    padding: 24px;
+    border-radius: 3px;
+    align-self: start;
+  }
+  .as-sidebar-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6B6B62;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .as-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .as-tag {
+    font-size: 0.76rem;
+    padding: 3px 11px;
+    border: 1px solid rgba(0,0,0,0.13);
+    border-radius: 20px;
+    color: #2A2A24;
+    background: white;
+  }
+  .as-cutoff {
+    font-size: 0.82rem;
+    color: #2A2A24;
+    border-top: 1px solid rgba(0,0,0,0.09);
+    padding-top: 14px;
+    line-height: 1.65;
+  }
+  .as-cutoff strong {
+    color: #5B8FA8;
+    font-weight: 500;
+  }
+  .as-link {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 24px;
+    background: #5B8FA8;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: background 0.25s;
+    width: 100%;
+    text-align: center;
+  }
+  .as-link:hover { background: #3A6478; }
+
+  /* ERGEBNIS SECTION */
+  .as-result-section {
+    background: #5B8FA8;
+    padding: 72px 40px;
+  }
+  .as-result-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .as-result-inner .as-hero-label { margin-bottom: 16px; }
+  .as-result-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.7rem, 3vw, 2.4rem) !important;
+    font-weight: 300 !important;
+    line-height: 1.25 !important;
+    color: #FAFAF7 !important;
+    margin: 0 0 20px !important;
+  }
+  .as-result-text {
+    font-size: 0.92rem;
+    color: rgba(250,250,247,0.82);
+    line-height: 1.85;
+    max-width: 580px;
+    margin-bottom: 36px;
+  }
+  .as-table-wrap {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 0;
+    overflow: hidden;
+  }
+  .as-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  .as-table thead tr {
+    background: rgba(0,0,0,0.12);
+  }
+  .as-table th {
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(250,250,247,0.6);
+    font-weight: 400;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .as-table td {
+    padding: 16px 24px;
+    color: #FAFAF7;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-weight: 300;
+    vertical-align: middle;
+  }
+  .as-table tr:last-child td { border-bottom: none; }
+  .as-table .as-score-cell {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    width: 120px;
+    min-width: 80px;
+  }
+  .as-pill {
+    display: inline-block;
+    font-size: 0.78rem;
+    padding: 3px 12px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    color: #D4B08A;
+    letter-spacing: 0.03em;
+  }
+
+  /* ÜBERSETZUNG */
+  .as-uebers-section {
+    background: #F3F0E8;
+    padding: 52px 40px;
+  }
+  .as-uebers-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .as-uebers-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 400 !important;
+    color: #2A2A24 !important;
+    margin: 0 0 32px !important;
+    grid-column: 1 / -1;
+  }
+  .as-uebers-card {
+    background: #FAFAF7;
+    padding: 20px 22px;
+    border-top: 2px solid #B08860;
+  }
+  .as-uebers-browser {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #B08860;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .as-uebers-card p {
+    font-size: 0.84rem;
+    color: #2A2A24;
+    line-height: 1.7;
+    opacity: 0.85;
+    margin: 0;
+  }
+
+  /* CLOSING */
+  .as-closing {
+    background: #FAFAF7;
+    padding: 72px 40px;
+    text-align: center;
+  }
+  .as-closing-inner { max-width: 540px; margin: 0 auto; }
+  .as-closing h2 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.7rem, 3vw, 2.4rem) !important;
+    font-weight: 300 !important;
+    line-height: 1.3 !important;
+    color: #5B8FA8 !important;
+    margin-bottom: 16px !important;
+  }
+  .as-closing p {
+    font-size: 0.93rem;
+    color: #6B6B62;
+    line-height: 1.85;
+    margin-bottom: 32px;
+  }
+  .as-cta {
+    display: inline-block;
+    padding: 13px 36px;
+    background: #5B8FA8;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 0.82rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: background 0.25s;
+  }
+  .as-cta:hover { background: #3A6478; }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .as-hero { padding: 56px 24px 48px; }
+    .as-intro-section { padding: 40px 20px 24px; }
+    .as-section { padding: 12px 20px 48px; }
+    .as-header { padding: 24px 18px; }
+    .as-num { display: none; }
+    .as-body { padding: 0 18px 28px 18px; }
+    .as-body-inner { grid-template-columns: 1fr; }
+    .as-result-section { padding: 52px 24px; }
+    .as-uebers-section { padding: 40px 20px; }
+    .as-uebers-inner { grid-template-columns: 1fr; }
+    .as-closing { padding: 52px 24px; }
+  }
+</style>
+
+<div class="as-root">
+
+  <!-- HERO -->
+  <div class="as-hero">
+    <div class="as-hero-inner">
+      <span class="as-hero-label">Autismus-Diagnostik</span>
+      <h1>Fragebögen zur<br><em>Vorbereitung</em></h1>
+      <p class="as-hero-intro">
+        Wenn wir gemeinsam einen Verdacht auf eine Autismus-Spektrum-Störung besprechen,
+        bitte ich Sie, diese Selbstauskunfts-Fragebögen vorab auszufüllen.
+        Die Ergebnisse helfen uns, ein umfassenderes Bild zu bekommen - bevor wir
+        in die strukturierte Diagnostik gehen.
+      </p>
+    </div>
+  </div>
+  <div class="as-divider"></div>
+
+  <!-- INTRO -->
+  <div class="as-intro-section">
+    <div class="as-intro-box">
+      <p>Bitte beantworten Sie die Fragen so ehrlich wie möglich - nicht so, wie Sie
+      glauben, dass andere Sie sehen, sondern so, wie Sie sich selbst erleben.
+      Lesen Sie die Ausfüllhinweise bei jedem Fragebogen aufmerksam durch, bevor Sie beginnen.
+      Notieren Sie Ihre Punktzahl am Ende und bringen Sie sie zu unserem nächsten Gespräch mit.</p>
+      <p class="as-disclaimer">
+        Kein Fragebogen kann eine Diagnose stellen. Die Ergebnisse sind Gesprächsgrundlage
+        und fließen in die gemeinsame diagnostische Einschätzung ein - sie ersetzen weder
+        das klinische Gespräch noch eine strukturierte Diagnostik.
+      </p>
+    </div>
+  </div>
+
+  <!-- FRAGEBÖGEN -->
+  <div class="as-section">
+    <span class="as-section-label">Die Fragebögen im Überblick</span>
+    <div class="as-stack">
+
+      <!-- CAT-Q -->
+      <div class="as-card as-catq" id="as-catq">
+        <div class="as-header" onclick="asToggle('catq')">
+          <span class="as-num">01</span>
+          <div class="as-title-block">
+            <span class="as-meta">Deutsch · ca. 10 Minuten</span>
+            <h2 class="as-title">CAT-Q – Camouflaging Autistic Traits</h2>
+            <p class="as-teaser">Wie viel Energie fließt ins Verbergen und Anpassen?</p>
+          </div>
+          <div class="as-btn" id="as-btn-catq">+</div>
+        </div>
+        <div class="as-body" id="as-body-catq">
+          <div class="as-body-inner">
+            <div class="as-text">
+              <h3>Worum geht es?</h3>
+              <p>Der CAT-Q erfasst, inwieweit Sie autistische Züge aktiv verbergen oder kompensieren -
+              ein Phänomen, das als Masking oder Camouflaging bezeichnet wird. Viele Menschen,
+              besonders Frauen und Menschen mit hohem kognitivem Niveau, haben über Jahre
+              fein abgestimmte Strategien entwickelt, um in sozialen Situationen unauffällig
+              zu wirken. Nach außen funktioniert das oft sehr gut - nach innen ist es häufig
+              erschöpfend.</p>
+              <h3>Was misst er genau?</h3>
+              <p>Der Fragebogen unterscheidet drei Strategien: Kompensation (aktives Ausgleichen
+              von Schwierigkeiten, z.B. soziale Regeln auswendig lernen), Maskierung
+              (Unterdrücken von Verhaltensweisen wie Stimming oder ungewöhnlicher Mimik)
+              und Assimilation (das Gefühl, eine Rolle zu spielen, um dazuzugehören).</p>
+              <h3>Warum ist das für die Diagnostik wichtig?</h3>
+              <p>Ein Mensch kann im strukturierten Beobachtungsverfahren (ADOS-2) sehr unauffällig
+              erscheinen - und trotzdem eine ausgeprägte Autismus-Spektrum-Störung haben,
+              weil er die Situation durch jahrelanges Training kompensiert. Ein hoher CAT-Q-Wert
+              ist deshalb ein wichtiger Hinweis, dem wir nachgehen.</p>
+              <div class="as-hinweis-box">
+                <strong>Ausfüllhinweis:</strong> Wenn in einer Frage „immer" steht, bitte nicht
+                wörtlich interpretieren - gemeint ist: wie es für Sie typisch ist, was besonders
+                häufig vorkommt oder sich natürlich anfühlt.
+              </div>
+            </div>
+            <div class="as-sidebar">
+              <span class="as-sidebar-label">Eigenschaften</span>
+              <div class="as-tags">
+                <span class="as-tag">Auf Deutsch</span>
+                <span class="as-tag">25 Fragen</span>
+                <span class="as-tag">ca. 10 Min.</span>
+                <span class="as-tag">Masking</span>
+                <span class="as-tag">Erschöpfung</span>
+              </div>
+              <div class="as-cutoff">
+                <strong>Auffällig ab:</strong> ≥ 100 Punkte<br>
+                <span style="font-size:0.78rem; color:#6B6B62;">
+                  Im deutschen Normwert erzielen Nicht-Autisten durchschnittlich ca. 100 Punkte -
+                  höhere Werte sind ein deutlicher Hinweis.
+                </span>
+              </div>
+              <a class="as-link" href="https://adhs-erwachsene.net/autismus-selbsttest/" target="_blank">
+                Zum Fragebogen ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RAADS-R -->
+      <div class="as-card as-raads" id="as-raads">
+        <div class="as-header" onclick="asToggle('raads')">
+          <span class="as-num">02</span>
+          <div class="as-title-block">
+            <span class="as-meta">Englisch · ca. 20-25 Minuten</span>
+            <h2 class="as-title">RAADS-R – Ritvo Autism Asperger Diagnostic Scale</h2>
+            <p class="as-teaser">Das umfassendste Selbstauskunfts-Instrument für Erwachsene</p>
+          </div>
+          <div class="as-btn" id="as-btn-raads">+</div>
+        </div>
+        <div class="as-body" id="as-body-raads">
+          <div class="as-body-inner">
+            <div class="as-text">
+              <h3>Worum geht es?</h3>
+              <p>Die RAADS-R wurde speziell für Erwachsene entwickelt, bei denen ein Autismus-Verdacht
+              erst im späteren Leben aufkommt - und ist auf genau diese Situation hin validiert.
+              Sie fragt nicht nur nach dem aktuellen Erleben, sondern integriert auch die Kindheit
+              und Jugend. Das ist entscheidend: Eine Autismus-Spektrum-Störung ist eine
+              Entwicklungsstörung, die bereits früh beginnt - auch wenn sie erst spät sichtbar wird.</p>
+              <h3>Was ist das Besondere am Antwortformat?</h3>
+              <p>Jede Frage kann mit vier Zeitbezügen beantwortet werden: „Trifft jetzt zu und als
+              ich jung war", „Trifft nur jetzt zu", „Traf nur zu, als ich jünger als 16 war" oder
+              „Nie wahr". Diese Differenzierung ermöglicht es, die geforderte Kontinuität der
+              Symptome seit der Kindheit nachzuvollziehen.</p>
+              <h3>Wie gut ist sie validiert?</h3>
+              <p>Die deutsche Validierungsstudie (RADS-R, Universitätskliniken Freiburg und Köln)
+              zeigt bei einem Schwellenwert von 81 Punkten eine Sensitivität von 92,5% und eine
+              Spezifität von 93,6% - das macht sie zu einem der präzisesten verfügbaren
+              Instrumente im deutschsprachigen Raum.</p>
+              <div class="as-hinweis-box">
+                <strong>Ausfüllhinweis:</strong> Beantworten Sie die Fragen so, wie Sie sich verhalten
+                würden, wenn Sie sich völlig frei und natürlich verhalten könnten - nicht so, wie
+                es sozial erwartet wird. Versuchen Sie gedanklich, das Masking auszuschalten:
+                Nicht „Was würde ich in der Situation tun?" sondern „Was würde ich tun, wenn es
+                mir egal wäre, was andere denken?"
+              </div>
+            </div>
+            <div class="as-sidebar">
+              <span class="as-sidebar-label">Eigenschaften</span>
+              <div class="as-tags">
+                <span class="as-tag">Englisch</span>
+                <span class="as-tag">80 Fragen</span>
+                <span class="as-tag">ca. 20 Min.</span>
+                <span class="as-tag">Kindheit inklusive</span>
+                <span class="as-tag">Hoch validiert</span>
+              </div>
+              <div class="as-cutoff">
+                <strong>Auffällig ab:</strong> ≥ 81 Punkte<br>
+                <span style="font-size:0.78rem; color:#6B6B62;">
+                  Deutsche Normierung (RADS-R). Sens. 92,5%, Spez. 93,6%.
+                  Im Original (englisch) liegt der Cut-off bei 65 Punkten.
+                </span>
+              </div>
+              <a class="as-link" href="https://embrace-autism.com/raads-r/" target="_blank">
+                Zum Fragebogen ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AQ -->
+      <div class="as-card as-aq" id="as-aq">
+        <div class="as-header" onclick="asToggle('aq')">
+          <span class="as-num">03</span>
+          <div class="as-title-block">
+            <span class="as-meta">Englisch · ca. 10 Minuten</span>
+            <h2 class="as-title">AQ – Autismus-Spektrum-Quotient</h2>
+            <p class="as-teaser">Das weltweit meistverwendete Autismus-Screening für Erwachsene</p>
+          </div>
+          <div class="as-btn" id="as-btn-aq">+</div>
+        </div>
+        <div class="as-body" id="as-body-aq">
+          <div class="as-body-inner">
+            <div class="as-text">
+              <h3>Worum geht es?</h3>
+              <p>Der AQ-50 von Baron-Cohen ist das bekannteste und am weitesten verbreitete
+              Selbstauskunfts-Instrument für Autismus bei Erwachsenen mit normaler Intelligenz.
+              Er erfasst fünf Bereiche: soziale Fähigkeiten, Aufmerksamkeitswechsel,
+              Aufmerksamkeit für Details, Kommunikation und Fantasie.</p>
+              <h3>Was sollte ich wissen?</h3>
+              <p>Der AQ hat eine bekannte Schwäche: Erhöhte Werte treten auch bei sozialer Phobie
+              und Depression auf. Er ist deshalb am aussagekräftigsten in Kombination mit den
+              anderen Instrumenten - nicht als alleiniges Kriterium. Als Screening-Tool ist er
+              gut etabliert und international vergleichbar.</p>
+              <div class="as-hinweis-box">
+                <strong>Ausfüllhinweis:</strong> Es macht für das Ergebnis keinen Unterschied,
+                ob Sie „leicht" oder „sicher" wählen - behandeln Sie jede Aussage als einfaches
+                Ja oder Nein. Einige Fragen sind ungenau formuliert; bitte interpretieren Sie
+                sie so: Frage 9 meint „Interesse an Mustern in Ereignissen oder sozialen
+                Situationen"; Frage 21 schließt Belletristik ein, die man zum Erlernen sozialer
+                Regeln nutzt; Fragen 29 und 49 meinen Informationen, die Ihnen persönlich wichtig sind.
+              </div>
+            </div>
+            <div class="as-sidebar">
+              <span class="as-sidebar-label">Eigenschaften</span>
+              <div class="as-tags">
+                <span class="as-tag">Englisch</span>
+                <span class="as-tag">50 Fragen</span>
+                <span class="as-tag">ca. 10 Min.</span>
+                <span class="as-tag">Breites Screening</span>
+              </div>
+              <div class="as-cutoff">
+                <strong>Auffällig ab:</strong> ≥ 26 Punkte<br>
+                <span style="font-size:0.78rem; color:#6B6B62;">
+                  Standardisierter Cut-off. Bitte immer in Zusammenhang mit den
+                  anderen Fragebögen interpretieren.
+                </span>
+              </div>
+              <a class="as-link" href="https://embrace-autism.com/autism-spectrum-quotient/" target="_blank">
+                Zum Fragebogen ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EQ -->
+      <div class="as-card as-eq" id="as-eq">
+        <div class="as-header" onclick="asToggle('eq')">
+          <span class="as-num">04</span>
+          <div class="as-title-block">
+            <span class="as-meta">Englisch · ca. 10 Minuten</span>
+            <h2 class="as-title">EQ – Empathy Quotient</h2>
+            <p class="as-teaser">Perspektivübernahme und emotionale Resonanz</p>
+          </div>
+          <div class="as-btn" id="as-btn-eq">+</div>
+        </div>
+        <div class="as-body" id="as-body-eq">
+          <div class="as-body-inner">
+            <div class="as-text">
+              <h3>Worum geht es?</h3>
+              <p>Der EQ misst die Fähigkeit zur Perspektivübernahme und emotionalen Resonanz -
+              also inwieweit Sie intuitiv nachspüren können, was andere fühlen und denken.
+              Autistische Erwachsene erzielen hier häufig niedrigere Werte als der
+              Bevölkerungsdurchschnitt, was nicht bedeutet, dass sie keine Empathie haben -
+              sondern dass die Art, wie sie Empathie erleben und ausdrücken, oft anders ist.</p>
+              <h3>Ein wichtiger Hinweis zur Auswertung</h3>
+              <p>Von den 60 Fragen fließen nur 40 in die Auswertung ein. Die anderen 20 dienen
+              lediglich der Qualitätskontrolle der Antworten und haben keinen Einfluss auf
+              Ihr Ergebnis.</p>
+              <div class="as-hinweis-box">
+                <strong>Ausfüllhinweis:</strong> Diese 20 Fragen zählen nicht für Ihre Punktzahl:
+                2, 3, 5, 7, 9, 13, 16, 17, 20, 23, 24, 30, 31, 33, 40, 45, 47, 51, 53, 56.
+                Sie können Sie trotzdem normal beantworten - die Website berechnet das Ergebnis
+                automatisch korrekt.
+              </div>
+            </div>
+            <div class="as-sidebar">
+              <span class="as-sidebar-label">Eigenschaften</span>
+              <div class="as-tags">
+                <span class="as-tag">Englisch</span>
+                <span class="as-tag">60 Fragen</span>
+                <span class="as-tag">ca. 10 Min.</span>
+                <span class="as-tag">Empathie</span>
+              </div>
+              <div class="as-cutoff">
+                <strong>Hinweisend:</strong> ≤ 30 Punkte<br>
+                <span style="font-size:0.78rem; color:#6B6B62;">
+                  Neurotypischer Durchschnitt liegt bei ca. 44-48 Punkten.
+                  Werte unter 30 gelten als hinweisend.
+                </span>
+              </div>
+              <a class="as-link" href="https://embrace-autism.com/empathy-quotient/" target="_blank">
+                Zum Fragebogen ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ERGEBNISBOGEN -->
+  <div class="as-result-section">
+    <div class="as-result-inner">
+      <span class="as-hero-label">Ergebnisse</span>
+      <h2 class="as-result-title">Notieren Sie Ihre Punktzahlen</h2>
+      <p class="as-result-text">
+        Bitte notieren Sie nach jedem Fragebogen Ihre Gesamtpunktzahl und bringen Sie
+        diese zu unserem nächsten Gespräch mit - entweder als Notiz, Screenshot
+        oder Ausdruck dieser Seite.
+      </p>
+      <div class="as-table-wrap">
+        <table class="as-table">
+          <thead>
+            <tr>
+              <th>Fragebogen</th>
+              <th>Meine Punktzahl</th>
+              <th>Auffällig ab</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CAT-Q</td>
+              <td class="as-score-cell">_______ Punkte</td>
+              <td><span class="as-pill">≥ 100</span></td>
+            </tr>
+            <tr>
+              <td>RAADS-R</td>
+              <td class="as-score-cell">_______ Punkte</td>
+              <td><span class="as-pill">≥ 81</span></td>
+            </tr>
+            <tr>
+              <td>AQ</td>
+              <td class="as-score-cell">_______ Punkte</td>
+              <td><span class="as-pill">≥ 26</span></td>
+            </tr>
+            <tr>
+              <td>EQ</td>
+              <td class="as-score-cell">_______ Punkte</td>
+              <td><span class="as-pill">≤ 30</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÜBERSETZUNG -->
+  <div class="as-uebers-section">
+    <div class="as-uebers-inner">
+      <h2 class="as-uebers-title">Englische Seiten auf Deutsch übersetzen</h2>
+      <div class="as-uebers-card">
+        <span class="as-uebers-browser">Chrome & Edge</span>
+        <p>Rechtsklick auf die Seite → „Auf Deutsch übersetzen". Oder das Übersetzungs-Symbol in der Adressleiste anklicken.</p>
+      </div>
+      <div class="as-uebers-card">
+        <span class="as-uebers-browser">Safari (Mac & iPhone)</span>
+        <p>Das aA-Symbol in der Adressleiste antippen → „Übersetzen in Deutsch". Beim ersten Mal ggf. „Übersetzen aktivieren" bestätigen.</p>
+      </div>
+      <div class="as-uebers-card">
+        <span class="as-uebers-browser">Firefox</span>
+        <p>Beim Öffnen der Seite erscheint oben eine Leiste „Seite übersetzen?" → Deutsch auswählen. Falls nicht sichtbar: Menü → Add-ons → Firefox Translations.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="as-closing">
+    <div class="as-closing-inner">
+      <h2>Fragen zu den Bögen?</h2>
+      <p>Wenn Sie unsicher sind, wie Sie eine Frage verstehen sollen, oder wenn das
+      Ausfüllen belastend war - sprechen Sie mich gerne in unserer nächsten Sitzung
+      darauf an. Die Fragebögen sind ein Hilfsmittel, kein Test, den man bestehen
+      oder nicht bestehen kann.</p>
+      <a href="mailto:kontakt@psychotherapie-flach.de" class="as-cta">Nachricht schreiben</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function asToggle(id) {
+  var card = document.getElementById('as-' + id);
+  var body = document.getElementById('as-body-' + id);
+  var btn  = document.getElementById('as-btn-' + id);
+  var isOpen = card.classList.contains('as-open');
+  document.querySelectorAll('.as-card').forEach(function(c) {
+    c.classList.remove('as-open');
+    var b = c.querySelector('.as-btn');
+    var bd = c.querySelector('.as-body');
+    if (b) b.textContent = '+';
+    if (bd) bd.style.display = 'none';
+  });
+  if (!isOpen) {
+    card.classList.add('as-open');
+    btn.textContent = '–';
+    body.style.display = 'block';
+  }
+  setTimeout(sendHeight, 50);
+  setTimeout(sendHeight, 400);
+}
+function sendHeight() {
+  var root = document.querySelector('.as-root');
+  var h = root ? root.getBoundingClientRect().height : document.body.scrollHeight;
+  window.parent.postMessage({ iframeHeight: Math.ceil(h) }, '*');
+}
+window.addEventListener('load', function() { setTimeout(sendHeight, 200); });
+window.addEventListener('resize', sendHeight);
+</script>
+</html>
