@@ -55,6 +55,7 @@
     src: url('https://shelynx79.github.io/praxis-methoden/fonts/roboto-v51-latin-500.woff2') format('woff2');
   }
 
+
   .as-root {
     font-family: 'Roboto', sans-serif;
     color: #2A2A24;
@@ -338,80 +339,50 @@
   }
   .as-link:hover { background: #3A6478; }
 
-  /* ERGEBNIS SECTION */
-  .as-result-section {
+  /* PDF HINWEIS SECTION */
+  .as-pdf-section {
     background: #5B8FA8;
-    padding: 72px 40px;
+    padding: 64px 40px;
   }
-  .as-result-inner {
+  .as-pdf-inner {
     max-width: 860px;
     margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
   }
-  .as-result-inner .as-hero-label { margin-bottom: 16px; }
+  .as-pdf-icon { flex-shrink: 0; padding-top: 6px; }
+  .as-pdf-text { flex: 1; }
   .as-result-title {
     font-family: 'Cormorant Garamond', serif !important;
     font-size: clamp(1.7rem, 3vw, 2.4rem) !important;
     font-weight: 300 !important;
     line-height: 1.25 !important;
     color: #FAFAF7 !important;
-    margin: 0 0 20px !important;
+    margin: 0 0 12px !important;
   }
   .as-result-text {
     font-size: 0.92rem;
     color: rgba(250,250,247,0.82);
     line-height: 1.85;
-    max-width: 580px;
-    margin-bottom: 36px;
+    max-width: 520px;
+    margin-bottom: 0;
   }
-  .as-table-wrap {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    padding: 0;
-    overflow: hidden;
-  }
-  .as-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-  }
-  .as-table thead tr {
-    background: rgba(0,0,0,0.12);
-  }
-  .as-table th {
-    text-align: left;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(250,250,247,0.6);
-    font-weight: 400;
-    padding: 14px 24px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-  .as-table td {
-    padding: 16px 24px;
-    color: #FAFAF7;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    font-weight: 300;
-    vertical-align: middle;
-  }
-  .as-table tr:last-child td { border-bottom: none; }
-  .as-table .as-score-cell {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.05em;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    width: 120px;
-    min-width: 80px;
-  }
-  .as-pill {
+  .as-pdf-btn {
     display: inline-block;
-    font-size: 0.78rem;
-    padding: 3px 12px;
+    padding: 12px 32px;
+    background: transparent;
+    color: #FAFAF7 !important;
+    text-decoration: none !important;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.45);
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .as-pdf-btn:hover {
     background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 20px;
-    color: #D4B08A;
-    letter-spacing: 0.03em;
+    border-color: rgba(255,255,255,0.7);
   }
 
   /* ÜBERSETZUNG */
@@ -498,7 +469,9 @@
     .as-num { display: none; }
     .as-body { padding: 0 18px 28px 18px; }
     .as-body-inner { grid-template-columns: 1fr; }
-    .as-result-section { padding: 52px 24px; }
+    .as-pdf-section { padding: 48px 24px; }
+    .as-pdf-inner { flex-direction: column; gap: 20px; }
+    .as-pdf-icon { display: none; }
     .as-uebers-section { padding: 40px 20px; }
     .as-uebers-inner { grid-template-columns: 1fr; }
     .as-closing { padding: 52px 24px; }
@@ -507,7 +480,9 @@
 
 <div class="as-root">
 
+
   <!-- HERO -->
+
   <div class="as-hero">
     <div class="as-hero-inner">
       <span class="as-hero-label">Autismus-Diagnostik</span>
@@ -523,6 +498,7 @@
   <div class="as-divider"></div>
 
   <!-- INTRO -->
+
   <div class="as-intro-section">
     <div class="as-intro-box">
       <p>Bitte beantworten Sie die Fragen so ehrlich wie möglich - nicht so, wie Sie
@@ -537,10 +513,13 @@
     </div>
   </div>
 
+
   <!-- FRAGEBÖGEN -->
+
   <div class="as-section">
     <span class="as-section-label">Die Fragebögen im Überblick</span>
     <div class="as-stack">
+
 
       <!-- CAT-Q -->
       <div class="as-card as-catq" id="as-catq">
@@ -602,7 +581,7 @@
           </div>
         </div>
       </div>
-
+    
       <!-- RAADS-R -->
       <div class="as-card as-raads" id="as-raads">
         <div class="as-header" onclick="asToggle('raads')">
@@ -664,7 +643,7 @@
           </div>
         </div>
       </div>
-
+    
       <!-- AQ -->
       <div class="as-card as-aq" id="as-aq">
         <div class="as-header" onclick="asToggle('aq')">
@@ -720,7 +699,7 @@
           </div>
         </div>
       </div>
-
+    
       <!-- EQ -->
       <div class="as-card as-eq" id="as-eq">
         <div class="as-header" onclick="asToggle('eq')">
@@ -774,57 +753,40 @@
           </div>
         </div>
       </div>
-
+    
     </div>
+
   </div>
 
-  <!-- ERGEBNISBOGEN -->
-  <div class="as-result-section">
-    <div class="as-result-inner">
-      <span class="as-hero-label">Ergebnisse</span>
-      <h2 class="as-result-title">Notieren Sie Ihre Punktzahlen</h2>
-      <p class="as-result-text">
-        Bitte notieren Sie nach jedem Fragebogen Ihre Gesamtpunktzahl und bringen Sie
-        diese zu unserem nächsten Gespräch mit - entweder als Notiz, Screenshot
-        oder Ausdruck dieser Seite.
-      </p>
-      <div class="as-table-wrap">
-        <table class="as-table">
-          <thead>
-            <tr>
-              <th>Fragebogen</th>
-              <th>Meine Punktzahl</th>
-              <th>Auffällig ab</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>CAT-Q</td>
-              <td class="as-score-cell">_______ Punkte</td>
-              <td><span class="as-pill">≥ 100</span></td>
-            </tr>
-            <tr>
-              <td>RAADS-R</td>
-              <td class="as-score-cell">_______ Punkte</td>
-              <td><span class="as-pill">≥ 81</span></td>
-            </tr>
-            <tr>
-              <td>AQ</td>
-              <td class="as-score-cell">_______ Punkte</td>
-              <td><span class="as-pill">≥ 26</span></td>
-            </tr>
-            <tr>
-              <td>EQ</td>
-              <td class="as-score-cell">_______ Punkte</td>
-              <td><span class="as-pill">≤ 30</span></td>
-            </tr>
-          </tbody>
-        </table>
+  <!-- PDF HINWEIS -->
+
+  <div class="as-pdf-section">
+    <div class="as-pdf-inner">
+      <div class="as-pdf-icon">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="36" height="36" rx="3" fill="rgba(255,255,255,0.12)"/>
+          <path d="M10 8h11l7 7v13H10V8z" stroke="#D4B08A" stroke-width="1.2" fill="none"/>
+          <path d="M21 8v7h7" stroke="#D4B08A" stroke-width="1.2" fill="none"/>
+          <path d="M14 20h8M14 24h5" stroke="rgba(250,250,247,0.5)" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="as-pdf-text">
+        <span class="as-hero-label" style="margin-bottom:6px;">Ergebnisse festhalten</span>
+        <h2 class="as-result-title" style="font-size: clamp(1.3rem, 2.5vw, 1.9rem) !important; margin-bottom: 12px !important;">Laden Sie das Handout herunter</h2>
+        <p class="as-result-text" style="margin-bottom: 24px;">
+          Das begleitende PDF enthält alle Ausfüllhinweise und einen Erfassungsbogen
+          mit weißen Eintragfeldern - zum Ausdrucken, Ausfüllen und Mitbringen.
+        </p>
+        <a href="autismus-screening-handout.pdf" download class="as-pdf-btn">
+          PDF herunterladen
+        </a>
       </div>
     </div>
   </div>
 
+
   <!-- ÜBERSETZUNG -->
+
   <div class="as-uebers-section">
     <div class="as-uebers-inner">
       <h2 class="as-uebers-title">Englische Seiten auf Deutsch übersetzen</h2>
@@ -843,7 +805,9 @@
     </div>
   </div>
 
+
   <!-- CLOSING -->
+
   <div class="as-closing">
     <div class="as-closing-inner">
       <h2>Fragen zu den Bögen?</h2>
@@ -854,6 +818,7 @@
       <a href="mailto:kontakt@psychotherapie-flach.de" class="as-cta">Nachricht schreiben</a>
     </div>
   </div>
+
 
 </div>
 
@@ -886,4 +851,5 @@ function sendHeight() {
 window.addEventListener('load', function() { setTimeout(sendHeight, 200); });
 window.addEventListener('resize', sendHeight);
 </script>
+
 </html>
