@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autismus-Diagnostik – Psychotherapeutische Praxis Florentine Flach</title>
+<style>
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-300.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-500.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/cormorant-garamond-v21-latin-italic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/roboto-v51-latin-300.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/roboto-v51-latin-regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('https://shelynx79.github.io/praxis-methoden/fonts/roboto-v51-latin-500.woff2') format('woff2');
+  }
+
+  .ad-root {
+    font-family: 'Roboto', sans-serif;
+    color: #2A2A24;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .ad-root * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+
+  /* ── ANKÜNDIGUNG BANNER ── */
+  .ad-announcement {
+    background: #B08860;
+    padding: 14px 40px;
+    text-align: center;
+  }
+  .ad-announcement p {
+    font-size: 0.82rem;
+    color: #FAFAF7;
+    letter-spacing: 0.04em;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .ad-announcement strong {
+    font-weight: 500;
+  }
+
+  /* ── HERO ── */
+  .ad-hero {
+    background: #5B8FA8;
+    color: #FAFAF7;
+    padding: 80px 40px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ad-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 90% 20%, rgba(176,136,96,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(176,136,96,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .ad-hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .ad-hero-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #D4B08A;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .ad-hero h1 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(2.2rem, 5vw, 3.6rem) !important;
+    font-weight: 300 !important;
+    line-height: 1.2 !important;
+    margin-bottom: 24px !important;
+    letter-spacing: -0.02em !important;
+    color: #FAFAF7 !important;
+  }
+  .ad-hero h1 em {
+    font-style: italic;
+    color: #D4B08A;
+  }
+  .ad-hero-intro {
+    font-size: 1rem;
+    color: rgba(250,250,247,0.82);
+    max-width: 600px;
+    line-height: 1.8;
+  }
+
+  /* ── DIVIDER ── */
+  .ad-divider {
+    height: 5px;
+    background: linear-gradient(90deg, #B08860 0%, #D4B08A 40%, transparent 100%);
+    opacity: 0.5;
+  }
+
+  /* ── INTRO BOX ── */
+  .ad-intro-section {
+    padding: 64px 40px 40px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .ad-intro-box {
+    background: #F3F0E8;
+    border-left: 3px solid #B08860;
+    padding: 28px 32px;
+  }
+  .ad-intro-box p {
+    font-size: 0.95rem;
+    color: #2A2A24;
+    line-height: 1.85;
+    margin: 0 0 10px;
+  }
+  .ad-intro-box p:last-child { margin-bottom: 0; }
+
+  /* ── ABLAUF SECTION ── */
+  .ad-section {
+    padding: 16px 40px 64px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .ad-section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #B08860;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  /* ── PHASEN STACK ── */
+  .ad-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .ad-phase {
+    background: #FAFAF7;
+    border-left: 3px solid #5B8FA8;
+    transition: background 0.3s;
+  }
+  .ad-phase:hover { background: #F3F0E8; }
+  .ad-phase:nth-child(2) { border-left-color: #B08860; }
+  .ad-phase:nth-child(3) { border-left-color: #7AAFC4; }
+  .ad-phase:nth-child(4) { border-left-color: #8A6845; }
+  .ad-phase:nth-child(5) { border-left-color: #5B8FA8; }
+  .ad-phase:nth-child(6) { border-left-color: #B08860; }
+
+  .ad-phase-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 32px 36px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .ad-phase-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 300;
+    line-height: 1;
+    min-width: 44px;
+    opacity: 0.13;
+    color: #2A2A24;
+  }
+  .ad-phase-title-block { flex: 1; }
+  .ad-phase-meta {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6B6B62;
+    margin-bottom: 3px;
+    display: block;
+  }
+  .ad-phase-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.6rem !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.2 !important;
+    color: #2A2A24 !important;
+    margin: 0 !important;
+  }
+  .ad-phase-teaser {
+    font-size: 0.86rem;
+    color: #6B6B62;
+    max-width: 460px;
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+  .ad-phase-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(0,0,0,0.13);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    color: #6B6B62;
+    background: transparent;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .ad-phase.ad-open .ad-phase-btn {
+    background: #5B8FA8;
+    border-color: #5B8FA8;
+    color: white;
+  }
+
+  .ad-phase-body { display: none; padding: 0 36px 36px 104px; }
+  .ad-phase.ad-open .ad-phase-body { display: block; }
+  .ad-phase-body-inner {
+    border-top: 1px solid rgba(0,0,0,0.07);
+    padding-top: 28px;
+  }
+  .ad-phase-body-inner p {
+    font-size: 0.93rem;
+    color: #2A2A24;
+    line-height: 1.85;
+    opacity: 0.85;
+    margin: 0 0 8px;
+  }
+  .ad-phase-body-inner p:last-child { margin-bottom: 0; }
+
+  /* ── ZEITRAHMEN BAND ── */
+  .ad-zeit-band {
+    background: #F3F0E8;
+    padding: 48px 40px;
+  }
+  .ad-zeit-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .ad-zeit-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 400 !important;
+    color: #2A2A24 !important;
+    margin: 0 0 32px !important;
+    grid-column: 1 / -1;
+  }
+  .ad-zeit-card {
+    background: #FAFAF7;
+    padding: 20px 22px;
+    border-top: 2px solid #5B8FA8;
+  }
+  .ad-zeit-card:nth-child(3) { border-top-color: #B08860; }
+  .ad-zeit-card:nth-child(4) { border-top-color: #7AAFC4; }
+  .ad-zeit-kicker {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #5B8FA8;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .ad-zeit-card:nth-child(3) .ad-zeit-kicker { color: #B08860; }
+  .ad-zeit-card:nth-child(4) .ad-zeit-kicker { color: #7AAFC4; }
+  .ad-zeit-card p {
+    font-size: 0.84rem;
+    color: #2A2A24;
+    line-height: 1.7;
+    opacity: 0.85;
+    margin: 0;
+  }
+  .ad-zeit-card strong {
+    font-size: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    color: #2A2A24;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ── KOSTEN SECTION ── */
+  .ad-kosten-section {
+    padding: 64px 40px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .ad-kosten-section .ad-section-label { margin-bottom: 12px; }
+  .ad-kosten-intro {
+    font-size: 0.95rem;
+    color: #2A2A24;
+    line-height: 1.85;
+    opacity: 0.85;
+    margin-bottom: 32px;
+    max-width: 700px;
+  }
+  .ad-kosten-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .ad-kosten-card {
+    background: #F3F0E8;
+    padding: 28px 28px 24px;
+    border-top: 3px solid #5B8FA8;
+  }
+  .ad-kosten-card:nth-child(2) { border-top-color: #B08860; }
+  .ad-kosten-card:nth-child(3) {
+    border-top-color: #7AAFC4;
+    grid-column: 1 / -1;
+    background: #FAFAF7;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-top: 3px solid #7AAFC4;
+  }
+  .ad-kosten-kicker {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #5B8FA8;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .ad-kosten-card:nth-child(2) .ad-kosten-kicker { color: #B08860; }
+  .ad-kosten-card:nth-child(3) .ad-kosten-kicker { color: #7AAFC4; }
+  .ad-kosten-card h3 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.3rem !important;
+    font-weight: 400 !important;
+    color: #2A2A24 !important;
+    margin: 0 0 12px !important;
+    line-height: 1.3 !important;
+  }
+  .ad-kosten-card p {
+    font-size: 0.87rem;
+    color: #2A2A24;
+    line-height: 1.8;
+    opacity: 0.85;
+    margin: 0 0 10px;
+  }
+  .ad-kosten-card p:last-child { margin-bottom: 0; }
+  .ad-kosten-card .ad-preis {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 300;
+    color: #5B8FA8;
+    display: block;
+    margin-bottom: 10px;
+    opacity: 1;
+  }
+  .ad-kosten-card:nth-child(2) .ad-preis { color: #B08860; }
+  .ad-hinweis {
+    font-size: 0.82rem;
+    color: #6B6B62;
+    font-style: italic;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(176,136,96,0.3);
+    line-height: 1.75;
+  }
+
+  /* ── FRAGEBOGEN HINWEIS ── */
+  .ad-fb-section {
+    background: #5B8FA8;
+    padding: 64px 40px;
+  }
+  .ad-fb-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+  .ad-fb-text { flex: 1; }
+  .ad-fb-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #D4B08A;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .ad-fb-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.5rem, 3vw, 2.2rem) !important;
+    font-weight: 300 !important;
+    line-height: 1.25 !important;
+    color: #FAFAF7 !important;
+    margin: 0 0 14px !important;
+  }
+  .ad-fb-p {
+    font-size: 0.92rem;
+    color: rgba(250,250,247,0.82);
+    line-height: 1.85;
+    max-width: 480px;
+    margin-bottom: 28px;
+  }
+  .ad-fb-btn {
+    display: inline-block;
+    padding: 12px 32px;
+    background: transparent;
+    color: #FAFAF7 !important;
+    text-decoration: none !important;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.45);
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .ad-fb-btn:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.7);
+  }
+  .ad-fb-icon {
+    flex-shrink: 0;
+    opacity: 0.25;
+  }
+
+  /* ── NEUROLOGIE HINWEIS ── */
+  .ad-neuro-section {
+    padding: 64px 40px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .ad-neuro-box {
+    background: #F3F0E8;
+    border-left: 3px solid #B08860;
+    padding: 28px 32px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .ad-neuro-icon { flex-shrink: 0; padding-top: 3px; }
+  .ad-neuro-text { flex: 1; }
+  .ad-neuro-text h3 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.25rem !important;
+    font-weight: 400 !important;
+    color: #2A2A24 !important;
+    margin: 0 0 10px !important;
+  }
+  .ad-neuro-text p {
+    font-size: 0.9rem;
+    color: #2A2A24;
+    line-height: 1.85;
+    opacity: 0.85;
+    margin: 0;
+  }
+
+  /* ── CLOSING ── */
+  .ad-closing {
+    background: #FAFAF7;
+    padding: 72px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .ad-closing-inner { max-width: 540px; margin: 0 auto; }
+  .ad-closing h2 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.7rem, 3vw, 2.4rem) !important;
+    font-weight: 300 !important;
+    line-height: 1.3 !important;
+    color: #5B8FA8 !important;
+    margin-bottom: 16px !important;
+  }
+  .ad-closing p {
+    font-size: 0.93rem;
+    color: #6B6B62;
+    line-height: 1.85;
+    margin-bottom: 32px;
+  }
+  .ad-cta {
+    display: inline-block;
+    padding: 13px 36px;
+    background: #5B8FA8;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 0.82rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: background 0.25s;
+  }
+  .ad-cta:hover { background: #3A6478; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .ad-announcement { padding: 12px 20px; }
+    .ad-hero { padding: 56px 24px 48px; }
+    .ad-intro-section { padding: 40px 20px 24px; }
+    .ad-section { padding: 12px 20px 48px; }
+    .ad-phase-header { padding: 24px 18px; }
+    .ad-phase-num { display: none; }
+    .ad-phase-body { padding: 0 18px 28px 18px; }
+    .ad-zeit-band { padding: 40px 20px; }
+    .ad-zeit-inner { grid-template-columns: 1fr; }
+    .ad-kosten-section { padding: 40px 20px; }
+    .ad-kosten-grid { grid-template-columns: 1fr; }
+    .ad-kosten-card:nth-child(3) { grid-column: 1; }
+    .ad-fb-section { padding: 48px 24px; }
+    .ad-fb-inner { flex-direction: column; gap: 0; }
+    .ad-fb-icon { display: none; }
+    .ad-neuro-section { padding: 40px 20px; }
+    .ad-neuro-box { flex-direction: column; gap: 14px; }
+    .ad-closing { padding: 52px 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="ad-root">
+
+  <!-- ANKÜNDIGUNG -->
+  <div class="ad-announcement">
+    <p><strong>Ab Spätsommer 2026</strong> biete ich Autismus-Diagnostik für Erwachsene an. Interesse? Schreiben Sie mir gerne vorab eine kurze Nachricht.</p>
+  </div>
+
+  <!-- HERO -->
+  <div class="ad-hero">
+    <div class="ad-hero-inner">
+      <span class="ad-hero-label">Autismus-Spektrum-Störung</span>
+      <h1>Diagnostik für<br><em>Erwachsene</em></h1>
+      <p class="ad-hero-intro">
+        Eine Autismus-Diagnose im Erwachsenenalter ist kein Urteil - sie ist oft eine
+        Erklärung für Dinge, die das ganze Leben schwerer waren als für andere.
+        Hier finden Sie einen Überblick darüber, wie die Diagnostik in meiner Praxis
+        ablaufen wird, was sie kostet und was sie beinhaltet.
+      </p>
+    </div>
+  </div>
+  <div class="ad-divider"></div>
+
+  <!-- INTRO -->
+  <div class="ad-intro-section">
+    <div class="ad-intro-box">
+      <p>
+        Eine leitliniengerechte Autismus-Diagnostik bei Erwachsenen ist aufwendig - und das mit gutem Grund.
+        Hinter einer möglichen Diagnose stehen meistens viele Jahre mit ungeklärten Fragen, Erschöpfung
+        und dem Gefühl, anders zu sein ohne zu wissen warum. Dem möchte ich mit der nötigen Sorgfalt begegnen.
+      </p>
+      <p>
+        Die Diagnostik umfasst mehrere Bausteine: standardisierte Selbstauskunfts-Fragebögen, ein
+        strukturiertes Beobachtungsinterview (ADOS-2), ein biographisches Interview (ACIA), eine
+        Fremdanamnese sowie einen Kurztest zur kognitiven Verarbeitung (MWT-B). Alle Ergebnisse
+        werden in einem gemeinsamen Abschlussgespräch besprochen.
+      </p>
+    </div>
+  </div>
+
+  <!-- ABLAUF -->
+  <div class="ad-section">
+    <span class="ad-section-label">Wie läuft die Diagnostik ab?</span>
+    <div class="ad-stack">
+
+      <!-- Phase 1 -->
+      <div class="ad-phase" id="ad-p1">
+        <div class="ad-phase-header" onclick="adToggle('p1')">
+          <span class="ad-phase-num">01</span>
+          <div class="ad-phase-title-block">
+            <span class="ad-phase-meta">Vor dem ersten Termin</span>
+            <h2 class="ad-phase-title">Fragebögen zu Hause ausfüllen</h2>
+            <p class="ad-phase-teaser">CAT-Q, RAADS-R, AQ und EQ als Vorbereitung</p>
+          </div>
+          <div class="ad-phase-btn" id="ad-btn-p1">+</div>
+        </div>
+        <div class="ad-phase-body" id="ad-body-p1">
+          <div class="ad-phase-body-inner">
+            <p>
+              Bevor wir uns zum ersten Diagnostiktermin treffen, bitte ich Sie, vier standardisierte
+              Selbstauskunfts-Fragebögen auszufüllen: den CAT-Q (Camouflage), den RAADS-R, den AQ
+              (Autismus-Spektrum-Quotient) und den EQ (Empathie-Quotient). Diese Bögen sind online
+              zugänglich und erfordern insgesamt ca. 45-60 Minuten.
+            </p>
+            <p>
+              Die Ergebnisse geben uns einen ersten Orientierungsrahmen und erlauben es, das erste
+              Gespräch gezielter zu führen. Sie ersetzen keine klinische Einschätzung, sind aber ein
+              wichtiger erster Baustein.
+            </p>
+            <p>
+              <a href="https://www.psychotherapie-flach.de/leistungen/autismus-screening/"
+                 style="color: #5B8FA8; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.03em;">
+                → Zu den Fragebögen mit Ausfüllhinweisen
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="ad-phase" id="ad-p2">
+        <div class="ad-phase-header" onclick="adToggle('p2')">
+          <span class="ad-phase-num">02</span>
+          <div class="ad-phase-title-block">
+            <span class="ad-phase-meta">Sitzung 1–2 · je 50 Minuten</span>
+            <h2 class="ad-phase-title">Biographische Anamnese</h2>
+            <p class="ad-phase-teaser">Lebensgeschichte, Entwicklung, Schlüsselerfahrungen</p>
+          </div>
+          <div class="ad-phase-btn" id="ad-btn-p2">+</div>
+        </div>
+        <div class="ad-phase-body" id="ad-body-p2">
+          <div class="ad-phase-body-inner">
+            <p>
+              Am Anfang steht ein ausführliches biographisches Gespräch. Wir besprechen Ihre Lebensgeschichte -
+              Kindheit, Schule, soziale Erfahrungen, Beziehungen, Beruf - und schauen gemeinsam, wo sich
+              Muster zeigen, die im Rückblick bedeutsam sein könnten.
+            </p>
+            <p>
+              Viele Menschen bemerken erst in diesem Gespräch, wie viel Energie sie über die Jahre investiert
+              haben, um in der Welt zurechtzukommen. Das ist keine Schwäche - es ist oft das Gegenteil.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="ad-phase" id="ad-p3">
+        <div class="ad-phase-header" onclick="adToggle('p3')">
+          <span class="ad-phase-num">03</span>
+          <div class="ad-phase-title-block">
+            <span class="ad-phase-meta">Sitzung 3 · ca. 60-90 Minuten</span>
+            <h2 class="ad-phase-title">ADOS-2 – Strukturiertes Beobachtungsinterview</h2>
+            <p class="ad-phase-teaser">Das international führende Beobachtungsverfahren für Erwachsene</p>
+          </div>
+          <div class="ad-phase-btn" id="ad-btn-p3">+</div>
+        </div>
+        <div class="ad-phase-body" id="ad-body-p3">
+          <div class="ad-phase-body-inner">
+            <p>
+              Das ADOS-2 (Autism Diagnostic Observation Schedule) ist ein semistrukturiertes Interview,
+              das weltweit als Goldstandard in der Autismus-Diagnostik gilt. Es besteht aus einer Reihe
+              von Gesprächssituationen und kleinen Aufgaben - kein Test im üblichen Sinn, sondern ein
+              strukturiertes Beobachtungsgespräch, das sozialer Kommunikation und Interaktion Raum gibt.
+            </p>
+            <p>
+              Bei Erwachsenen kommt Modul 4 zum Einsatz, das speziell für fließend sprechende Erwachsene
+              entwickelt wurde. Die Auswertung erfolgt nach einem standardisierten Algorithmus.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="ad-phase" id="ad-p4">
+        <div class="ad-phase-header" onclick="adToggle('p4')">
+          <span class="ad-phase-num">04</span>
+          <div class="ad-phase-title-block">
+            <span class="ad-phase-meta">Sitzung 4 · 50 Minuten</span>
+            <h2 class="ad-phase-title">ACIA &amp; MWT-B</h2>
+            <p class="ad-phase-teaser">Strukturiertes Selbstbericht-Interview und kognitiver Kurztest</p>
+          </div>
+          <div class="ad-phase-btn" id="ad-btn-p4">+</div>
+        </div>
+        <div class="ad-phase-body" id="ad-body-p4">
+          <div class="ad-phase-body-inner">
+            <p>
+              Das ACIA (Autismus-Spektrum Interview für Erwachsene) ist ein strukturiertes Selbstbericht-Interview,
+              das die typischen Merkmale einer Autismus-Spektrum-Störung im Erwachsenenalter systematisch erfasst.
+              Es ergänzt das ADOS-2 um die Innenperspektive.
+            </p>
+            <p>
+              Ergänzend führen wir den MWT-B durch - einen kurzen Wortschatz-Intelligenztest (ca. 10-15 Minuten),
+              der das allgemeine kognitive Niveau einschätzt. Das ist kein IQ-Test im umfassenden Sinn, sondern
+              ein standardisiertes Orientierungsmaß, das in die diagnostische Gesamteinschätzung einfließt.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 5 -->
+      <div class="ad-phase" id="ad-p5">
+        <div class="ad-phase-header" onclick="adToggle('p5')">
+          <span class="ad-phase-num">05</span>
+          <div class="ad-phase-title-block">
+            <span class="ad-phase-meta">Parallel oder gesonderter Termin</span>
+            <h2 class="ad-phase-title">Fremdanamnese</h2>
+            <p class="ad-phase-teaser">Gespräch mit Angehörigen, Zeugnisse, Fremdberichte</p>
+          </div>
+          <div class="ad-phase-btn" id="ad-btn-p5">+</div>
+        </div>
+        <div class="ad-phase-body" id="ad-body-p5">
+          <div class="ad-phase-body-inner">
+            <p>
+              Autismus zeigt sich häufig am deutlichsten im Rückblick auf Kindheit und frühe Entwicklung.
+              Deshalb ist ein Gespräch mit einer engen Bezugsperson - Elternteil, Geschwister oder langjährige
+              Partnerin bzw. Partner - ein wichtiger Teil der Diagnostik. Wenn kein Gespräch möglich ist,
+              können auch Zeugnisse, Arztberichte aus der Kindheit oder andere Dokumente hilfreich sein.
+            </p>
+            <p>
+              Dieser Schritt findet im Einvernehmen mit Ihnen statt. Niemand wird ohne Ihr Wissen und Ihre
+              Zustimmung kontaktiert.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 6 -->
+      <div class="ad-phase" id="ad-p6">
+        <div class="ad-phase-header" onclick="adToggle('p6')">
+          <span class="ad-phase-num">06</span>
+          <div class="ad-phase-title-block">
+            <span class="ad-phase-meta">Abschlusssitzung · 50 Minuten</span>
+            <h2 class="ad-phase-title">Befundbesprechung und Bericht</h2>
+            <p class="ad-phase-teaser">Was haben die Ergebnisse ergeben - und was bedeutet das?</p>
+          </div>
+          <div class="ad-phase-btn" id="ad-btn-p6">+</div>
+        </div>
+        <div class="ad-phase-body" id="ad-body-p6">
+          <div class="ad-phase-body-inner">
+            <p>
+              Am Ende der Diagnostik besprechen wir gemeinsam alle Ergebnisse. Sie erhalten eine klare
+              Einschätzung - entweder eine Diagnose nach ICD-11 oder eine Erläuterung, warum die Kriterien
+              nicht erfüllt sind (was ebenfalls informativ und entlastend sein kann).
+            </p>
+            <p>
+              Sie erhalten einen schriftlichen Befundbericht, der Ihnen für weitere Wege zur Verfügung steht:
+              für Behörden, den Arbeitgeber, die Krankenkasse oder einfach für sich selbst.
+              Ein ausführlicheres Gutachten - etwa für das Versorgungsamt - kann auf Wunsch gesondert
+              erstellt werden.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ZEITRAHMEN -->
+  <div class="ad-zeit-band">
+    <div class="ad-zeit-inner">
+      <h2 class="ad-zeit-title">Zeitrahmen im Überblick</h2>
+      <div class="ad-zeit-card">
+        <strong>6–8</strong>
+        <span class="ad-zeit-kicker">Sitzungen gesamt</span>
+        <p>Je nach Komplexität des Einzelfalls. Alle Bausteine sind darauf ausgelegt, aufeinander aufzubauen.</p>
+      </div>
+      <div class="ad-zeit-card">
+        <strong>2–4</strong>
+        <span class="ad-zeit-kicker">Monate Gesamtdauer</span>
+        <p>Die Sitzungen verteilen sich in der Regel über mehrere Wochen, um Auswertung und Reflexion zu ermöglichen.</p>
+      </div>
+      <div class="ad-zeit-card">
+        <strong>ab Spätsommer 2026</strong>
+        <span class="ad-zeit-kicker">Verfügbarkeit</span>
+        <p>Ich nehme bereits vorab Anfragen entgegen. Schreiben Sie mir gerne, um sich einen der ersten Plätze zu sichern.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KOSTEN -->
+  <div class="ad-kosten-section">
+    <span class="ad-section-label">Kosten und Abrechnung</span>
+    <p class="ad-kosten-intro">
+      Als Praxis mit Kassensitz ist die Diagnostik für gesetzlich Versicherte eine Kassenleistung.
+      Für Privatversicherte gilt die Abrechnung nach GOP. Hier finden Sie eine Übersicht - damit
+      Sie wissen, was Sie erwartet, bevor wir uns treffen.
+    </p>
+    <div class="ad-kosten-grid">
+
+      <!-- GKV -->
+      <div class="ad-kosten-card">
+        <span class="ad-kosten-kicker">Gesetzlich Versicherte</span>
+        <h3>Kassenleistung</h3>
+        <p>
+          Als Praxis mit Kassensitz rechne ich die Autismus-Diagnostik für gesetzlich Versicherte
+          vollständig über die GKV ab. Für Sie entstehen keine zusätzlichen Kosten.
+        </p>
+        <p>
+          Lediglich ein ausführliches Gutachten - etwa für das Versorgungsamt oder einen Schwerbehindertenausweis,
+          das über den klinischen Befundbericht hinausgeht - kann auf Wunsch als gesonderte
+          Privatleistung beauftragt werden. Das ist kein Pflichtbestandteil der Diagnostik.
+        </p>
+      </div>
+
+      <!-- PKV -->
+      <div class="ad-kosten-card">
+        <span class="ad-kosten-kicker">Privat Versicherte &amp; Selbstzahler</span>
+        <h3>Vollständige Abrechnung nach GOP</h3>
+        <p>
+          Für Privatversicherte wird die gesamte Diagnostik nach der Gebührenordnung für Psychotherapeuten
+          (GOP) abgerechnet. Die Kosten werden von privaten Krankenversicherungen in der Regel übernommen.
+        </p>
+        <p>
+          Selbstzahlende Patienten erhalten vor Beginn eine schriftliche Honorarvereinbarung, in der
+          alle Leistungen und Kosten klar aufgeführt sind.
+        </p>
+        <span class="ad-preis">750–1.250 €</span>
+        <p>
+          Gesamtkosten für die Volldiagnostik, abhängig vom Umfang (Befundbericht inklusive,
+          ausführlicheres Gutachten auf Anfrage gesondert).
+        </p>
+      </div>
+
+      <!-- Hinweis -->
+      <div class="ad-kosten-card">
+        <span class="ad-kosten-kicker">Hinweis</span>
+        <h3>Diagnostik in Kliniken und psychiatrischen Ambulanzen</h3>
+        <p>
+          Wenn Sie eine Diagnostik vollständig über die gesetzliche Krankenkasse abrechnen möchten,
+          ist der Weg über eine psychiatrische Institutsambulanz oder eine Spezialambulanz an einer
+          Klinik der richtige. Dort wird die Diagnostik als Kassenleistung erbracht.
+        </p>
+        <p>
+          Zu beachten ist, dass die Wartezeiten dort erheblich sein können - regional sind Wartezeiten
+          von einem bis zwei Jahren keine Seltenheit. Ich helfe Ihnen gerne bei der Orientierung,
+          welche Stellen in der Region infrage kommen.
+        </p>
+      </div>
+
+    </div>
+    <p class="ad-hinweis">
+      Die klinische Diagnosestellung erfolgt im Rahmen der vertragspsychotherapeutischen Versorgung
+      und wird über die GKV abgerechnet. Ein kurzer Befundbericht über das Ergebnis ist darin eingeschlossen.
+      Die Erstellung darüber hinausgehender ausführlicher fachgutachterlicher Stellungnahmen für Behörden
+      (z. B. Versorgungsamt zur Feststellung eines GdB) ist nicht Bestandteil der gesetzlichen
+      Krankenversicherung und wird als individuelle Gesundheitsleistung nach GOP liquidiert.
+      Dies wird vorab schriftlich vereinbart.
+    </p>
+  </div>
+
+  <!-- FRAGEBOGEN HINWEIS -->
+  <div class="ad-fb-section">
+    <div class="ad-fb-inner">
+      <div class="ad-fb-text">
+        <span class="ad-fb-label">Bereits im Gespräch mit mir?</span>
+        <h2 class="ad-fb-title">Fragebögen vorab ausfüllen</h2>
+        <p class="ad-fb-p">
+          Wenn wir bereits einen Verdacht besprochen haben und Sie in die Diagnostik gehen möchten,
+          finden Sie hier die vier Selbstauskunfts-Fragebögen mit allen Ausfüllhinweisen - zum
+          Bearbeiten zu Hause, bevor wir uns treffen.
+        </p>
+        <a href="https://www.psychotherapie-flach.de/leistungen/autismus-screening/" class="ad-fb-btn">
+          Zu den Fragebögen ↗
+        </a>
+      </div>
+      <div class="ad-fb-icon">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="14" y="10" width="38" height="52" rx="2" stroke="#FAFAF7" stroke-width="1.5" fill="none"/>
+          <path d="M22 26h22M22 34h22M22 42h14" stroke="#FAFAF7" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="58" cy="56" r="14" fill="rgba(255,255,255,0.12)" stroke="#D4B08A" stroke-width="1.2"/>
+          <path d="M53 56l4 4 8-8" stroke="#D4B08A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEUROLOGIE HINWEIS -->
+  <div class="ad-neuro-section">
+    <div class="ad-neuro-box">
+      <div class="ad-neuro-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="12" stroke="#B08860" stroke-width="1.3" fill="none"/>
+          <path d="M14 9v6l4 2" stroke="#B08860" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="ad-neuro-text">
+        <h3>Ergänzende Konsultation: Neurologie oder Psychiatrie</h3>
+        <p>
+          Eine psychotherapeutische Autismus-Diagnostik erfasst das psychologische und biographische Bild.
+          Um das Gesamtbild zu vervollständigen - und um neurologische oder psychiatrische Differenzialdiagnosen
+          auszuschließen - empfehle ich dringend, parallel oder im Anschluss einen Neurologen oder Psychiater
+          aufzusuchen. Komorbide Erkrankungen wie ADHS, Depression oder Angststörungen sind bei Autismus
+          häufig und verdienen eine eigenständige fachärztliche Einschätzung. Ich spreche das im Verlauf
+          der Diagnostik mit Ihnen ab und helfe bei der Weiterleitung.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="ad-closing">
+    <div class="ad-closing-inner">
+      <h2>Interesse an der Diagnostik?</h2>
+      <p>
+        Wenn Sie Fragen haben oder sich vorab einen Platz vormerken lassen möchten,
+        schreiben Sie mir gerne. Die Diagnostik startet ab Spätsommer 2026 - ich melde mich,
+        sobald die ersten Termine verfügbar sind.
+      </p>
+      <a href="mailto:kontakt@psychotherapie-flach.de" class="ad-cta">Nachricht schreiben</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function adToggle(id) {
+  var phase = document.getElementById('ad-' + id);
+  var body  = document.getElementById('ad-body-' + id);
+  var btn   = document.getElementById('ad-btn-' + id);
+  var isOpen = phase.classList.contains('ad-open');
+  document.querySelectorAll('.ad-phase').forEach(function(p) {
+    p.classList.remove('ad-open');
+    var b  = p.querySelector('.ad-phase-btn');
+    var bd = p.querySelector('.ad-phase-body');
+    if (b)  b.textContent = '+';
+    if (bd) bd.style.display = 'none';
+  });
+  if (!isOpen) {
+    phase.classList.add('ad-open');
+    btn.textContent = '–';
+    body.style.display = 'block';
+  }
+  setTimeout(sendHeight, 50);
+  setTimeout(sendHeight, 400);
+}
+function sendHeight() {
+  var root = document.querySelector('.ad-root');
+  var h = root ? root.getBoundingClientRect().height : document.body.scrollHeight;
+  window.parent.postMessage({ iframeHeight: Math.ceil(h) }, '*');
+}
+window.addEventListener('load', function() { setTimeout(sendHeight, 200); });
+window.addEventListener('resize', sendHeight);
+</script>
+</body>
+</html>
