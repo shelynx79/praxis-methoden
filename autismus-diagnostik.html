@@ -54,7 +54,6 @@
     font-display: swap;
     src: url('https://shelynx79.github.io/praxis-methoden/fonts/roboto-v51-latin-500.woff2') format('woff2');
   }
-
   .ad-root {
     font-family: 'Roboto', sans-serif;
     color: #2A2A24;
@@ -63,7 +62,6 @@
   }
   .ad-root * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; overflow-x: hidden; }
-
   /* ── ANKÜNDIGUNG BANNER ── */
   .ad-announcement {
     background: #B08860;
@@ -80,7 +78,6 @@
   .ad-announcement strong {
     font-weight: 500;
   }
-
   /* ── HERO ── */
   .ad-hero {
     background: #5B8FA8;
@@ -131,14 +128,12 @@
     max-width: 600px;
     line-height: 1.8;
   }
-
   /* ── DIVIDER ── */
   .ad-divider {
     height: 5px;
     background: linear-gradient(90deg, #B08860 0%, #D4B08A 40%, transparent 100%);
     opacity: 0.5;
   }
-
   /* ── INTRO BOX ── */
   .ad-intro-section {
     padding: 64px 40px 40px;
@@ -157,7 +152,6 @@
     margin: 0 0 10px;
   }
   .ad-intro-box p:last-child { margin-bottom: 0; }
-
   /* ── ABLAUF SECTION ── */
   .ad-section {
     padding: 16px 40px 64px;
@@ -172,7 +166,6 @@
     margin-bottom: 24px;
     display: block;
   }
-
   /* ── PHASEN STACK ── */
   .ad-stack {
     display: flex;
@@ -190,7 +183,6 @@
   .ad-phase:nth-child(4) { border-left-color: #8A6845; }
   .ad-phase:nth-child(5) { border-left-color: #5B8FA8; }
   .ad-phase:nth-child(6) { border-left-color: #B08860; }
-
   .ad-phase-header {
     display: flex;
     align-items: center;
@@ -252,7 +244,6 @@
     border-color: #5B8FA8;
     color: white;
   }
-
   .ad-phase-body { display: none; padding: 0 36px 36px 104px; }
   .ad-phase.ad-open .ad-phase-body { display: block; }
   .ad-phase-body-inner {
@@ -267,7 +258,6 @@
     margin: 0 0 8px;
   }
   .ad-phase-body-inner p:last-child { margin-bottom: 0; }
-
   /* ── ZEITRAHMEN BAND ── */
   .ad-zeit-band {
     background: #F3F0E8;
@@ -321,7 +311,6 @@
     display: block;
     margin-bottom: 4px;
   }
-
   /* ── KOSTEN SECTION ── */
   .ad-kosten-section {
     padding: 64px 40px;
@@ -409,7 +398,6 @@
     border-top: 1px solid rgba(176,136,96,0.3);
     line-height: 1.75;
   }
-
   /* ── FRAGEBOGEN HINWEIS ── */
   .ad-fb-section {
     background: #5B8FA8;
@@ -466,7 +454,6 @@
     flex-shrink: 0;
     opacity: 0.25;
   }
-
   /* ── NEUROLOGIE HINWEIS ── */
   .ad-neuro-section {
     padding: 64px 40px;
@@ -497,7 +484,6 @@
     opacity: 0.85;
     margin: 0;
   }
-
   /* ── CLOSING ── */
   .ad-closing {
     background: #FAFAF7;
@@ -532,7 +518,6 @@
     transition: background 0.25s;
   }
   .ad-cta:hover { background: #3A6478; }
-
   /* ── RESPONSIVE ── */
   @media (max-width: 700px) {
     .ad-announcement { padding: 12px 20px; }
@@ -558,12 +543,10 @@
 </head>
 <body>
 <div class="ad-root">
-
   <!-- ANKÜNDIGUNG -->
   <div class="ad-announcement">
     <p><strong>Ab Herbst 2026</strong> biete ich Autismus-Diagnostik für Erwachsene an. Interesse? Schreiben Sie mir gerne vorab eine kurze Nachricht.</p>
   </div>
-
   <!-- HERO -->
   <div class="ad-hero">
     <div class="ad-hero-inner">
@@ -578,7 +561,6 @@
     </div>
   </div>
   <div class="ad-divider"></div>
-
   <!-- INTRO -->
   <div class="ad-intro-section">
     <div class="ad-intro-box">
@@ -595,12 +577,10 @@
       </p>
     </div>
   </div>
-
   <!-- ABLAUF -->
   <div class="ad-section">
     <span class="ad-section-label">Wie läuft die Diagnostik ab?</span>
     <div class="ad-stack">
-
       <!-- Phase 1 -->
       <div class="ad-phase" id="ad-p1">
         <div class="ad-phase-header" onclick="adToggle('p1')">
@@ -635,7 +615,6 @@
           </div>
         </div>
       </div>
-
       <!-- Phase 2 -->
       <div class="ad-phase" id="ad-p2">
         <div class="ad-phase-header" onclick="adToggle('p2')">
@@ -661,7 +640,6 @@
           </div>
         </div>
       </div>
-
       <!-- Phase 3 -->
       <div class="ad-phase" id="ad-p3">
         <div class="ad-phase-header" onclick="adToggle('p3')">
@@ -688,7 +666,6 @@
           </div>
         </div>
       </div>
-
       <!-- Phase 4 -->
       <div class="ad-phase" id="ad-p4">
         <div class="ad-phase-header" onclick="adToggle('p4')">
@@ -715,7 +692,6 @@
           </div>
         </div>
       </div>
-
       <!-- Phase 5 -->
       <div class="ad-phase" id="ad-p5">
         <div class="ad-phase-header" onclick="adToggle('p5')">
@@ -742,7 +718,6 @@
           </div>
         </div>
       </div>
-
       <!-- Phase 6 -->
       <div class="ad-phase" id="ad-p6">
         <div class="ad-phase-header" onclick="adToggle('p6')">
@@ -770,10 +745,8 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
-
   <!-- ZEITRAHMEN -->
   <div class="ad-zeit-band">
     <div class="ad-zeit-inner">
@@ -795,52 +768,61 @@
       </div>
     </div>
   </div>
-
   <!-- KOSTEN -->
   <div class="ad-kosten-section">
     <span class="ad-section-label">Kosten und Abrechnung</span>
     <h2 class="ad-kosten-title">Was kostet die Diagnostik?</h2>
     <p class="ad-kosten-intro">
-      Als Praxis mit Kassensitz ist die Diagnostik für gesetzlich Versicherte eine Kassenleistung.
-      Für Privatversicherte gilt die Abrechnung nach GOP. Hier finden Sie eine Übersicht - damit
-      Sie wissen, was Sie erwartet, bevor wir uns treffen.
+      Die Diagnostik ist eine private Leistung - unabhängig davon, wie Sie versichert sind. Der Grund
+      liegt im Umfang: Für eine leitliniengerechte Autismus-Diagnostik über mehrere Sitzungen gibt es
+      in der gesetzlichen Versorgung keine kostendeckende Abrechnungsziffer. Abgerechnet wird nach der
+      Gebührenordnung für Psychotherapeuten (GOP), die für Leistungen ohne eigene Ziffer auf die GOÄ
+      zurückgreift. Wie viel Ihre Versicherung davon übernimmt, hängt vom Kostenträger ab - die beiden
+      folgenden Fälle geben Ihnen einen Überblick.
     </p>
     <div class="ad-kosten-grid">
-
-      <!-- GKV -->
+      <!-- Umfang und Preis -->
       <div class="ad-kosten-card">
-        <span class="ad-kosten-kicker">Gesetzlich Versicherte</span>
-        <h3>Kassenleistung</h3>
+        <span class="ad-kosten-kicker">Umfang und Preis</span>
+        <h3>Was in der Diagnostik enthalten ist</h3>
         <p>
-          Als Praxis mit Kassensitz rechne ich die Autismus-Diagnostik für gesetzlich Versicherte
-          vollständig über die GKV ab. Für Sie entstehen keine zusätzlichen Kosten.
+          Der Preis umfasst den gesamten diagnostischen Prozess über mehrere Sitzungen - nicht ein
+          einzelnes Gespräch, sondern mehrere aufeinander aufbauende Bausteine.
         </p>
         <p>
-          Lediglich ein ausführliches Gutachten - etwa für das Versorgungsamt oder einen Schwerbehindertenausweis,
-          das über den klinischen Befundbericht hinausgeht - kann auf Wunsch als gesonderte
-          Privatleistung beauftragt werden. Das ist kein Pflichtbestandteil der Diagnostik.
-        </p>
-      </div>
-
-      <!-- PKV -->
-      <div class="ad-kosten-card">
-        <span class="ad-kosten-kicker">Privat Versicherte &amp; Selbstzahler</span>
-        <h3>Vollständige Abrechnung nach GOP</h3>
-        <p>
-          Für Privatversicherte wird die gesamte Diagnostik nach der Gebührenordnung für Psychotherapeuten
-          (GOP) abgerechnet. Die Kosten werden von privaten Krankenversicherungen in der Regel übernommen.
-        </p>
-        <p>
-          Selbstzahlende Patienten erhalten vor Beginn eine schriftliche Honorarvereinbarung, in der
-          alle Leistungen und Kosten klar aufgeführt sind.
+          Zwei davon gehen bewusst über den Selbstbericht hinaus: das ADOS-2 Modul 4, ein standardisiertes
+          Beobachtungsverfahren für fließend sprechende Erwachsene, und die Fremdanamnese. Beide bringen
+          eine Außenperspektive ein - direkte Verhaltensbeobachtung und Fremddaten -, sodass die
+          Einschätzung sich nicht allein auf die eigene Schilderung stützt. Diese Breite braucht Zeit,
+          und der Zeitaufwand bestimmt den Preis.
         </p>
         <span class="ad-preis">750–1.250 €</span>
         <p>
-          Gesamtkosten für die Volldiagnostik, abhängig vom Umfang (Befundbericht inklusive,
-          ausführlicheres Gutachten auf Anfrage gesondert).
+          Gesamtkosten für die vollständige Diagnostik, je nach Umfang im Einzelfall. Der schriftliche
+          Befundbericht ist enthalten; ein ausführlicheres Gutachten - etwa für das Versorgungsamt -
+          kann auf Wunsch gesondert beauftragt werden.
         </p>
       </div>
-
+      <!-- Erstattung -->
+      <div class="ad-kosten-card">
+        <span class="ad-kosten-kicker">Erstattung</span>
+        <h3>Was Ihre Versicherung übernimmt</h3>
+        <p>
+          Privat Versicherte und Beihilfeberechtigte reichen die Rechnung bei ihrem Kostenträger ein.
+          In der Regel wird die Diagnostik übernommen; die genauen Bedingungen richten sich nach Ihrem Tarif.
+        </p>
+        <p>
+          Gesetzlich Versicherte zahlen die Leistung selbst. Eine anteilige Erstattung ist im Einzelfall
+          möglich - fragen Sie dazu am besten vorab bei Ihrer Krankenkasse nach. Eine direkte Abrechnung
+          mit der gesetzlichen Kasse ist nicht möglich.
+        </p>
+        <p>
+          Vor dem ersten Termin erhalten Sie in Textform eine Aufstellung der voraussichtlichen Kosten.
+          Vor Beginn schließen wir zudem persönlich eine schriftliche Honorarvereinbarung, die den
+          vereinbarten Leistungsumfang und den Preis fallbezogen festhält - nicht pauschal, sondern
+          bezogen auf die für Sie vorgesehenen Bausteine. Eine Kopie erhalten Sie für Ihre Unterlagen.
+        </p>
+      </div>
       <!-- Hinweis -->
       <div class="ad-kosten-card">
         <span class="ad-kosten-kicker">Hinweis</span>
@@ -856,18 +838,16 @@
           welche Stellen in der Region infrage kommen.
         </p>
       </div>
-
     </div>
     <p class="ad-hinweis">
-      Die klinische Diagnosestellung erfolgt im Rahmen der vertragspsychotherapeutischen Versorgung
-      und wird über die GKV abgerechnet. Ein kurzer Befundbericht über das Ergebnis ist darin eingeschlossen.
-      Die Erstellung darüber hinausgehender ausführlicher fachgutachterlicher Stellungnahmen für Behörden
-      (z. B. Versorgungsamt zur Feststellung eines GdB) ist nicht Bestandteil der gesetzlichen
-      Krankenversicherung und wird als individuelle Gesundheitsleistung nach GOP liquidiert.
-      Dies wird vorab schriftlich vereinbart.
+      Die Diagnostik ist eine individuelle Gesundheitsleistung und wird nach der Gebührenordnung für
+      Psychotherapeuten (analog GOÄ) liquidiert. Über die voraussichtlichen Kosten informiere ich Sie
+      vor dem ersten Termin in Textform; Grundlage der Abrechnung ist eine vorab persönlich und
+      schriftlich geschlossene Honorarvereinbarung. Der Befundbericht über das Ergebnis ist eingeschlossen.
+      Darüber hinausgehende fachgutachterliche Stellungnahmen für Behörden (z. B. für das Versorgungsamt
+      zur Feststellung eines GdB) sind nicht Bestandteil der Diagnostik und werden gesondert nach GOP berechnet.
     </p>
   </div>
-
   <!-- FRAGEBOGEN HINWEIS -->
   <div class="ad-fb-section">
     <div class="ad-fb-inner">
@@ -893,7 +873,6 @@
       </div>
     </div>
   </div>
-
   <!-- NEUROLOGIE HINWEIS -->
   <div class="ad-neuro-section">
     <div class="ad-neuro-box">
@@ -916,7 +895,6 @@
       </div>
     </div>
   </div>
-
   <!-- CLOSING -->
   <div class="ad-closing">
     <div class="ad-closing-inner">
@@ -929,9 +907,7 @@
       <a href="mailto:kontakt@psychotherapie-flach.de" class="ad-cta">Nachricht schreiben</a>
     </div>
   </div>
-
 </div>
-
 <script>
 function adToggle(id) {
   var phase = document.getElementById('ad-' + id);
@@ -963,3 +939,4 @@ window.addEventListener('resize', sendHeight);
 </script>
 </body>
 </html>
+
