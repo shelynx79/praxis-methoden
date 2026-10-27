@@ -403,6 +403,80 @@
     border-top: 1px solid rgba(176,136,96,0.3);
     line-height: 1.75;
   }
+  /* ── LAUFENDE FREMDTHERAPIE ── */
+  .ad-fremd-section {
+    padding: 0 40px 64px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .ad-fremd-box {
+    background: #F3F0E8;
+    border-top: 3px solid #8A6845;
+    padding: 36px 36px 32px;
+  }
+  .ad-fremd-box .ad-kosten-kicker { color: #8A6845; }
+  .ad-fremd-box h2 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.5rem, 3vw, 2rem) !important;
+    font-weight: 300 !important;
+    line-height: 1.25 !important;
+    color: #2A2A24 !important;
+    margin: 0 0 16px !important;
+  }
+  .ad-fremd-box > p {
+    font-size: 0.92rem;
+    color: #2A2A24;
+    line-height: 1.85;
+    opacity: 0.85;
+    margin: 0 0 12px;
+    max-width: 700px;
+  }
+  .ad-wege {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 24px 0 0;
+  }
+  .ad-weg {
+    background: #FAFAF7;
+    border-left: 3px solid #5B8FA8;
+    padding: 20px 24px;
+  }
+  .ad-weg:nth-child(2) { border-left-color: #B08860; }
+  .ad-weg:nth-child(3) { border-left-color: #7AAFC4; }
+  .ad-weg:nth-child(4) { border-left-color: #8A6845; }
+  .ad-weg h3 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.25rem !important;
+    font-weight: 400 !important;
+    color: #2A2A24 !important;
+    margin: 0 0 6px !important;
+    line-height: 1.3 !important;
+  }
+  .ad-weg p {
+    font-size: 0.87rem;
+    color: #2A2A24;
+    line-height: 1.8;
+    opacity: 0.85;
+    margin: 0 0 8px;
+  }
+  .ad-weg p:last-child { margin-bottom: 0; }
+  .ad-fremd-box .ad-hinweis { margin-top: 24px; }
+  .ad-kollegen {
+    margin-top: 16px;
+    padding: 22px 28px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-left: 3px solid #5B8FA8;
+    background: #FAFAF7;
+  }
+  .ad-kollegen .ad-kosten-kicker { margin-bottom: 6px; }
+  .ad-kollegen p {
+    font-size: 0.87rem;
+    color: #2A2A24;
+    line-height: 1.8;
+    opacity: 0.85;
+    margin: 0;
+  }
   /* ── FRAGEBOGEN HINWEIS ── */
   .ad-fb-section {
     background: #5B8FA8;
@@ -538,6 +612,10 @@
     .ad-kosten-section { padding: 40px 20px; }
     .ad-kosten-grid { grid-template-columns: 1fr; }
     .ad-kosten-card:nth-child(3) { grid-column: 1; }
+    .ad-fremd-section { padding: 0 20px 40px; }
+    .ad-fremd-box { padding: 28px 20px 24px; }
+    .ad-weg { padding: 18px 18px; }
+    .ad-kollegen { padding: 20px 18px; }
     .ad-fb-section { padding: 48px 24px; }
     .ad-fb-inner { flex-direction: column; gap: 0; }
     .ad-fb-icon { display: none; }
@@ -551,7 +629,7 @@
 <div class="ad-root">
   <!-- ANKÜNDIGUNG -->
   <div class="ad-announcement">
-    <p><strong>Ab Herbst 2026</strong> biete ich Autismus-Diagnostik für Erwachsene an. Anfragen nehme ich schon jetzt entgegen.</p>
+    <p><strong>Diagnostikplätze vergebe ich nach Verfügbarkeit.</strong> Bitte schreiben Sie in Ihrer Anfrage auch dazu, ob Sie bereits in psychotherapeutischer Behandlung sind und wie Sie versichert sind oder ob Sie die Diagnostik als Selbstzahlerleistung in Anspruch nehmen möchten.</p>
   </div>
   <!-- HERO -->
   <div class="ad-hero">
@@ -561,8 +639,7 @@
       <p class="ad-hero-intro">
         Eine Autismus-Diagnose im Erwachsenenalter ist kein Versagen - sie ist oft eine
         Erklärung für Dinge, die das ganze Leben schwerer waren als für andere.
-        Hier finden Sie in Ruhe zusammengestellt, wie die Diagnostik bei mir abläuft
-        und was sie kostet.
+        Hier finden Sie in Ruhe zusammengestellt, wie die Diagnostik bei mir in der Regel abläuft.
       </p>
     </div>
   </div>
@@ -577,8 +654,8 @@
       </p>
       <p>
         Die Diagnostik ist auf drei Termine zu je 100 Minuten angelegt: Gespräch und Testung,
-        biographische Anamnese und Fremdanamnese, Befundbesprechung. Den schriftlichen Bericht
-        erstelle ich im Anschluss.
+        biographische Anamnese, Befundbesprechung. Dazu kommt, wenn möglich, eine Fremdanamnese.
+        Den schriftlichen Bericht erstelle ich im Anschluss.
       </p>
     </div>
   </div>
@@ -602,6 +679,12 @@
             <p>
               Die Anmeldung läuft in der Regel über E-Mail. Danach schicke ich Ihnen alle Unterlagen zu,
               die wir für den Anfang brauchen.
+            </p>
+            <p>
+              Vorab frage ich kurz nach, ob Sie derzeit in psychotherapeutischer oder psychiatrischer
+              Behandlung sind (auch: Therapie beantragt oder gerade beendet) und wie Sie versichert sind.
+              Davon hängt ab, welcher Weg für Sie in Frage kommt - mehr dazu weiter unten unter
+              „Bereits anderswo in Behandlung?“.
             </p>
             <p>
               Darüber hinaus hilfreich: Unterlagen aus der Kindheit, etwa Schulzeugnisse (besonders der
@@ -648,7 +731,7 @@
           <span class="ad-phase-num">03</span>
           <div class="ad-phase-title-block">
             <span class="ad-phase-meta">Termin 2 · 100 Minuten · einige Wochen später</span>
-            <h2 class="ad-phase-title">Biographische Anamnese und Fremdanamnese</h2>
+            <h2 class="ad-phase-title">Biographische Anamnese</h2>
             <p class="ad-phase-teaser">Lebensgeschichte, Muster über die Jahre, Blick von außen</p>
           </div>
           <div class="ad-phase-btn" id="ad-btn-p3">+</div>
@@ -664,11 +747,12 @@
               Fragestellung weitere standardisierte Verfahren.
             </p>
             <p>
-              Im selben Termin nehme ich die Fremdanamnese auf: Unterlagen aus der Kindheit und, wenn
-              möglich, Angaben einer Bezugsperson, die Sie als Kind erlebt hat - über einen Fragebogen
-              oder ein Gespräch. Das geschieht immer im Einvernehmen mit Ihnen, niemand wird ohne Ihre
-              Zustimmung kontaktiert. Steht keine Bezugsperson zur Verfügung, arbeiten wir mit den
-              Dokumenten.
+              Für den Blick von außen nutze ich Unterlagen aus der Kindheit und, wenn möglich, Angaben
+              einer Bezugsperson, die Sie als Kind erlebt hat - über einen Fragebogen und, wo es passt,
+              ein persönliches Gespräch. Wann dieses Gespräch stattfindet, legen wir flexibel fest: als
+              eigener Termin oder im Rahmen der Befundbesprechung. Das geschieht immer im Einvernehmen
+              mit Ihnen, niemand wird ohne Ihre Zustimmung kontaktiert. Steht keine Bezugsperson zur
+              Verfügung, arbeiten wir mit den Dokumenten.
             </p>
           </div>
         </div>
@@ -689,8 +773,7 @@
             <p>
               Im dritten Termin besprechen wir alle Ergebnisse. Sie erhalten eine klare Einschätzung -
               entweder eine Diagnose, kodiert nach ICD-10 und ICD-11, oder eine nachvollziehbare
-              Erläuterung, warum die Kriterien nicht erfüllt sind. Auch das ist ein Ergebnis, und für
-              viele Menschen ein entlastendes.
+              Erläuterung, warum die Kriterien nicht erfüllt sind und welche Differentialdiagnosen in Frage kommen.
             </p>
             <p>
               Wir nehmen uns Zeit für das, was daraus folgt: Wie ordnet sich Ihr Profil ein, was heißt
@@ -721,8 +804,9 @@
               Der Bericht steht Ihnen für weitere Wege zur Verfügung: für Ärztinnen und Ärzte,
               Behörden, den Arbeitgeber, die Krankenkasse - oder einfach für Sie selbst. Es handelt
               sich um einen Befundbericht; über seine Anerkennung entscheidet die jeweils empfangende
-              Stelle. Eine ausführlichere Fassung ist auf Wunsch und gegen zusätzliche Berechnung
-              möglich. Für Leistungen, die über Ämter in Anspruch genommen werden sollen, ist zusätzlich
+              Stelle. Benötigen Sie ein Gutachten für einen bestimmten Zweck - etwa einen
+              Nachteilsausgleich oder einen Antrag auf Schwerbehinderung -, ist das ein eigener Auftrag,
+              den wir gesondert schriftlich vereinbaren. Für Leistungen, die über Ämter in Anspruch genommen werden sollen, ist zusätzlich
               eine fachärztliche Vorstellung notwendig.
             </p>
           </div>
@@ -746,14 +830,14 @@
         <p>Testung, Anamnese und Besprechung in drei Doppelterminen. Bei Bedarf können weitere Termine hinzukommen.</p>
       </div>
       <div class="ad-zeit-card">
-        <strong>2-4</strong>
+        <strong>4-8</strong>
         <span class="ad-zeit-kicker">Monate Gesamtdauer</span>
         <p>Zwischen den Terminen liegen mehrere Wochen - für Auswertung, Fremdanamnese und Ihre eigene Verarbeitung.</p>
       </div>
       <div class="ad-zeit-card">
-        <strong>ab Herbst 2026</strong>
-        <span class="ad-zeit-kicker">Verfügbarkeit</span>
-        <p>Ich nehme bereits vorab Anfragen entgegen. Schreiben Sie mir gerne bei Interesse.</p>
+        <strong>begrenzt</strong>
+        <span class="ad-zeit-kicker">Diagnostikplätze</span>
+        <p>Ich vergebe Plätze nach Verfügbarkeit, mit Wartezeit ist zu rechnen. Auf Ihre Anfrage nenne ich Ihnen den nächsten möglichen Weg.</p>
       </div>
     </div>
   </div>
@@ -780,7 +864,8 @@
         </p>
         <p>
           Befinden Sie sich bereits bei mir in psychotherapeutischer Behandlung, kläre ich einen
-          Autismus-Verdacht - soweit indiziert - im Rahmen dieser Behandlung ab.
+          Autismus-Verdacht - soweit indiziert - im Rahmen dieser Behandlung ab. Sind Sie bei einer
+          Kollegin oder einem Kollegen in Psychotherapie, gibt es eine Möglichkeit der Kooperation, die ich weiter unten ausführe.
         </p>
         <p>
           Unabhängig davon steht Ihnen eine vollständige Diagnostik als Kassenleistung über eine
@@ -802,7 +887,7 @@
           Versicherungen und Beihilfe richtet sich die Erstattung nach Ihrem Vertrag; klären Sie sie
           bitte vorab mit Ihrem Kostenträger.
         </p>
-        <span class="ad-preis">600-1.300 €</span>
+        <span class="ad-preis">ca. 900-1.000 €</span>
         <p>
           Abgerechnet wird jede Leistung einzeln: die Termine, die eingesetzten Testverfahren, deren
           Auswertung und der Befundbericht. Die genannte Spanne bildet ab, was dabei im Regelablauf mit
@@ -816,31 +901,95 @@
         <h3>Was zur Diagnostik gehört</h3>
         <p>
           Zur Diagnostik gehören drei Termine zu je 100 Minuten, die eingesetzten Testverfahren, ihre
-          Auswertung zwischen den Terminen, die Fremdanamnese und der schriftliche Befundbericht. Jeder
+          Auswertung zwischen den Terminen, wenn möglich die Fremdanamnese und der schriftliche Befundbericht. Jeder
           dieser Bausteine ist eine eigene Leistung und erscheint als eigener Posten auf der Rechnung.
           Ein erheblicher Teil der Arbeit fällt außerhalb der Termine an.
         </p>
         <p>
-          Zwei Bausteine gehen bewusst über den Selbstbericht hinaus: die standardisierte Testung
-          nach ADOS-2 (Modul 4) und die Fremdanamnese über Bezugspersonen und Dokumente aus der
-          Kindheit. Beide bringen eine
-          Außenperspektive ein, sodass die Einschätzung sich nicht allein auf die eigene Schilderung
-          stützt. Diese Breite braucht Zeit, und der Zeitaufwand bestimmt den Preis.
+          Die standardisierte Testung nach ADOS-2 (Modul 4) und die Fremdanamnese über Bezugspersonen
+          und Dokumente aus der Kindheit bringen eine Außenperspektive ein, sodass die Einschätzung
+          sich nicht allein auf die eigene Schilderung stützt. Diese Breite braucht Zeit.
         </p>
         <p>
-          Eine erweiterte Fassung des Berichts ist auf eigenen Wunsch möglich und wird gesondert
-          berechnet.
+          Zum Abschluss erhalten Sie von mir einen Befundbericht. Ein Gutachten für einen bestimmten
+          Zweck (etwa Nachteilsausgleich oder Schwerbehinderung) wird auf Ihren Wunsch gesondert
+          schriftlich beauftragt und berechnet.
         </p>
       </div>
     </div>
     <p class="ad-hinweis">
       Privat abgerechnete Diagnostik wird nach der Gebührenordnung für Ärzte (GOÄ, analog) liquidiert.
       Über die voraussichtlichen Kosten informiere ich Sie vor dem ersten Termin in Textform (§ 630c
-      Abs. 3 BGB); Grundlage der Abrechnung ist eine vorab persönlich und schriftlich geschlossene
-      Honorarvereinbarung, die Leistungsumfang und Steigerungssätze fallbezogen festhält. Zusätzlicher
-      Aufwand wird nur nach vorheriger Absprache berechnet. Der Befundbericht ist ein psychotherapeutischer
-      Befundbericht, kein Gutachten. Über seine Anerkennung entscheidet die jeweils empfangende Stelle.
+      Abs. 3 BGB). Abgerechnet wird zu den Regelsätzen der GOÄ; zusätzlicher Aufwand wird nur nach
+      vorheriger Absprache berechnet. Der Befundbericht ist ein psychotherapeutischer Befundbericht,
+      kein Gutachten. Über seine Anerkennung entscheidet die jeweils empfangende Stelle. Gutachten für
+      einen nicht-therapeutischen Zweck fallen nicht unter den Bereich Heilbehandlung.
     </p>
+  </div>
+  <!-- LAUFENDE FREMDTHERAPIE -->
+  <div class="ad-fremd-section" id="ad-fremdtherapie">
+    <div class="ad-fremd-box">
+      <span class="ad-kosten-kicker">Bei laufender Psychotherapie</span>
+      <h2>Bereits anderswo in Behandlung?</h2>
+      <p>
+        Sind Sie bereits bei einer Kollegin oder einem Kollegen in Psychotherapie, ist Ihre
+        Behandlerin oder Ihr Behandler die erste Ansprechperson - auch für die Frage nach Autismus.
+        Wer Sie über längere Zeit begleitet, hat einen Blick auf Sie, der für eine Diagnose
+        besonders wertvoll ist.
+      </p>
+      <p>
+        Eine vollständige zweite Diagnostik bei mir, parallel zur laufenden Behandlung, kann ich über
+        die Krankenkasse nicht anbieten. Die gesetzliche Krankenversicherung sieht vor, dass
+        Leistungen nicht doppelt erbracht werden - die diagnostische Abklärung gehört deshalb in die
+        laufende Therapie. Diese Wege stehen Ihnen offen:
+      </p>
+      <div class="ad-wege">
+        <div class="ad-weg">
+          <h3>Diagnostik-Baustein in Zusammenarbeit</h3>
+          <p>
+            Ein Termin bei mir mit standardisierter Testung (ADOS-2, Modul 4) und Fragebögen, dazu
+            eine kurze schriftliche Einschätzung für Ihre Behandlerin oder Ihren Behandler. Dort werden
+            die Ergebnisse mit dem zusammengeführt, was aus der Therapie bekannt ist, und der
+            Befundbericht wird erstellt.
+          </p>
+          <p>
+            Voraussetzung: Ihre Behandlerin oder Ihr Behandler sagt das vorab schriftlich zu, und Sie
+            entbinden uns für den Austausch gegenseitig von der Schweigepflicht. Wie der Baustein
+            abgerechnet wird, bespreche ich vorab mit Ihnen.
+          </p>
+        </div>
+        <div class="ad-weg">
+          <h3>Diagnostik nach Abschluss Ihrer Therapie</h3>
+          <p>
+            Ist Ihre Psychotherapie beendet, steht Ihnen die vollständige Diagnostik bei mir als
+            Kassenleistung offen, wie oben beschrieben.
+          </p>
+        </div>
+        <div class="ad-weg">
+          <h3>Spezialambulanz oder Institutsambulanz</h3>
+          <p>
+            Eine vollständige Diagnostik als Kassenleistung bieten auch psychiatrische
+            Institutsambulanzen und Spezialambulanzen an Kliniken an.
+          </p>
+        </div>
+        <div class="ad-weg">
+          <h3>Privatleistung auf eigenen Wunsch</h3>
+          <p>
+            Auf Ihren ausdrücklichen Wunsch ist die Diagnostik auch als Privatleistung möglich
+            (§ 18 Abs. 8 BMV-Ä). Die Kosten tragen Sie dann selbst, eine Erstattung durch die
+            Krankenkasse ist nicht vorgesehen.
+          </p>
+        </div>
+      </div>
+      <div class="ad-kollegen">
+        <span class="ad-kosten-kicker">Für Kolleginnen und Kollegen</span>
+        <p>
+          Sie behandeln eine Patientin oder einen Patienten mit Autismus-Verdacht und möchten die
+          Abklärung selbst übernehmen? Sprechen Sie mich gerne an - ich erläutere Ihnen den Ablauf
+          des Diagnostik-Bausteins und was Sie von mir erhalten.
+        </p>
+      </div>
+    </div>
   </div>
   <!-- FRAGEBOGEN HINWEIS -->
   <div class="ad-fb-section">
@@ -899,9 +1048,9 @@
     <div class="ad-closing-inner">
       <h2>Interesse an der Diagnostik?</h2>
       <p>
-        Wenn Sie Fragen haben oder sich vorab einen Platz vormerken lassen möchten,
-        schreiben Sie mir gerne. Die Diagnostik startet ab Herbst 2026 - ich melde mich,
-        sobald die ersten Termine verfügbar sind.
+        Wenn Sie Fragen haben oder sich einen Platz vormerken lassen möchten, schreiben Sie
+        mir gerne. Nennen Sie dabei bitte, ob Sie bereits in Behandlung sind und wie Sie
+        versichert sind - dann kann ich Ihnen gleich den passenden Weg nennen.
       </p>
       <a href="mailto:kontakt@psychotherapie-flach.de" class="ad-cta">Nachricht schreiben</a>
     </div>
