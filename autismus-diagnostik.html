@@ -421,6 +421,55 @@
   }
   .ad-kosten-card p:last-child { margin-bottom: 0; }
   .ad-kosten-card strong { font-weight: 500; }
+  .ad-status {
+    background: #FAFAF7;
+    border-left: 4px solid #5B8FA8;
+    padding: 18px 20px 16px;
+    margin: 4px 0 18px;
+  }
+  .ad-status-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #5B8FA8;
+    margin-bottom: 12px;
+  }
+  .ad-status-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .ad-status-row + .ad-status-row {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+  .ad-status-mark {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: #FAFAF7;
+    margin-top: 2px;
+  }
+  .ad-status-ja { background: #5B8FA8; }
+  .ad-status-warte { background: #B08860; font-size: 0.5rem; }
+  .ad-kosten-card .ad-status p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    opacity: 1;
+    margin: 0;
+  }
+  .ad-kosten-card .ad-status strong {
+    font-weight: 500;
+    color: #2A2A24;
+  }
   .ad-kosten-card .ad-preis {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.7rem;
@@ -930,16 +979,21 @@
           Als Praxis mit Kassensitz kann ich die Diagnostik über Ihre Krankenkasse abrechnen.
           Für Sie entstehen dann keine Kosten.
         </p>
-        <p>
-          <strong>Aktuell gilt:</strong> Über die Krankenkasse biete ich die Diagnostik derzeit nur
-          Menschen an, die schon bei mir in Psychotherapie sind. Dann klären wir den Verdacht im
-          Rahmen der Behandlung, wenn es fachlich sinnvoll ist.
-        </p>
-        <p>
-          Sind Sie nicht bei mir in Behandlung, sind meine Diagnostikplätze über die Krankenkasse
-          zurzeit belegt. Sie können sich auf meine Warteliste setzen lassen. Werden Plätze frei,
-          melde ich mich in der Reihenfolge der Anmeldung.
-        </p>
+        <div class="ad-status">
+          <span class="ad-status-label">Aktuell gilt</span>
+          <div class="ad-status-row">
+            <span class="ad-status-mark ad-status-ja" aria-hidden="true">✓</span>
+            <p><strong>Sie sind schon bei mir in Psychotherapie?</strong><br>
+            Dann ist die Diagnostik über die Krankenkasse möglich - im Rahmen Ihrer Behandlung.</p>
+          </div>
+          <div class="ad-status-row">
+            <span class="ad-status-mark ad-status-warte" aria-hidden="true">●</span>
+            <p><strong>Sie sind nicht bei mir in Behandlung?</strong><br>
+            Dann sind meine Kassenplätze für Diagnostik zurzeit belegt. Sie können sich auf die
+            Warteliste setzen lassen. Werden Plätze frei, melde ich mich in der Reihenfolge der
+            Anmeldung.</p>
+          </div>
+        </div>
         <p>
           Sind Sie woanders in Psychotherapie, lesen Sie bitte weiter unten unter
           „Schon woanders in Psychotherapie?“.
