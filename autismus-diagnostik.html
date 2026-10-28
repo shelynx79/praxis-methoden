@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -153,6 +152,43 @@
     margin: 0 0 14px;
   }
   .ad-intro-box p:last-child { margin-bottom: 0; }
+  /* ── HINWEIS 2027 ── */
+  .ad-info-section {
+    padding: 0 40px 48px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .ad-info-box {
+    background: #FAFAF7;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-top: 3px solid #5B8FA8;
+    padding: 28px 36px 26px;
+  }
+  .ad-info-box .ad-section-label {
+    color: #5B8FA8;
+    margin-bottom: 10px;
+  }
+  .ad-info-box h2 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.4rem, 2.6vw, 1.8rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.25 !important;
+    color: #2A2A24 !important;
+    margin: 0 0 14px !important;
+  }
+  .ad-info-box p {
+    font-size: 0.92rem;
+    color: #2A2A24;
+    line-height: 1.85;
+    opacity: 0.88;
+    margin: 0 0 12px;
+  }
+  .ad-info-box p:last-child { margin-bottom: 0; }
+  .ad-info-stand {
+    font-size: 0.8rem !important;
+    color: #6B6B62 !important;
+    font-style: italic;
+  }
   /* ── ABLAUF SECTION ── */
   .ad-section {
     padding: 16px 40px 64px;
@@ -191,6 +227,10 @@
     padding: 32px 36px;
     cursor: pointer;
     user-select: none;
+  }
+  .ad-phase-header:focus-visible {
+    outline: 2px solid #5B8FA8;
+    outline-offset: -2px;
   }
   .ad-phase-num {
     font-family: 'Cormorant Garamond', serif;
@@ -629,7 +669,7 @@
 <div class="ad-root">
   <!-- ANKÜNDIGUNG -->
   <div class="ad-announcement">
-    <p><strong>Diagnostikplätze vergebe ich nach Verfügbarkeit.</strong> Bitte schreiben Sie in Ihrer Anfrage auch dazu, ob Sie bereits in psychotherapeutischer Behandlung sind und wie Sie versichert sind oder ob Sie die Diagnostik als Selbstzahlerleistung in Anspruch nehmen möchten.</p>
+    <p><strong>Diagnostikplätze vergebe ich nach Verfügbarkeit.</strong> Bitte schreiben Sie in Ihrer Anfrage dazu, wie Sie versichert sind und ob Sie bereits in psychotherapeutischer oder psychiatrischer Behandlung sind.</p>
   </div>
   <!-- HERO -->
   <div class="ad-hero">
@@ -659,20 +699,46 @@
       </p>
     </div>
   </div>
+  <!-- HINWEIS 2027 -->
+  <div class="ad-info-section" id="ad-2027">
+    <div class="ad-info-box">
+      <span class="ad-section-label">Aktuelle Information</span>
+      <h2>Was sich ab Januar 2027 ändert</h2>
+      <p>
+        Zum 1. Januar 2027 wird die Vergütung psychotherapeutischer Leistungen für gesetzlich
+        Versicherte neu geregelt. Bisher wurden diese Leistungen in voller Höhe bezahlt, ab 2027
+        stammen sie überwiegend aus einem festgelegten Gesamtbudget. Das betrifft auch die Leistungen,
+        über die eine Diagnostik abgerechnet wird.
+      </p>
+      <p>
+        Wie dieses Budget auf die einzelnen Praxen verteilt wird, legt die Kassenärztliche
+        Vereinigung Rheinland-Pfalz erst gegen Ende 2026 fest. Bis dahin weiß ich nicht verlässlich,
+        wie viele Diagnostikplätze ich 2027 im Rahmen meines Kassensitzes anbieten kann. Kassentermine
+        für 2027 kann ich daher aktuell nur auf eine Warteliste setzen.
+      </p>
+      <p>
+        Eine Diagnostik bei begründetem Verdacht bleibt prinzipiell eine
+        Leistung der gesetzlichen Krankenversicherung, deren Umsetzung ab 2027 in ambulanten Praxen aktuell jedoch noch umklar ist. Ihre Anfrage nehme ich weiterhin gerne auf die
+        Warteliste und melde mich, sobald ich verlässlich planen kann. Ändert sich die Lage, aktualisiere
+        ich diesen Hinweis.
+      </p>
+      <p class="ad-info-stand">Stand: Oktober 2026</p>
+    </div>
+  </div>
   <!-- ABLAUF -->
   <div class="ad-section">
     <span class="ad-section-label">Wie läuft die Diagnostik ab?</span>
     <div class="ad-stack">
       <!-- Phase 1 -->
       <div class="ad-phase" id="ad-p1">
-        <div class="ad-phase-header" onclick="adToggle('p1')">
+        <div class="ad-phase-header" role="button" tabindex="0" aria-expanded="false" aria-controls="ad-body-p1" onclick="adToggle('p1')" onkeydown="adKey(event,'p1')">
           <span class="ad-phase-num">01</span>
           <div class="ad-phase-title-block">
             <span class="ad-phase-meta">Vor dem ersten Termin</span>
             <h2 class="ad-phase-title">Anmeldung und Vorbereitung</h2>
             <p class="ad-phase-teaser">Erstkontakt, Unterlagen, ein paar Dinge zum Heraussuchen</p>
           </div>
-          <div class="ad-phase-btn" id="ad-btn-p1">+</div>
+          <div class="ad-phase-btn" id="ad-btn-p1" aria-hidden="true">+</div>
         </div>
         <div class="ad-phase-body" id="ad-body-p1">
           <div class="ad-phase-body-inner">
@@ -696,14 +762,14 @@
       </div>
       <!-- Phase 2 -->
       <div class="ad-phase" id="ad-p2">
-        <div class="ad-phase-header" onclick="adToggle('p2')">
+        <div class="ad-phase-header" role="button" tabindex="0" aria-expanded="false" aria-controls="ad-body-p2" onclick="adToggle('p2')" onkeydown="adKey(event,'p2')">
           <span class="ad-phase-num">02</span>
           <div class="ad-phase-title-block">
             <span class="ad-phase-meta">Termin 1 · 100 Minuten</span>
             <h2 class="ad-phase-title">Erstgespräch und Testung</h2>
             <p class="ad-phase-teaser">Kennenlernen, Auftragsklärung und eine erste standardisierte Testung</p>
           </div>
-          <div class="ad-phase-btn" id="ad-btn-p2">+</div>
+          <div class="ad-phase-btn" id="ad-btn-p2" aria-hidden="true">+</div>
         </div>
         <div class="ad-phase-body" id="ad-body-p2">
           <div class="ad-phase-body-inner">
@@ -714,27 +780,27 @@
             </p>
             <p>
               In der Regel beginnt dieser Termin mit einer standardisierten Testung nach ADOS-2. Das
-              Verfahren setzt voraus, dass wir uns vorher noch nicht näher kennen - deshalb steht es
+              Verfahren gelingt am besten, wenn wir uns vorher noch nicht näher kennen - deshalb steht es
               ganz am Anfang, vor dem ausführlichen Gespräch.
             </p>
             <p>
               Ergibt sich aus diesem ersten Termin kein belastbarer Hinweis auf eine
-              Autismus-Spektrum-Störung, können wir es dabei belassen. Dann bleibt es bei den Kosten
-              für diesen einen Termin.
+              Autismus-Spektrum-Störung, können wir die Diagnostik an dieser Stelle beenden. Bei einer
+              Privatleistung bleibt es dann bei den Kosten für diesen einen Termin.
             </p>
           </div>
         </div>
       </div>
       <!-- Phase 3 -->
       <div class="ad-phase" id="ad-p3">
-        <div class="ad-phase-header" onclick="adToggle('p3')">
+        <div class="ad-phase-header" role="button" tabindex="0" aria-expanded="false" aria-controls="ad-body-p3" onclick="adToggle('p3')" onkeydown="adKey(event,'p3')">
           <span class="ad-phase-num">03</span>
           <div class="ad-phase-title-block">
             <span class="ad-phase-meta">Termin 2 · 100 Minuten · einige Wochen später</span>
             <h2 class="ad-phase-title">Biographische Anamnese</h2>
             <p class="ad-phase-teaser">Lebensgeschichte, Muster über die Jahre, Blick von außen</p>
           </div>
-          <div class="ad-phase-btn" id="ad-btn-p3">+</div>
+          <div class="ad-phase-btn" id="ad-btn-p3" aria-hidden="true">+</div>
         </div>
         <div class="ad-phase-body" id="ad-body-p3">
           <div class="ad-phase-body-inner">
@@ -759,14 +825,14 @@
       </div>
       <!-- Phase 4 -->
       <div class="ad-phase" id="ad-p4">
-        <div class="ad-phase-header" onclick="adToggle('p4')">
+        <div class="ad-phase-header" role="button" tabindex="0" aria-expanded="false" aria-controls="ad-body-p4" onclick="adToggle('p4')" onkeydown="adKey(event,'p4')">
           <span class="ad-phase-num">04</span>
           <div class="ad-phase-title-block">
             <span class="ad-phase-meta">Termin 3 · 100 Minuten</span>
             <h2 class="ad-phase-title">Befundbesprechung</h2>
             <p class="ad-phase-teaser">Ergebnis, Einordnung, Empfehlungen</p>
           </div>
-          <div class="ad-phase-btn" id="ad-btn-p4">+</div>
+          <div class="ad-phase-btn" id="ad-btn-p4" aria-hidden="true">+</div>
         </div>
         <div class="ad-phase-body" id="ad-body-p4">
           <div class="ad-phase-body-inner">
@@ -780,19 +846,24 @@
               das für den Alltag, welche Unterstützung ist sinnvoll - Therapie, weiterführende
               Diagnostik, Selbsthilfe.
             </p>
+            <p>
+              Die Diagnostik ist keine Zusage für einen Therapieplatz bei mir, und umgekehrt ist ein
+              Therapieplatz keine Voraussetzung für die Diagnostik. Kommt eine Psychotherapie bei mir in
+              Frage, klären wir in eigenen Vorgesprächen (probatorischen Sitzungen), ob sie passt.
+            </p>
           </div>
         </div>
       </div>
       <!-- Phase 5 -->
       <div class="ad-phase" id="ad-p5">
-        <div class="ad-phase-header" onclick="adToggle('p5')">
+        <div class="ad-phase-header" role="button" tabindex="0" aria-expanded="false" aria-controls="ad-body-p5" onclick="adToggle('p5')" onkeydown="adKey(event,'p5')">
           <span class="ad-phase-num">05</span>
           <div class="ad-phase-title-block">
             <span class="ad-phase-meta">Im Anschluss</span>
             <h2 class="ad-phase-title">Befundbericht</h2>
             <p class="ad-phase-teaser">Die schriftliche Zusammenfassung, nach dem letzten Termin</p>
           </div>
-          <div class="ad-phase-btn" id="ad-btn-p5">+</div>
+          <div class="ad-phase-btn" id="ad-btn-p5" aria-hidden="true">+</div>
         </div>
         <div class="ad-phase-body" id="ad-body-p5">
           <div class="ad-phase-body-inner">
@@ -846,10 +917,9 @@
     <span class="ad-section-label">Kosten und Abrechnung</span>
     <h2 class="ad-kosten-title">Was kostet die Diagnostik?</h2>
     <p class="ad-kosten-intro">
-      Wie die Diagnostik abgerechnet wird, hängt davon ab, wie Sie versichert sind und auf welchem Weg
-      Sie zu mir kommen. Für gesetzlich Versicherte halte ich eine begrenzte Zahl an Diagnostikplätzen
-      als Kassenleistung vor. Daneben gibt es einige Plätze, die als Privatleistung in Anspruch genommen
-      werden können.
+      Wie die Diagnostik abgerechnet wird, hängt davon ab, wie Sie versichert sind und ob Sie bereits
+      in Behandlung sind. Für gesetzlich Versicherte halte ich eine begrenzte Zahl an Diagnostikplätzen
+      als Kassenleistung vor. Daneben ist die Diagnostik als Privatleistung möglich.
     </p>
     <div class="ad-kosten-grid">
       <!-- Kassenweg -->
@@ -858,18 +928,24 @@
         <h3>Der Weg über die Krankenkasse</h3>
         <p>
           Als Praxis mit Kassensitz kann ich die Diagnostik über die gesetzliche Krankenversicherung
-          abrechnen. Die Zahl dieser Plätze ist begrenzt, weil die Diagnostik viel Zeit bindet und
-          mein Versorgungsauftrag in erster Linie der laufenden Psychotherapie gilt. Mit Wartezeit ist
-          deshalb zu rechnen.
+          abrechnen. Für Sie entstehen dabei keine Kosten. Die Zahl dieser Plätze ist begrenzt, weil
+          die Diagnostik viel Zeit bindet und mein Versorgungsauftrag in erster Linie der
+          Psychotherapie gilt. Mit Wartezeit ist deshalb zu rechnen.
         </p>
         <p>
           Befinden Sie sich bereits bei mir in psychotherapeutischer Behandlung, kläre ich einen
           Autismus-Verdacht - soweit indiziert - im Rahmen dieser Behandlung ab. Sind Sie bei einer
-          Kollegin oder einem Kollegen in Psychotherapie, gibt es eine Möglichkeit der Kooperation, die ich weiter unten ausführe.
+          Kollegin oder einem Kollegen in Psychotherapie, lesen Sie bitte weiter unten unter
+          „Bereits anderswo in Behandlung?“.
         </p>
         <p>
-          Unabhängig davon steht Ihnen eine vollständige Diagnostik als Kassenleistung über eine
-          psychiatrische Institutsambulanz oder eine Spezialambulanz an einer Klinik offen.
+          Eine Diagnostik als Kassenleistung bieten außerdem Spezialambulanzen an Kliniken und andere
+          Praxen mit diagnostischem Schwerpunkt an. Einen Termin für eine psychotherapeutische
+          Sprechstunde vermittelt auch die Terminservicestelle unter 116117.
+        </p>
+        <p class="ad-hinweis">
+          Für 2027 gelten neue Vergütungsregeln, die sich auf die Zahl der Kassenplätze auswirken
+          können. Mehr dazu oben unter <a href="#ad-2027">„Was sich ab Januar 2027 ändert“</a>.
         </p>
       </div>
       <!-- Privatweg -->
@@ -877,13 +953,17 @@
         <span class="ad-kosten-kicker">Privat, Beihilfe oder auf eigenen Wunsch</span>
         <h3>Die Diagnostik als Privatleistung</h3>
         <p>
-          Diese Plätze stehen Privatversicherten und Beihilfeberechtigten offen sowie gesetzlich
-          Versicherten, die sich bewusst für eine Selbstzahlerleistung entscheiden.
+          Diese Plätze stehen Privatversicherten, Beihilfeberechtigten und Selbstzahlenden offen.
+          Gesetzlich Versicherte haben Anspruch auf die Diagnostik als Kassenleistung; die
+          Privatleistung kommt für sie nur in Frage, wenn sie sich ausdrücklich dafür entscheiden.
         </p>
         <p>
-          Abgerechnet wird nach der Gebührenordnung für Ärzte (GOÄ, analog). Gesetzlich Versicherte
-          bestätigen vorab schriftlich, dass sie die Leistung auf eigene Kosten in Anspruch nehmen
-          (§ 18 Abs. 8 BMV-Ä) - eine Kassenerstattung ist dann nicht vorgesehen. Bei privaten
+          Gesetzlich Versicherte bestätigen diese Entscheidung vor Beginn schriftlich
+          (§ 18 Abs. 8 BMV-Ä); eine Kassenerstattung ist dann nicht vorgesehen. Wurde die Abklärung
+          bereits als Kassenleistung begonnen, etwa über eine Sprechstunde bei mir, wird sie auch als
+          Kassenleistung fortgeführt - ein Wechsel mitten im Verlauf ist nicht möglich. Die
+          Privatleistung ist kein Weg an der Warteliste vorbei: Ein Platz auf der Kassen-Warteliste
+          bleibt bestehen, unabhängig davon, wie Sie sich entscheiden. Bei privaten
           Versicherungen und Beihilfe richtet sich die Erstattung nach Ihrem Vertrag; klären Sie sie
           bitte vorab mit Ihrem Kostenträger.
         </p>
@@ -901,9 +981,8 @@
         <h3>Was zur Diagnostik gehört</h3>
         <p>
           Zur Diagnostik gehören drei Termine zu je 100 Minuten, die eingesetzten Testverfahren, ihre
-          Auswertung zwischen den Terminen, wenn möglich die Fremdanamnese und der schriftliche Befundbericht. Jeder
-          dieser Bausteine ist eine eigene Leistung und erscheint als eigener Posten auf der Rechnung.
-          Ein erheblicher Teil der Arbeit fällt außerhalb der Termine an.
+          Auswertung zwischen den Terminen, wenn möglich die Fremdanamnese und der schriftliche
+          Befundbericht. Ein erheblicher Teil der Arbeit fällt außerhalb der Termine an.
         </p>
         <p>
           Die standardisierte Testung nach ADOS-2 (Modul 4) und die Fremdanamnese über Bezugspersonen
@@ -912,18 +991,19 @@
         </p>
         <p>
           Zum Abschluss erhalten Sie von mir einen Befundbericht. Ein Gutachten für einen bestimmten
-          Zweck (etwa Nachteilsausgleich oder Schwerbehinderung) wird auf Ihren Wunsch gesondert
-          schriftlich beauftragt und berechnet.
+          Zweck (etwa Nachteilsausgleich oder Schwerbehinderung) ist keine Kassenleistung; es wird auf
+          Ihren Wunsch gesondert schriftlich beauftragt und berechnet.
         </p>
       </div>
     </div>
     <p class="ad-hinweis">
-      Privat abgerechnete Diagnostik wird nach der Gebührenordnung für Ärzte (GOÄ, analog) liquidiert.
-      Über die voraussichtlichen Kosten informiere ich Sie vor dem ersten Termin in Textform (§ 630c
-      Abs. 3 BGB). Abgerechnet wird zu den Regelsätzen der GOÄ; zusätzlicher Aufwand wird nur nach
-      vorheriger Absprache berechnet. Der Befundbericht ist ein psychotherapeutischer Befundbericht,
-      kein Gutachten. Über seine Anerkennung entscheidet die jeweils empfangende Stelle. Gutachten für
-      einen nicht-therapeutischen Zweck fallen nicht unter den Bereich Heilbehandlung.
+      Privat abgerechnete Diagnostik wird nach der Gebührenordnung für Psychotherapeuten (GOP)
+      liquidiert, die auf die Gebührenordnung für Ärzte (GOÄ) verweist. Über die voraussichtlichen
+      Kosten informiere ich Sie vor dem ersten Termin in Textform (§ 630c Abs. 3 BGB). Abgerechnet
+      wird zu den Regelsätzen; zusätzlicher Aufwand wird nur nach vorheriger Absprache berechnet.
+      Der Befundbericht ist ein psychotherapeutischer Befundbericht, kein Gutachten. Über seine
+      Anerkennung entscheidet die jeweils empfangende Stelle. Gutachten für einen
+      nicht-therapeutischen Zweck fallen nicht unter den Bereich Heilbehandlung.
     </p>
   </div>
   <!-- LAUFENDE FREMDTHERAPIE -->
@@ -939,9 +1019,11 @@
       </p>
       <p>
         Eine vollständige zweite Diagnostik bei mir, parallel zur laufenden Behandlung, kann ich über
-        die Krankenkasse nicht anbieten. Die gesetzliche Krankenversicherung sieht vor, dass
-        Leistungen nicht doppelt erbracht werden - die diagnostische Abklärung gehört deshalb in die
-        laufende Therapie. Diese Wege stehen Ihnen offen:
+        die Krankenkasse ohne deren ausdrückliche Zusage nicht anbieten. Die gesetzliche
+        Krankenversicherung sieht vor, dass Leistungen nicht doppelt erbracht werden - die
+        diagnostische Abklärung gehört deshalb in der Regel in die laufende Therapie. Wird eine
+        parallele Leistung ohne Zusage der Kasse erbracht, können nachträglich Rückforderungen
+        entstehen. Diese Wege stehen Ihnen offen:
       </p>
       <div class="ad-wege">
         <div class="ad-weg">
@@ -954,8 +1036,14 @@
           </p>
           <p>
             Voraussetzung: Ihre Behandlerin oder Ihr Behandler sagt das vorab schriftlich zu, und Sie
-            entbinden uns für den Austausch gegenseitig von der Schweigepflicht. Wie der Baustein
-            abgerechnet wird, bespreche ich vorab mit Ihnen.
+            entbinden uns für den Austausch gegenseitig von der Schweigepflicht.
+          </p>
+          <p>
+            Über die Krankenkasse ist der Baustein nur möglich, wenn Ihre Krankenkasse vorab schriftlich
+            bestätigt, dass sie die Kosten zusätzlich zu Ihrer laufenden Psychotherapie übernimmt. Diese
+            Bestätigung beantragen Sie selbst bei Ihrer Kasse; ich gebe Ihnen gerne eine kurze
+            Beschreibung des Bausteins mit, die Sie dafür verwenden können. Ohne diese Zusage ist der
+            Baustein nur auf Ihren ausdrücklichen Wunsch als Privatleistung möglich.
           </p>
         </div>
         <div class="ad-weg">
@@ -966,10 +1054,11 @@
           </p>
         </div>
         <div class="ad-weg">
-          <h3>Spezialambulanz oder Institutsambulanz</h3>
+          <h3>Spezialambulanz</h3>
           <p>
-            Eine vollständige Diagnostik als Kassenleistung bieten auch psychiatrische
-            Institutsambulanzen und Spezialambulanzen an Kliniken an.
+            Eine vollständige Diagnostik als Kassenleistung bieten auch Spezialambulanzen an Kliniken
+            an. Aufnahmekriterien und Wartezeiten unterscheiden sich dort stark; eine Nachfrage lohnt
+            sich.
           </p>
         </div>
         <div class="ad-weg">
@@ -1030,10 +1119,10 @@
         <h3>Fester Bestandteil: ärztliche Abklärung</h3>
         <p>
           Eine psychotherapeutische Autismus-Diagnostik erfasst das psychologische und biographische
-          Bild. Sie ersetzt keine ärztliche Untersuchung. Damit körperliche, neurologische oder
-          genetische Ursachen ausgeschlossen sind, gehört eine fachärztliche Abklärung fest zum
-          Prozess - über eine neurologische oder eine psychiatrische Praxis.
-          Am einfachsten ist es, wenn Sie einen Konsiliarbericht bereits zu Beginn mitbringen.
+          Bild. Sie ersetzt keine ärztliche Untersuchung. Damit körperliche und neurologische
+          Ursachen abgeklärt sind, gehört eine fachärztliche Untersuchung fest zum Prozess - über
+          eine neurologische oder eine psychiatrische Praxis. Am einfachsten ist es, wenn Sie einen
+          Konsiliarbericht bereits zu Beginn mitbringen.
         </p>
         <p>
           Begleiterkrankungen wie ADHS, Depressionen, Angst- oder Traumafolgestörungen sind bei
@@ -1066,16 +1155,25 @@ function adToggle(id) {
     p.classList.remove('ad-open');
     var b  = p.querySelector('.ad-phase-btn');
     var bd = p.querySelector('.ad-phase-body');
+    var hd = p.querySelector('.ad-phase-header');
     if (b)  b.textContent = '+';
     if (bd) bd.style.display = 'none';
+    if (hd) hd.setAttribute('aria-expanded', 'false');
   });
   if (!isOpen) {
     phase.classList.add('ad-open');
-    btn.textContent = '–';
+    btn.textContent = '-';
     body.style.display = 'block';
+    phase.querySelector('.ad-phase-header').setAttribute('aria-expanded', 'true');
   }
   setTimeout(sendHeight, 50);
   setTimeout(sendHeight, 400);
+}
+function adKey(e, id) {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    adToggle(id);
+  }
 }
 function sendHeight() {
   var root = document.querySelector('.ad-root');
